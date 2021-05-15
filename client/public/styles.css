@@ -1,21 +1,37 @@
 body {
-  background-color: gray;
+  background-color: white;
 }
 
 .app {
-  background-color: white;
+  background-color: gray;
   width: 75vw;
   height: auto;
   margin: auto;
 }
 
 .nav {
-  background-color: hotpink;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+
+.main {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
-  background-color: indianred;
   height: 100px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid white;
 }

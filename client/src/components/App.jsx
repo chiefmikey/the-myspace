@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Nav from './Nav';
+import Main from './Main';
 import Footer from './Footer';
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Nav />
+        <Main />
         <Footer />
       </div>
     );
