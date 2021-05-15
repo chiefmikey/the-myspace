@@ -1,17 +1,22 @@
 import React from 'react';
 
+import Nav from './Nav';
+import Footer from './Footer';
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      state: 'Hullo Wurld',
+      state: '',
     };
   }
 
   render() {
-    const { state } = this.state;
     return (
-      <div>{state}</div>
+      <>
+        <Nav />
+        <Footer />
+      </>
     );
   }
 }
