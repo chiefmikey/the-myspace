@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Footer = () => (
-  <div>© wolfebyte 2021</div>
+  <div className="footer">
+    © wolfebyte 2021
+  </div>
 );
 
 export default Footer;

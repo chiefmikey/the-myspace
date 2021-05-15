@@ -1,0 +1,21 @@
+body {
+  background-color: gray;
+}
+
+.app {
+  background-color: white;
+  width: 75vw;
+  height: auto;
+  margin: auto;
+}
+
+.nav {
+  background-color: hotpink;
+  height: 200px;
+}
+
+.footer {
+  background-color: indianred;
+  height: 100px;
+  text-align: center;
+}
