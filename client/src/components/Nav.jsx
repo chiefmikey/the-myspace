@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Nav = () => (
-  <div className="nav">wolfebyte logo</div>
+  <div id="nav">
+    link | link | link | link | link | link | link | link
+  </div>
 );
 
 export default Nav;
