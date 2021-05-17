@@ -1,5 +1,5 @@
 import React from 'react';
-import wbyte from '../../public/img/wbyte.png';
+import wbyte from '../../../public/img/wbyte.png';
 
 const Profile = () => (
   <div id="profile">
