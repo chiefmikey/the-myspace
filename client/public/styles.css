@@ -94,12 +94,12 @@ h6 {
 
 #main-left {
   width: 400px;
-  padding: 30px;
+  padding: 30px 20px 30px 30px;
 }
 
 #main-right {
   width: 600px;
-  padding: 30px;
+  padding: 30px 30px 30px 20px;
 }
 
 /* Main Left Side */
@@ -117,7 +117,7 @@ h6 {
 #profile-name {
   grid-area: name;
   align-self: end;
-  padding: 0 20px 25px 0;
+  padding: 0 0 15px 0;
 }
 
 #profile-pic {
@@ -340,9 +340,50 @@ h6 {
 
 #comments-count {
   font-size: 14px;
-  height: 30px;
+  height: 35px;
   display: flex;
   align-items: flex-end;
+  padding-bottom: 15px;
+}
+
+.comments-post {
+  display: grid;
+  grid-template-areas:
+    "left right";
+  padding-bottom: 2px;
+  font-size: 14px;
+}
+
+.comments-post-left {
+  grid-area: left;
+  background-color: rgb(255,153,51);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.comments-post-left-name, .comments-post-right-date {
+  line-height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.comments-post-left-pic {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  padding-bottom: 20px;
+}
+
+.comments-post-right {
+  grid-area: right;
+  background-color: rgb(248,214,180);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px 10px 10px 20px;
 }
 
 #footer {
