@@ -8,6 +8,8 @@ body {
 
 a {
   color: rgb(1,50,153);
+  font-weight: 600;
+  font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -136,7 +138,37 @@ h6 {
 #profile-mood {
   white-space: pre;
   padding: 10px 20px 20px 0;
-  line-height: 25px;
+  height: 20px;
+  display: grid;
+  grid-template-columns: 55px 55px auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "name current emoji"
+    "view view view";
+}
+
+#profile-mood-name {
+  height: 25px;
+  grid-area: name;
+}
+
+#profile-mood-current {
+  height: 25px;
+  grid-area: current;
+}
+
+#profile-mood-current-emoji {
+  height: 25px;
+  grid-area: emoji;
+}
+
+#profile-mood-view-pics {
+  height: 20px;
+  grid-area: view;
+}
+
+#profile-mood-view-pics a {
+  font-weight: 600;
 }
 
 #profile-desc {
@@ -144,6 +176,22 @@ h6 {
   padding: 0 20px 0 20px;
   grid-area: desc;
 }
+
+#profile-desc-status {
+  height: 40px;
+}
+
+#profile-desc-gender, #profile-desc-age, #profile-desc-city, #profile-desc-state, #profile-desc-country, #profile-desc-login-date {
+  height: 20px;
+}
+
+#profile-desc-login {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 
 #contact {
   width: 100%;
@@ -274,6 +322,17 @@ h6 {
   font-size: 14px;
 }
 
+#blog-name {
+  height: 20px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.blogpost {
+  height: 20px;
+  padding-bottom: 20px;
+}
+
 #blurbs, #friends {
   padding-bottom: 20px;
   font-size: 14px;
@@ -309,20 +368,33 @@ h6 {
   padding-bottom: 15px;
 }
 
-#friends-top-row, #friends-bottom-row {
+#friends-top {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 20px;
 }
 
 .friends-top-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 25px;
+  justify-content: flex-end;
+  width: 120px;
+  height: auto;
+  padding-bottom: 20px;
+  flex: 1;
+  flex-basis: 25%;
+}
+
+.friends-top-icon-name {
   font-weight: 600;
+  width: 120px;
+  line-height: 15px;
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 10px;
 }
 
 .friends-top-icon-img {

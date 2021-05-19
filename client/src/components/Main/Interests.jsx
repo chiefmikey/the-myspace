@@ -1,9 +1,21 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-const Interests = () => (
+const Interests = ({
+  profileName,
+  interestsGeneral,
+  interestsMusic,
+  interestsMovies,
+  interestsTelevision,
+  interestsBooks,
+  interestsHeroes,
+}) => (
   <div id="interests">
     <div id="interests-name">
-      <h5>wolfebyte's Interests</h5>
+      <h5>
+        {profileName}
+        's Interests
+      </h5>
     </div>
     <div id="interests-main">
       <div id="interests-general">
@@ -14,7 +26,7 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            internet, doggies, etc.
+            {interestsGeneral}
           </div>
         </div>
       </div>
@@ -26,7 +38,7 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            rock n roll asian fusion
+            {interestsMusic}
           </div>
         </div>
       </div>
@@ -38,7 +50,7 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            muppets treasure island
+            {interestsMovies}
           </div>
         </div>
       </div>
@@ -50,7 +62,7 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            cheers
+            {interestsTelevision}
           </div>
         </div>
       </div>
@@ -62,7 +74,7 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            what is books
+            {interestsBooks}
           </div>
         </div>
       </div>
@@ -74,12 +86,32 @@ const Interests = () => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            the rock aka dawayan johnston
+            {interestsHeroes}
           </div>
         </div>
       </div>
     </div>
   </div>
 );
+
+Interests.defaultProps = {
+  profileName: '',
+  interestsGeneral: '',
+  interestsMusic: '',
+  interestsMovies: '',
+  interestsTelevision: '',
+  interestsBooks: '',
+  interestsHeroes: '',
+};
+
+Interests.propTypes = {
+  profileName: propTypes.string,
+  interestsGeneral: propTypes.string,
+  interestsMusic: propTypes.string,
+  interestsMovies: propTypes.string,
+  interestsTelevision: propTypes.string,
+  interestsBooks: propTypes.string,
+  interestsHeroes: propTypes.string,
+};
 
 export default Interests;

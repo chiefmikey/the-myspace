@@ -1,9 +1,21 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-const Details = () => (
+const Details = ({
+  profileName,
+  detailsStatus,
+  detailsHereFor,
+  detailsHometown,
+  detailsZodiacSign,
+  detailsSmokeDrink,
+  detailsOccupation,
+}) => (
   <div id="details">
     <div id="details-name">
-      <h5>wolfebyte's Details</h5>
+      <h5>
+        {profileName}
+        's Details
+      </h5>
     </div>
     <div id="details-main">
       <div id="details-status">
@@ -14,7 +26,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            swexy
+            {detailsStatus}
           </div>
         </div>
       </div>
@@ -26,7 +38,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            lasagna
+            {detailsHereFor}
           </div>
         </div>
       </div>
@@ -38,7 +50,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            hawkins, in
+            {detailsHometown}
           </div>
         </div>
       </div>
@@ -50,7 +62,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            i guess so
+            {detailsZodiacSign}
           </div>
         </div>
       </div>
@@ -62,7 +74,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            69
+            {detailsSmokeDrink}
           </div>
         </div>
       </div>
@@ -74,7 +86,7 @@ const Details = () => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            keepin it breezy
+            {detailsOccupation}
           </div>
         </div>
       </div>
@@ -82,4 +94,23 @@ const Details = () => (
   </div>
 );
 
+Details.defaultProps = {
+  profileName: '',
+  detailsStatus: '',
+  detailsHereFor: '',
+  detailsHometown: '',
+  detailsZodiacSign: '',
+  detailsSmokeDrink: '',
+  detailsOccupation: '',
+};
+
+Details.propTypes = {
+  profileName: propTypes.string,
+  detailsStatus: propTypes.string,
+  detailsHereFor: propTypes.string,
+  detailsHometown: propTypes.string,
+  detailsZodiacSign: propTypes.string,
+  detailsSmokeDrink: propTypes.string,
+  detailsOccupation: propTypes.string,
+};
 export default Details;

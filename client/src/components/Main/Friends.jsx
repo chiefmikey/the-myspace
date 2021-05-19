@@ -1,55 +1,51 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-import wbyte from '../../../public/img/wbyte.png';
+import FriendsTop from './FriendsTop';
 
-const Friends = () => (
+const Friends = ({
+  profileName,
+  friends,
+  friendsTop,
+}) => (
   <div id="friends">
     <div id="friends-name">
-      <b>wolfebyte's Friend Space</b>
+      <b>
+        {profileName}
+        's Friend Space
+      </b>
     </div>
     <div id="friends-count">
-      <b>wolfebyte has 298734 friends.</b>
+      {profileName}
+      {' '}
+      has
+      {' '}
+      {friends.length}
+      {' '}
+      friends.
     </div>
-    <div id="friends-top-row">
-      <div className="friends-top-icon">
-        Friend 1
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 2
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 3
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 4
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-    </div>
-    <div id="friends-bottom-row">
-      <div className="friends-top-icon">
-        Friend 5
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 6
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 7
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
-      <div className="friends-top-icon">
-        Friend 8
-        <img className="friends-top-icon-img" src={wbyte} alt="friends profile icon" />
-      </div>
+    <div id="friends-top">
+      <FriendsTop friendsTop={friendsTop} />
     </div>
     <div id="friends-view-all">
-      View all of wolfebyte's friends
+      View all of
+      {' '}
+      {profileName}
+      's friends
     </div>
   </div>
 );
+
+Friends.defaultProps = {
+  profileName: '',
+  friends: [],
+  friendsTop: [],
+};
+
+Friends.propTypes = {
+  profileName: propTypes.string,
+  friends: propTypes.oneOfType([propTypes.array]),
+  friendsTop: propTypes.oneOfType([propTypes.array]),
+};
 
 export default Friends;

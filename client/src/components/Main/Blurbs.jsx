@@ -1,21 +1,39 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-const Blurbs = () => (
+const Blurbs = ({
+  profileName,
+  blurbsAboutMe,
+  blurbsWhoIdLikeToMeet,
+}) => (
   <div id="blurbs">
     <div id="blurbs-name">
-      <b>wolfebyte's Blurbs</b>
+      {profileName}
+      &apos;s Blurbs
     </div>
     <div id="blurbs-about">
       <div id="blurbs-about-me">
         About Me:
       </div>
-      a blue-skinned humanoid who wears a purple hood over his bare-bone skull.
+      {blurbsAboutMe}
       <div id="blurbs-about-meet">
         Who Id Like To Meet:
       </div>
-      your mom
+      {blurbsWhoIdLikeToMeet}
     </div>
   </div>
 );
+
+Blurbs.defaultProps = {
+  profileName: '',
+  blurbsAboutMe: '',
+  blurbsWhoIdLikeToMeet: '',
+};
+
+Blurbs.propTypes = {
+  profileName: propTypes.string,
+  blurbsAboutMe: propTypes.string,
+  blurbsWhoIdLikeToMeet: propTypes.string,
+};
 
 export default Blurbs;
