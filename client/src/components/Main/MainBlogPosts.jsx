@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainBlogPosts = ({ blogPosts }) => (
   blogPosts.map((post) => (
-    <div className="blogpost" key={blogPosts.indexOf(post)}>
+    <div className="main-blogpost" key={blogPosts.indexOf(post)}>
       {post[0]}
       {' '}
       (

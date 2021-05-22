@@ -351,39 +351,39 @@ h6 {
   padding: 35px 0 35px 0;
 }
 
-#blog {
+#main-blog {
   white-space: pre;
   padding: 20px 0 20px 0;
   display: grid;
   grid-template-columns: 1fr;
 }
 
-#blog div {
+#main-blog div {
   grid-row-start: 1;
   grid-column-start: 1;
 }
 
-#blog-content {
+#main-blog-content {
   flex-flow: wrap;
 }
 
-#blog-name {
+#main-blog-name {
   height: 20px;
   font-weight: 600;
   padding-bottom: 20px;
 }
 
-#blog-name h5 {
+#main-blog-name h5 {
   display: flex;
   flex-direction: row;
 }
 
-.blogpost {
+.main-blogpost {
   height: 20px;
   padding-bottom: 20px;
 }
 
-#blog-view-all {
+#main-blog-view-all {
   display: flex;
   flex-direction: row;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import Profile from './Profile';
 import Contact from './Contact';
@@ -185,6 +186,7 @@ class Main extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     const {
       profileName,
       profilePic,
@@ -275,6 +277,7 @@ class Main extends React.Component {
           <MainBlog
             profileName={profileName}
             blogPosts={blogPosts}
+            history={history}
           />
           <Blurbs
             profileName={profileName}
@@ -295,5 +298,13 @@ class Main extends React.Component {
     );
   }
 }
+
+Main.defaultProps = {
+  history: {},
+};
+
+Main.propTypes = {
+  history: propTypes.oneOfType([propTypes.object]),
+};
 
 export default Main;

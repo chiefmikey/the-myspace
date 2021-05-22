@@ -1,5 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import {
+  Router,
+  Link,
+  withRouter,
+} from 'react-router-dom';
 
 import Subscribe from './Subscribe';
 import MainBlogPosts from './MainBlogPosts';
@@ -30,9 +35,9 @@ class MainBlog extends React.Component {
 
   render() {
     const { subscribeWindow } = this.state;
-    const { profileName, blogPosts } = this.props;
+    const { profileName, blogPosts, history } = this.props;
     return (
-      <div id="blog">
+      <div id="main-blog">
         {subscribeWindow
           ? (
             <Subscribe
@@ -41,8 +46,8 @@ class MainBlog extends React.Component {
             />
           )
           : undefined}
-        <div id="blog-content">
-          <div id="blog-name">
+        <div id="main-blog-content">
+          <div id="main-blog-name">
             <h5>
               {profileName}
               &apos;s Latest Blog Entry
@@ -61,10 +66,12 @@ class MainBlog extends React.Component {
             </h5>
           </div>
           <MainBlogPosts blogPosts={blogPosts} />
-          <div id="blog-view-all">
+          <div id="main-blog-view-all">
             [
             <div className="text-button">
-              View All Entries
+              <Router history={history}>
+                <Link to="/blog" onClick={() => history.push('/blog')}>View All Entries</Link>
+              </Router>
             </div>
             ]
           </div>
@@ -77,11 +84,13 @@ class MainBlog extends React.Component {
 MainBlog.defaultProps = {
   profileName: '',
   blogPosts: [],
+  history: {},
 };
 
 MainBlog.propTypes = {
   profileName: propTypes.string,
   blogPosts: propTypes.oneOfType([propTypes.array]),
+  history: propTypes.oneOfType([propTypes.object]),
 };
 
-export default MainBlog;
+export default withRouter(MainBlog);
