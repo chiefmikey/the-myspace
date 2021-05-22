@@ -4,7 +4,7 @@ import Profile from './Profile';
 import Contact from './Contact';
 import Interests from './Interests';
 import Details from './Details';
-import Blog from './Blog';
+import MainBlog from './MainBlog';
 import Blurbs from './Blurbs';
 import Friends from './Friends';
 import CommentsList from './CommentsList';
@@ -272,7 +272,7 @@ class Main extends React.Component {
               {headline}
             </h4>
           </div>
-          <Blog
+          <MainBlog
             profileName={profileName}
             blogPosts={blogPosts}
           />

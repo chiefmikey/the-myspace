@@ -2,9 +2,9 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import Subscribe from './Subscribe';
-import BlogPosts from './BlogPosts';
+import MainBlogPosts from './MainBlogPosts';
 
-class Blog extends React.Component {
+class MainBlog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,7 @@ class Blog extends React.Component {
               {' '}
               [
               <div
-                className="textButton"
+                className="text-button"
                 onClick={this.openSubscribeWindow}
                 onKeyPress={this.openSubscribeWindow}
                 tabIndex={0}
@@ -60,10 +60,10 @@ class Blog extends React.Component {
               ]
             </h5>
           </div>
-          <BlogPosts blogPosts={blogPosts} />
+          <MainBlogPosts blogPosts={blogPosts} />
           <div id="blog-view-all">
             [
-            <div className="textButton">
+            <div className="text-button">
               View All Entries
             </div>
             ]
@@ -74,14 +74,14 @@ class Blog extends React.Component {
   }
 }
 
-Blog.defaultProps = {
+MainBlog.defaultProps = {
   profileName: '',
   blogPosts: [],
 };
 
-Blog.propTypes = {
+MainBlog.propTypes = {
   profileName: propTypes.string,
   blogPosts: propTypes.oneOfType([propTypes.array]),
 };
 
-export default Blog;
+export default MainBlog;

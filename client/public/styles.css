@@ -9,6 +9,7 @@ body {
 a {
   color: rgb(1,50,153);
   font-weight: 600;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +34,7 @@ h6 {
   font-size: 13px;
 }
 
-.textButton {
+.text-button {
   color: rgb(1,50,153);
   font-weight: 600;
   cursor: pointer;
@@ -53,6 +54,18 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#header-info {
+  color: white;
+  align-self: flex-end;
+  padding: 20px 30px 0 0;
+}
+
+#header-info span {
+  color: white;
+  align-self: flex-end;
+  font-weight: 400;
 }
 
 #header-pic {
@@ -200,9 +213,9 @@ h6 {
 
 #contact {
   width: 100%;
-  line-height: 30px;
+  line-height: 15px;
   display: grid;
-  grid-template-columns: 200px 200px;
+  grid-template-columns: 180px auto;
   grid-template-rows: 25px auto;
   grid-template-areas:
     "name name"
@@ -229,12 +242,29 @@ h6 {
 
 #contact-left {
   grid-area: left;
-  padding: 10px;
+  padding: 20px 0 10px 10px;
+  justify-self: center;
 }
 
 #contact-right {
   grid-area: right;
   padding: 10px;
+  padding: 20px 10px 10px 0;
+  justify-self: center;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  height: 22px;
+}
+
+.contact-icon {
+  font-size: 20px;
+  padding-right: 10px;
 }
 
 #url {

@@ -1,4 +1,8 @@
 import React from 'react';
+import Img from 'react-cool-img';
+
+import loadingImage from '../../../public/img/420.jpeg';
+import errorImage from '../../../public/img/404.jpeg';
 
 const CommentsPost = ({ comments }) => (
   comments.map((comment) => (
@@ -7,7 +11,15 @@ const CommentsPost = ({ comments }) => (
         <div className="comments-post-left-name">
           {comment[0][0]}
         </div>
-        <img className="comments-post-left-pic" src={comment[0][1]} alt="comment author avatar" />
+        <Img
+          className="comments-post-left-pic"
+          src={comment[0][1]}
+          placeholder={loadingImage}
+          error={errorImage}
+          lazy
+          cache
+          alt="comment author avatar"
+        />
       </div>
       <div className="comments-post-right">
         <div className="comments-post-right-date">

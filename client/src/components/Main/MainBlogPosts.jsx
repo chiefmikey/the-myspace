@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogPost = ({ blogPosts }) => (
+const MainBlogPosts = ({ blogPosts }) => (
   blogPosts.map((post) => (
     <div className="blogpost" key={blogPosts.indexOf(post)}>
       {post[0]}
@@ -12,4 +12,4 @@ const BlogPost = ({ blogPosts }) => (
   ))
 );
 
-export default BlogPost;
+export default MainBlogPosts;

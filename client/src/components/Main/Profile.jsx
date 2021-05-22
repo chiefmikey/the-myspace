@@ -1,5 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import Img from 'react-cool-img';
+
+import loadingImage from '../../../public/img/420.jpeg';
+import errorImage from '../../../public/img/404.jpeg';
 
 const Profile = ({
   profileName,
@@ -19,7 +23,15 @@ const Profile = ({
       <h3>{profileName}</h3>
     </div>
     <div id="profile-pic">
-      <img id="profile-pic-img" src={profilePic} alt="wolfebyte logo" />
+      <Img
+        id="profile-pic-img"
+        src={profilePic}
+        placeholder={loadingImage}
+        error={errorImage}
+        lazy
+        cache
+        alt="user profile avatar"
+      />
     </div>
     <div id="profile-mood">
       <div id="profile-mood-name">Mood:</div>
@@ -28,18 +40,18 @@ const Profile = ({
       <div id="profile-mood-view-pics">
         View My:
         {' '}
-        <a>Pics</a>
+        <span className="text-button">Pics</span>
         {' '}
         |
         {' '}
-        <a>Videos</a>
+        <span className="text-button">Videos</span>
       </div>
     </div>
     <div id="profile-desc">
       <div id="profile-desc-status">
-        "
+        &quot;
         {profileStatus}
-        "
+        &quot;
       </div>
       <div id="profile-desc-gender">{profileGender}</div>
       <div id="profile-desc-age">

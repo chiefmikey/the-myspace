@@ -1,5 +1,9 @@
 import React from 'react';
+import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
+
+import loadingImage from '../../../public/img/420.jpeg';
+import errorImage from '../../../public/img/404.jpeg';
 
 const FriendsTop = ({ friendsTop }) => (
   friendsTop.map((friend) => (
@@ -13,7 +17,15 @@ const FriendsTop = ({ friendsTop }) => (
           basedOn="letters"
         />
       </div>
-      <img className="friends-top-icon-img" src={friend[1]} alt="friends profile icon" />
+      <Img
+        className="friends-top-icon-img"
+        src={friend[1]}
+        placeholder={loadingImage}
+        error={errorImage}
+        lazy
+        cache
+        alt="top friend profile icon"
+      />
     </div>
   ))
 );
