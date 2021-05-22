@@ -7,8 +7,10 @@ import CommentsPost from './CommentsPost';
 const CommentsList = ({ profileName, comments }) => (
   <div id="comments">
     <div id="comments-name">
-      {profileName}
-      &apos;s Friends Comments
+      <h5>
+        {profileName}
+        &apos;s Friends Comments
+      </h5>
     </div>
     <CommentsCount comments={comments} />
     <CommentsPost comments={comments} />

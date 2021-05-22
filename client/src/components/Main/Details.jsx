@@ -14,7 +14,7 @@ const Details = ({
     <div id="details-name">
       <h5>
         {profileName}
-        's Details
+        &apos;s Details
       </h5>
     </div>
     <div id="details-main">

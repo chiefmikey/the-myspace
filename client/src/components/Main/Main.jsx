@@ -47,6 +47,7 @@ class Main extends React.Component {
       friendsTop: [],
       comments: [],
     };
+
     this.res = {
       profileName: 'wolfebyte',
       profilePic: wbyte,

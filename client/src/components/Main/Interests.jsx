@@ -14,7 +14,7 @@ const Interests = ({
     <div id="interests-name">
       <h5>
         {profileName}
-        's Interests
+        &apos;s Interests
       </h5>
     </div>
     <div id="interests-main">

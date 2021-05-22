@@ -8,8 +8,10 @@ const Blurbs = ({
 }) => (
   <div id="blurbs">
     <div id="blurbs-name">
-      {profileName}
-      &apos;s Blurbs
+      <h5>
+        {profileName}
+        &apos;s Blurbs
+      </h5>
     </div>
     <div id="blurbs-about">
       <div id="blurbs-about-me">

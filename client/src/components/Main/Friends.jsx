@@ -10,29 +10,28 @@ const Friends = ({
 }) => (
   <div id="friends">
     <div id="friends-name">
-      <b>
+      <h5>
         {profileName}
-        's Friend Space
-      </b>
+        &apos;s Friend Space
+      </h5>
     </div>
     <div id="friends-count">
       {profileName}
-      {' '}
-      has
-      {' '}
-      {friends.length}
-      {' '}
-      friends.
+      {' has '}
+      <div id="friends-count-current">
+        {friends.length}
+      </div>
+      {' friends.'}
     </div>
     <div id="friends-top">
       <FriendsTop friendsTop={friendsTop} />
     </div>
-    <div id="friends-view-all">
+    <a id="friends-view-all" href="http://wolfebyte.net">
       View all of
       {' '}
       {profileName}
-      's friends
-    </div>
+      &apos;s friends
+    </a>
   </div>
 );
 

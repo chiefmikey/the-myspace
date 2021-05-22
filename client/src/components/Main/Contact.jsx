@@ -6,26 +6,43 @@ const Contact = ({ profileName }) => (
     <div id="contact-name">
       <h5>
         Contacting
+        {' '}
         {profileName}
       </h5>
     </div>
     <div id="contact-left">
-      <a href="">Send Message</a>
+      <a href="http://wolfebyte.net">
+        Send Message
+      </a>
       {'\n'}
-      <a href="">Add to Friends</a>
+      <a href="http://wolfebyte.net">
+        Add to Friends
+      </a>
       {'\n'}
-      <a href="">Instant Message</a>
+      <a href="http://wolfebyte.net">
+        Instant Message
+      </a>
       {'\n'}
-      <a href="">Add to Group</a>
+      <a href="http://wolfebyte.net">
+        Add to Group
+      </a>
     </div>
     <div id="contact-right">
-      <a href="">Forward to Friend</a>
+      <a href="http://wolfebyte.net">
+        Forward to Friend
+      </a>
       {'\n'}
-      <a href="">Add to Favorites</a>
+      <a href="http://wolfebyte.net">
+        Add to Favorites
+      </a>
       {'\n'}
-      <a href="">Block User</a>
+      <a href="http://wolfebyte.net">
+        Block User
+      </a>
       {'\n'}
-      <a href="">Rank User</a>
+      <a href="http://wolfebyte.net">
+        Rank User
+      </a>
     </div>
   </div>
 );

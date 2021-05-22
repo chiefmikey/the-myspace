@@ -12,13 +12,22 @@ const CommentsCount = ({ comments }) => {
     <div id="comments-count">
       Displaying
       {' '}
-      {count}
-      {' '}
-      of
-      {' '}
-      {comments.length}
-      {' '}
-      comments ( View All | Add Comment )
+      <div id="comments-count-current">
+        {count}
+      </div>
+      {' of '}
+      <div id="comments-count-total">
+        {comments.length}
+      </div>
+      {' comments ( '}
+      <a href="http://wolfebyte.net">
+        View All
+      </a>
+      {' | '}
+      <a href="http://wolfebyte.net">
+        Add Comment
+      </a>
+      {' ) '}
     </div>
   );
 };
