@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 const MainBlogPosts = ({ blogPosts }) => (
   blogPosts.map((post) => (
@@ -11,5 +12,13 @@ const MainBlogPosts = ({ blogPosts }) => (
     </div>
   ))
 );
+
+MainBlogPosts.defaultProps = {
+  blogPosts: [],
+};
+
+MainBlogPosts.propTypes = {
+  blogPosts: propTypes.oneOfType([propTypes.array]),
+};
 
 export default MainBlogPosts;

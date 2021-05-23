@@ -1,15 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const Blurbs = ({
-  profileName,
-  blurbsAboutMe,
-  blurbsWhoIdLikeToMeet,
-}) => (
+const Blurbs = ({ currentUser }) => (
   <div id="blurbs">
     <div id="blurbs-name">
       <h5>
-        {profileName}
+        {currentUser.profileName}
         &apos;s Blurbs
       </h5>
     </div>
@@ -17,25 +13,21 @@ const Blurbs = ({
       <div id="blurbs-about-me">
         About Me:
       </div>
-      {blurbsAboutMe}
+      {currentUser.blurbsAboutMe}
       <div id="blurbs-about-meet">
         Who Id Like To Meet:
       </div>
-      {blurbsWhoIdLikeToMeet}
+      {currentUser.blurbsWhoIdLikeToMeet}
     </div>
   </div>
 );
 
 Blurbs.defaultProps = {
-  profileName: '',
-  blurbsAboutMe: '',
-  blurbsWhoIdLikeToMeet: '',
+  currentUser: {},
 };
 
 Blurbs.propTypes = {
-  profileName: propTypes.string,
-  blurbsAboutMe: propTypes.string,
-  blurbsWhoIdLikeToMeet: propTypes.string,
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
 export default Blurbs;

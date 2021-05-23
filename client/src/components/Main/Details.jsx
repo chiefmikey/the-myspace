@@ -1,19 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const Details = ({
-  profileName,
-  detailsStatus,
-  detailsHereFor,
-  detailsHometown,
-  detailsZodiacSign,
-  detailsSmokeDrink,
-  detailsOccupation,
-}) => (
+const Details = ({ currentUser }) => (
   <div id="details">
     <div id="details-name">
       <h5>
-        {profileName}
+        {currentUser.profileName}
         &apos;s Details
       </h5>
     </div>
@@ -26,7 +18,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsStatus}
+            {currentUser.detailsStatus}
           </div>
         </div>
       </div>
@@ -38,7 +30,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsHereFor}
+            {currentUser.detailsHereFor}
           </div>
         </div>
       </div>
@@ -50,7 +42,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsHometown}
+            {currentUser.detailsHometown}
           </div>
         </div>
       </div>
@@ -62,7 +54,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsZodiacSign}
+            {currentUser.detailsZodiacSign}
           </div>
         </div>
       </div>
@@ -74,7 +66,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsSmokeDrink}
+            {currentUser.detailsSmokeDrink}
           </div>
         </div>
       </div>
@@ -86,7 +78,7 @@ const Details = ({
         </div>
         <div className="details-right">
           <div className="details-content">
-            {detailsOccupation}
+            {currentUser.detailsOccupation}
           </div>
         </div>
       </div>
@@ -95,22 +87,11 @@ const Details = ({
 );
 
 Details.defaultProps = {
-  profileName: '',
-  detailsStatus: '',
-  detailsHereFor: '',
-  detailsHometown: '',
-  detailsZodiacSign: '',
-  detailsSmokeDrink: '',
-  detailsOccupation: '',
+  currentUser: {},
 };
 
 Details.propTypes = {
-  profileName: propTypes.string,
-  detailsStatus: propTypes.string,
-  detailsHereFor: propTypes.string,
-  detailsHometown: propTypes.string,
-  detailsZodiacSign: propTypes.string,
-  detailsSmokeDrink: propTypes.string,
-  detailsOccupation: propTypes.string,
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
+
 export default Details;

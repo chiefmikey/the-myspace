@@ -5,13 +5,13 @@ import { BiMailSend } from 'react-icons/bi';
 import { AiOutlineUserAdd, AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiWechatLine } from 'react-icons/ri';
 
-const Contact = ({ profileName }) => (
+const Contact = ({ currentUser }) => (
   <div id="contact">
     <div id="contact-name">
       <h5>
         Contacting
         {' '}
-        {profileName}
+        {currentUser.profileName}
       </h5>
     </div>
     <div id="contact-left">
@@ -60,11 +60,11 @@ const Contact = ({ profileName }) => (
 );
 
 Contact.defaultProps = {
-  profileName: '',
+  currentUser: {},
 };
 
 Contact.propTypes = {
-  profileName: propTypes.string,
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
 export default Contact;

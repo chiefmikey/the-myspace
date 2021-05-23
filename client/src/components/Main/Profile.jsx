@@ -5,27 +5,15 @@ import Img from 'react-cool-img';
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 
-const Profile = ({
-  profileName,
-  profilePic,
-  profileMood,
-  profileMoodEmoji,
-  profileStatus,
-  profileGender,
-  profileAge,
-  profileCity,
-  profileState,
-  profileCountry,
-  profileLogin,
-}) => (
+const Profile = ({ currentUser }) => (
   <div id="profile">
     <div id="profile-name">
-      <h3>{profileName}</h3>
+      <h3>{currentUser.profileName}</h3>
     </div>
     <div id="profile-pic">
       <Img
         id="profile-pic-img"
-        src={profilePic}
+        src={currentUser.profilePic}
         placeholder={loadingImage}
         error={errorImage}
         lazy
@@ -35,8 +23,8 @@ const Profile = ({
     </div>
     <div id="profile-mood">
       <div id="profile-mood-name">Mood:</div>
-      <div id="profile-mood-current">{profileMood}</div>
-      <div id="profile-mood-current-emoji">{profileMoodEmoji}</div>
+      <div id="profile-mood-current">{currentUser.profileMood}</div>
+      <div id="profile-mood-current-emoji">{currentUser.profileMoodEmoji}</div>
       <div id="profile-mood-view-pics">
         View My:
         {' '}
@@ -50,50 +38,30 @@ const Profile = ({
     <div id="profile-desc">
       <div id="profile-desc-status">
         &quot;
-        {profileStatus}
+        {currentUser.profileStatus}
         &quot;
       </div>
-      <div id="profile-desc-gender">{profileGender}</div>
+      <div id="profile-desc-gender">{currentUser.profileGender}</div>
       <div id="profile-desc-age">
-        {profileAge}
+        {currentUser.profileAge}
         {' '}
         years old
       </div>
-      <div id="profile-desc-city">{profileCity}</div>
-      <div id="profile-desc-state">{profileState}</div>
-      <div id="profile-desc-country">{profileCountry}</div>
+      <div id="profile-desc-city">{currentUser.profileCity}</div>
+      <div id="profile-desc-state">{currentUser.profileState}</div>
+      <div id="profile-desc-country">{currentUser.profileCountry}</div>
       <div id="profile-desc-login">Last Login:</div>
-      <div id="profile-desc-login-date">{profileLogin}</div>
+      <div id="profile-desc-login-date">{currentUser.profileLogin}</div>
     </div>
   </div>
 );
 
 Profile.defaultProps = {
-  profileName: '',
-  profilePic: '',
-  profileMood: '',
-  profileMoodEmoji: '',
-  profileStatus: '',
-  profileGender: '',
-  profileAge: '',
-  profileCity: '',
-  profileState: '',
-  profileCountry: '',
-  profileLogin: '',
+  currentUser: {},
 };
 
 Profile.propTypes = {
-  profileName: propTypes.string,
-  profilePic: propTypes.string,
-  profileMood: propTypes.string,
-  profileMoodEmoji: propTypes.string,
-  profileStatus: propTypes.string,
-  profileGender: propTypes.string,
-  profileAge: propTypes.string,
-  profileCity: propTypes.string,
-  profileState: propTypes.string,
-  profileCountry: propTypes.string,
-  profileLogin: propTypes.string,
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
 export default Profile;

@@ -35,13 +35,13 @@ class MainBlog extends React.Component {
 
   render() {
     const { subscribeWindow } = this.state;
-    const { profileName, blogPosts, history } = this.props;
+    const { currentUser, history } = this.props;
     return (
       <div id="main-blog">
         {subscribeWindow
           ? (
             <Subscribe
-              profileName={profileName}
+              profileName={currentUser.profileName}
               closeSubscribeWindow={this.closeSubscribeWindow}
             />
           )
@@ -49,7 +49,7 @@ class MainBlog extends React.Component {
         <div id="main-blog-content">
           <div id="main-blog-name">
             <h5>
-              {profileName}
+              {currentUser.profileName}
               &apos;s Latest Blog Entry
               {' '}
               [
@@ -65,12 +65,12 @@ class MainBlog extends React.Component {
               ]
             </h5>
           </div>
-          <MainBlogPosts blogPosts={blogPosts} />
+          <MainBlogPosts blogPosts={currentUser.blogPosts} />
           <div id="main-blog-view-all">
             [
             <div className="text-button">
               <Router history={history}>
-                <Link to="/blog" onClick={() => history.push('/blog')}>View All Entries</Link>
+                <Link to={`${currentUser.urlAddress}/blog`} onClick={() => history.push(`${currentUser.urlAddress}/blog`)}>View All Entries</Link>
               </Router>
             </div>
             ]
@@ -82,14 +82,12 @@ class MainBlog extends React.Component {
 }
 
 MainBlog.defaultProps = {
-  profileName: '',
-  blogPosts: [],
+  currentUser: {},
   history: {},
 };
 
 MainBlog.propTypes = {
-  profileName: propTypes.string,
-  blogPosts: propTypes.oneOfType([propTypes.array]),
+  currentUser: propTypes.oneOfType([propTypes.object]),
   history: propTypes.oneOfType([propTypes.object]),
 };
 

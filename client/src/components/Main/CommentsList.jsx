@@ -4,27 +4,25 @@ import propTypes from 'prop-types';
 import CommentsCount from './CommentsCount';
 import CommentsPost from './CommentsPost';
 
-const CommentsList = ({ profileName, comments }) => (
+const CommentsList = ({ currentUser }) => (
   <div id="comments">
     <div id="comments-name">
       <h5>
-        {profileName}
+        {currentUser.profileName}
         &apos;s Friends Comments
       </h5>
     </div>
-    <CommentsCount comments={comments} />
-    <CommentsPost comments={comments} />
+    <CommentsCount comments={currentUser.comments} />
+    <CommentsPost comments={currentUser.comments} />
   </div>
 );
 
 CommentsList.defaultProps = {
-  profileName: '',
-  comments: [],
+  currentUser: {},
 };
 
 CommentsList.propTypes = {
-  profileName: propTypes.string,
-  comments: propTypes.oneOfType([propTypes.array]),
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
 export default CommentsList;

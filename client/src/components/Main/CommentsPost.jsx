@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import Img from 'react-cool-img';
 
 import loadingImage from '../../../public/img/420.jpeg';
@@ -32,5 +33,13 @@ const CommentsPost = ({ comments }) => (
     </div>
   ))
 );
+
+CommentsPost.defaultProps = {
+  comments: [],
+};
+
+CommentsPost.propTypes = {
+  comments: propTypes.oneOfType([propTypes.array]),
+};
 
 export default CommentsPost;
