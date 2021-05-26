@@ -16,17 +16,17 @@ class Main extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    const { routeProps, getCurrentUser } = this.props;
-    getCurrentUser(routeProps.match.url);
-  }
+  // componentDidMount() {
+  //   const { routeProps, getCurrentUser } = this.props;
+  //   getCurrentUser(routeProps.match.url);
+  // }
 
-  componentDidUpdate(prevProps) {
-    const { routeProps, getCurrentUser } = this.props;
-    if (prevProps.routeProps.match.url !== routeProps.match.url) {
-      getCurrentUser(routeProps.match.url);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   const { routeProps, getCurrentUser } = this.props;
+  //   if (prevProps.routeProps.match.url !== routeProps.match.url) {
+  //     getCurrentUser(routeProps.match.url);
+  //   }
+  // }
 
   render() {
     const {
@@ -82,11 +82,13 @@ class Main extends React.Component {
 Main.defaultProps = {
   history: {},
   currentUser: {},
+  getCurrentUser: () => {},
 };
 
 Main.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
+  getCurrentUser: propTypes.func,
 };
 
 export default Main;

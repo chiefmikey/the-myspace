@@ -8,59 +8,54 @@ class Friends extends React.Component {
   constructor() {
     super();
     this.state = {
-      topFriend1: {},
-      topFriend2: {},
-      topFriend3: {},
-      topFriend4: {},
-      topFriend5: {},
-      topFriend6: {},
-      topFriend7: {},
-      topFriend8: {},
+      friendsTop: [],
     };
     this.getTop8 = this.getTop8.bind(this);
   }
 
+  componentDidMount() {
+    this.getTop8();
+  }
+
   componentDidUpdate(prevProps) {
     const { currentUser } = this.props;
-    if (prevProps.currentUser !== currentUser) {
+    if (prevProps.currentUser._id !== currentUser._id) {
       this.getTop8();
     }
   }
 
   getTop8() {
     const { currentUser } = this.props;
-    if (currentUser.friendsTop) {
-      currentUser.friendsTop.forEach((friend) => axios.get('/user/icon', {
+    const topFriends = [];
+    const friendsTop = [];
+    if (currentUser.friends) {
+      for (let i = 0; i < currentUser.friends.length; i += 1) {
+        if (currentUser.friends[i][0] <= 8) {
+          topFriends.push(currentUser.friends[i]);
+          if (topFriends.length >= 8) {
+            break;
+          }
+        }
+      }
+    }
+    topFriends.sort().forEach((friend, index, array) => {
+      axios.get('/user/icon', {
         params: {
-          iconUserId: friend[0],
+          iconUserId: friend[1],
         },
       })
-        .then((res) => this.setState({ [`topFriend${friend[1]}`]: res.data })));
-    }
+        .then((res) => {
+          friendsTop.push([friend[0], res.data]);
+          if (friendsTop.length === array.length) {
+            this.setState({ friendsTop: friendsTop.sort() });
+          }
+        });
+    });
   }
 
   render() {
     const { currentUser, history, getCurrentUser } = this.props;
-    const {
-      topFriend1,
-      topFriend2,
-      topFriend3,
-      topFriend4,
-      topFriend5,
-      topFriend6,
-      topFriend7,
-      topFriend8,
-    } = this.state;
-    const friendsTop = [
-      topFriend1,
-      topFriend2,
-      topFriend3,
-      topFriend4,
-      topFriend5,
-      topFriend6,
-      topFriend7,
-      topFriend8,
-    ];
+    const { friendsTop } = this.state;
     return (
       <div id="friends">
         <div id="friends-name">
@@ -96,11 +91,15 @@ class Friends extends React.Component {
 }
 
 Friends.defaultProps = {
+  history: {},
   currentUser: {},
+  getCurrentUser: () => {},
 };
 
 Friends.propTypes = {
+  history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
+  getCurrentUser: propTypes.func,
 };
 
 export default Friends;

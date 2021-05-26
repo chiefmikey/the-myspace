@@ -1,14 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const BlogPosts = ({ blogPosts }) => (
   blogPosts.map((post) => (
-    <div className="main-blogpost" key={blogPosts.indexOf(post)}>
-      {post[0]}
-      {' '}
-      (
-      <a href="http://wolfebyte.net">view more</a>
-      )
+    <div className="blogpost" key={blogPosts.indexOf(post)}>
+      <LinesEllipsis
+        text={post[0]}
+        maxLine="2"
+        ellipsis="..."
+        trimRight
+        basedOn="letters"
+      />
+
     </div>
   ))
 );

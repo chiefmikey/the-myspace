@@ -10,9 +10,6 @@ exports.getCurrentUser = async (urlAddress) => {
         user = dummyData[i];
         break;
       }
-      if (i === dummyData.length - 1) {
-        [user] = dummyData;
-      }
     }
     if (!user) {
       [user] = dummyData;

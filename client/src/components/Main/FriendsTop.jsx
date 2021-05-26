@@ -14,16 +14,16 @@ import errorImage from '../../../public/img/404.jpeg';
 const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((friend) => (
   <Router history={history} key={friendsTop.indexOf(friend)}>
     <Link
-      to={friend.urlAddress ? friend.urlAddress : '/'}
+      to={friend[1].urlAddress}
       className="friends-top-icon"
       onClick={() => {
-        getCurrentUser(friend.urlAddress);
-        history.push(friend.urlAddress);
+        getCurrentUser(friend[1].urlAddress);
+        history.push(friend[1].urlAddress);
       }}
     >
       <div className="friends-top-icon-name">
         <LinesEllipsis
-          text={friend.profileName}
+          text={friend[1].profileName}
           maxLine="2"
           ellipsis="..."
           trimRight
@@ -32,10 +32,10 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
       </div>
       <Img
         className="friends-top-icon-img"
-        src={friend.profilePic}
+        src={friend[1].profilePic}
         placeholder={loadingImage}
         error={errorImage}
-        lazy
+        // lazy
         cache
         alt="top friend profile icon"
       />

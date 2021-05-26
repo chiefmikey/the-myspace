@@ -9,11 +9,11 @@ exports.getUserIcon = async (userId) => {
         break;
       }
     }
-    if (user) {
-      const result = await JSON.stringify(user);
-      return result;
+    if (!user) {
+      [user] = dummyData;
     }
-    return 'User not found';
+    const result = await JSON.stringify(user);
+    return result;
   } catch (error) {
     console.error(error);
     return error;

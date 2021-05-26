@@ -16,7 +16,7 @@ const Profile = ({ currentUser }) => (
         src={currentUser.profilePic}
         placeholder={loadingImage}
         error={errorImage}
-        lazy
+        // lazy
         cache
         alt="user profile avatar"
       />

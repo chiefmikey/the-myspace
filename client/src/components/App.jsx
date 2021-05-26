@@ -27,7 +27,6 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    const { getCurrentUser } = this.props;
     const { currentUser } = this.state;
     if (window.location.href !== `http://localhost:8080${currentUser.urlAddress}`) {
       this.getCurrentUser(window.location.href);
@@ -49,36 +48,38 @@ class App extends React.Component {
     const { history } = this.props;
     const { currentUser } = this.state;
     return (
-      <>
-        <Router history={history}>
-          <Header history={history} />
-          <Nav />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(routeProps) => (
-                <Main
-                  history={history}
-                  currentUser={currentUser}
-                  routeProps={routeProps}
-                  getCurrentUser={this.getCurrentUser}
-                />
-              )}
-            />
-            <Route
-              path="/:urlAddress"
-              exact
-              render={(routeProps) => (
-                <Main
-                  history={history}
-                  currentUser={currentUser}
-                  routeProps={routeProps}
-                  getCurrentUser={this.getCurrentUser}
-                />
-              )}
-            />
-            {/* <Route
+      <Router history={history}>
+        <Header
+          history={history}
+          getCurrentUser={this.getCurrentUser}
+        />
+        <Nav />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={(routeProps) => (
+              <Main
+                history={history}
+                currentUser={currentUser}
+                routeProps={routeProps}
+                getCurrentUser={this.getCurrentUser}
+              />
+            )}
+          />
+          <Route
+            path="/:urlAddress"
+            exact
+            render={(routeProps) => (
+              <Main
+                history={history}
+                currentUser={currentUser}
+                routeProps={routeProps}
+                getCurrentUser={this.getCurrentUser}
+              />
+            )}
+          />
+          {/* <Route
               path={`/${currentUser.urlAddress}`}
               exact
               render={(routeProps) => (
@@ -90,25 +91,24 @@ class App extends React.Component {
                 />
               )}
             /> */}
-            {/* <Route
+          {/* <Route
               path={`/${selectedUser.urlAddress}`}
               render={() => <Main history={history} currentUser={selectedUser} />}
             /> */}
-            <Route
-              path="/:urlAddress/blog"
-              render={(routeProps) => (
-                <Blog
-                  history={history}
-                  currentUser={currentUser}
-                  routeProps={routeProps}
-                  getCurrentUser={this.getCurrentUser}
-                />
-              )}
-            />
-          </Switch>
-          <Footer />
-        </Router>
-      </>
+          <Route
+            path="/:urlAddress/blog"
+            render={(routeProps) => (
+              <Blog
+                history={history}
+                currentUser={currentUser}
+                routeProps={routeProps}
+                getCurrentUser={this.getCurrentUser}
+              />
+            )}
+          />
+        </Switch>
+        <Footer />
+      </Router>
     );
   }
 }
