@@ -18,15 +18,20 @@ class App extends React.Component {
     super();
     this.state = {
       currentUser: {},
-      // currentUserId: 0,
     };
-    this.getSelectedUser = this.getSelectedUser.bind(this);
-    this.getUrlUser = this.getUrlUser.bind(this);
+    this.getCurrentUser = this.getCurrentUser.bind(this);
   }
 
   componentDidMount() {
-    // const { currentUserId } = this.state;
     this.getCurrentUser(window.location.href);
+  }
+
+  componentDidUpdate() {
+    const { getCurrentUser } = this.props;
+    const { currentUser } = this.state;
+    if (window.location.href !== `http://localhost:8080${currentUser.urlAddress}`) {
+      this.getCurrentUser(window.location.href);
+    }
   }
 
   getCurrentUser(urlAddress) {
@@ -37,28 +42,6 @@ class App extends React.Component {
     })
       .then((res) => {
         this.setState({ currentUser: res.data });
-      });
-  }
-
-  getSelectedUser(selectedUserId) {
-    axios.get('/user/selected', {
-      params: {
-        selectedUserId,
-      },
-    })
-      .then((res) => {
-        this.setState({ currentUser: res.data });
-      });
-  }
-
-  getUrlUser(urlAddress) {
-    axios.get('/user/url', {
-      params: {
-        urlAddress,
-      },
-    })
-      .then((res) => {
-        this.setState({ currentUser: res.data, currentUserId: res.data._id });
       });
   }
 
@@ -74,36 +57,51 @@ class App extends React.Component {
             <Route
               path="/"
               exact
-              render={() => (
+              render={(routeProps) => (
                 <Main
                   history={history}
                   currentUser={currentUser}
-                  getSelectedUser={this.getSelectedUser}
+                  routeProps={routeProps}
+                  getCurrentUser={this.getCurrentUser}
                 />
               )}
             />
             <Route
-              path={`/${currentUser.urlAddress}`}
+              path="/:urlAddress"
               exact
-              render={() => <Main history={history} currentUser={currentUser} />}
+              render={(routeProps) => (
+                <Main
+                  history={history}
+                  currentUser={currentUser}
+                  routeProps={routeProps}
+                  getCurrentUser={this.getCurrentUser}
+                />
+              )}
             />
             {/* <Route
-              path={`/${selectedUser.urlAddress}`}
-              render={() => <Main history={history} currentUser={selectedUser} />}
-            /> */}
-            <Route
-              path={`/${currentUser.urlAddress}/blog`}
-              render={() => <Blog history={history} currentUser={currentUser} />}
-            />
-            <Route
-              path="/:urlAddress"
+              path={`/${currentUser.urlAddress}`}
+              exact
               render={(routeProps) => (
                 <Main
                   history={history}
                   currentUser={currentUser}
                   routeProps={routeProps}
                   getSelectedUser={this.getSelectedUser}
-                  getUrlUser={this.getUrlUser}
+                />
+              )}
+            /> */}
+            {/* <Route
+              path={`/${selectedUser.urlAddress}`}
+              render={() => <Main history={history} currentUser={selectedUser} />}
+            /> */}
+            <Route
+              path="/:urlAddress/blog"
+              render={(routeProps) => (
+                <Blog
+                  history={history}
+                  currentUser={currentUser}
+                  routeProps={routeProps}
+                  getCurrentUser={this.getCurrentUser}
                 />
               )}
             />

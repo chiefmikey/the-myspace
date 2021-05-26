@@ -3,18 +3,22 @@ const { dummyData } = require('../dummyData');
 exports.getCurrentUser = async (urlAddress) => {
   try {
     let user;
-    const url = urlAddress.replace('http://localhost:8080', '');
+    const extract = urlAddress.split('/')[3];
+    const url = `/${extract}`;
     for (let i = 0; i < dummyData.length; i += 1) {
       if (dummyData[i].urlAddress === url) {
         user = dummyData[i];
         break;
       }
+      if (i === dummyData.length - 1) {
+        [user] = dummyData;
+      }
     }
-    if (user) {
-      const result = await JSON.stringify(user);
-      return result;
+    if (!user) {
+      [user] = dummyData;
     }
-    return 'User not found';
+    const result = await JSON.stringify(user);
+    return result;
   } catch (error) {
     console.error(error);
     return error;

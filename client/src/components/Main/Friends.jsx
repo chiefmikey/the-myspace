@@ -40,7 +40,7 @@ class Friends extends React.Component {
   }
 
   render() {
-    const { currentUser, history, getSelectedUser } = this.props;
+    const { currentUser, history, getCurrentUser } = this.props;
     const {
       topFriend1,
       topFriend2,
@@ -81,7 +81,7 @@ class Friends extends React.Component {
           <FriendsTop
             friendsTop={friendsTop}
             history={history}
-            getSelectedUser={getSelectedUser}
+            getCurrentUser={getCurrentUser}
           />
         </div>
         <a id="friends-view-all" href="http://wolfebyte.net">

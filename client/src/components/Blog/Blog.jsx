@@ -12,6 +12,18 @@ class Blog extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { routeProps, getCurrentUser } = this.props;
+    getCurrentUser(routeProps.match.url);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { routeProps, getCurrentUser } = this.props;
+    if (prevProps.routeProps.match.url !== routeProps.match.url) {
+      getCurrentUser(routeProps.match.url);
+    }
+  }
+
   render() {
     const { history, currentUser } = this.props;
     const { currentPost } = this.state;

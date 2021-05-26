@@ -11,13 +11,13 @@ import {
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 
-const FriendsTop = ({ friendsTop, history, getSelectedUser }) => friendsTop.map((friend) => (
+const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((friend) => (
   <Router history={history} key={friendsTop.indexOf(friend)}>
     <Link
       to={friend.urlAddress ? friend.urlAddress : '/'}
       className="friends-top-icon"
       onClick={() => {
-        getSelectedUser(friend._id);
+        getCurrentUser(friend.urlAddress);
         history.push(friend.urlAddress);
       }}
     >

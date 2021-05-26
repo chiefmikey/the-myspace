@@ -17,18 +17,14 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    const { routeProps, getUrlUser } = this.props;
-    if (getUrlUser) {
-      getUrlUser(routeProps.match.url);
-    }
+    const { routeProps, getCurrentUser } = this.props;
+    getCurrentUser(routeProps.match.url);
   }
 
   componentDidUpdate(prevProps) {
-    const { routeProps, getUrlUser } = this.props;
-    if (getUrlUser) {
-      if (prevProps.routeProps.match.url !== routeProps.match.url) {
-        getUrlUser(routeProps.match.url);
-      }
+    const { routeProps, getCurrentUser } = this.props;
+    if (prevProps.routeProps.match.url !== routeProps.match.url) {
+      getCurrentUser(routeProps.match.url);
     }
   }
 
@@ -36,7 +32,7 @@ class Main extends React.Component {
     const {
       history,
       currentUser,
-      getSelectedUser,
+      getCurrentUser,
     } = this.props;
 
     return (
@@ -49,7 +45,7 @@ class Main extends React.Component {
               .net URL
             </div>
             <div id="url-address">
-              http://wolfebyte.net/
+              http://wolfebyte.net
               {currentUser.urlAddress}
             </div>
           </div>
@@ -74,7 +70,7 @@ class Main extends React.Component {
           <Friends
             currentUser={currentUser}
             history={history}
-            getSelectedUser={getSelectedUser}
+            getCurrentUser={getCurrentUser}
           />
           <CommentsList currentUser={currentUser} />
         </div>
