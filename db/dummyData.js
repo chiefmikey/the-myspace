@@ -81,8 +81,8 @@ exports.dummyData = [
     detailsOccupation: 'being a big dog',
     headline: 'woof woof woof woof',
     blogPosts: [
-      ['crazy night', ''],
-      ['sup', ''],
+      [1, 'crazy night', ''],
+      [0, 'sup', ''],
     ],
     blurbsAboutMe: 'im clifford, dumbass',
     blurbsWhoIdLikeToMeet: 'charlie from charlie brown',

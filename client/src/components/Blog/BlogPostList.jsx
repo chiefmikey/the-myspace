@@ -13,6 +13,9 @@ class BlogPostsList extends React.Component {
 
   render() {
     const { history, currentUser } = this.props;
+    const sortedPosts = currentUser.blogPosts
+      ? currentUser.blogPosts.sort((a, b) => b[0] - a[0])
+      : undefined;
     return (
       <div id="blog-list">
         <div id="blog-list-name">
@@ -22,7 +25,7 @@ class BlogPostsList extends React.Component {
           </h5>
         </div>
         <div id="blogpost-area">
-          <BlogPosts blogPosts={currentUser.blogPosts} />
+          <BlogPosts blogPosts={sortedPosts} />
         </div>
       </div>
     );

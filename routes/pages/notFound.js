@@ -10,9 +10,10 @@ module.exports = router;
 router.route('/')
   .get(async (req, res) => {
     try {
-      // const {} = req.query;
+      // const {} = req.params;
+      // console.log(req);
       // const result = await;
-      res.status(200).sendFile(path.join(__dirname, '../client/public/blog.html'));
+      res.status(200).sendFile(path.join(__dirname, '../../client/public/index.html'));
     } catch (error) {
       console.error(error);
       res.status(404).send(error);

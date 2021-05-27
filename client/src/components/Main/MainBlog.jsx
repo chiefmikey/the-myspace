@@ -37,7 +37,7 @@ class MainBlog extends React.Component {
     const { subscribeWindow } = this.state;
     const { currentUser, history } = this.props;
     const sortedPosts = currentUser.blogPosts
-      ? currentUser.blogPosts.sort((a, b) => b[0] - a[0])
+      ? currentUser.blogPosts.sort((a, b) => b[0] - a[0]).slice(0, 5)
       : undefined;
     return (
       <div id="main-blog">

@@ -709,6 +709,7 @@ h6 {
   margin-bottom: 30px;
   overflow: hidden;
   margin-top: 2px;
+  box-sizing: border-box;
 }
 
 #blog-list-name {
@@ -719,7 +720,6 @@ h6 {
   align-items: center;
   padding-left: 10px;
   color: white;
-  box-sizing: border-box;
 }
 
 #blogpost-area {

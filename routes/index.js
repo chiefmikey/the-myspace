@@ -1,8 +1,8 @@
-const main = require('./main');
-const blog = require('./blog');
-const currentUser = require('./currentUser');
-const userIcon = require('./userIcon');
-const notFound = require('./notFound');
+const main = require('./pages/main');
+const blog = require('./pages/blog');
+const notFound = require('./pages/notFound');
+const currentUser = require('./users/currentUser');
+const userIcon = require('./users/userIcon');
 
 module.exports = (app) => {
   app.use('/:urlAddress', main);

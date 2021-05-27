@@ -11,7 +11,7 @@ import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 import wolfebytew from '../../../public/img/wolfebyte-w.png';
 
-const Header = ({ history }) => (
+const Header = ({ history, getCurrentUser }) => (
   <div id="header">
     <Router history={history}>
       <div id="header-info">
@@ -36,6 +36,7 @@ const Header = ({ history }) => (
       <Link
         to="/wolfebyte"
         onClick={() => {
+          getCurrentUser('/wolfebyte');
           history.push('/wolfebyte');
         }}
       >
