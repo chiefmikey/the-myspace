@@ -9,9 +9,10 @@ import {
 
 import Header from './Nav/Header';
 import Nav from './Nav/Nav';
+import Footer from './Nav/Footer';
+import Landing from './Landing/Landing';
 import Main from './Main/Main';
 import Blog from './Blog/Blog';
-import Footer from './Nav/Footer';
 
 class App extends React.Component {
   constructor() {
@@ -28,8 +29,10 @@ class App extends React.Component {
 
   componentDidUpdate() {
     const { currentUser } = this.state;
-    if (window.location.href !== `http://localhost:8080${currentUser.urlAddress}`) {
-      this.getCurrentUser(window.location.href);
+    const extract = window.location.href.split('/')[3];
+    const url = `/${extract}`;
+    if (url !== currentUser.urlAddress) {
+      this.getCurrentUser(url);
     }
   }
 
@@ -41,6 +44,9 @@ class App extends React.Component {
     })
       .then((res) => {
         this.setState({ currentUser: res.data });
+      })
+      .catch((error) => {
+        console.error(error);
       });
   }
 
@@ -58,13 +64,8 @@ class App extends React.Component {
           <Route
             path="/"
             exact
-            render={(routeProps) => (
-              <Main
-                history={history}
-                currentUser={currentUser}
-                routeProps={routeProps}
-                getCurrentUser={this.getCurrentUser}
-              />
+            render={() => (
+              <Landing />
             )}
           />
           <Route

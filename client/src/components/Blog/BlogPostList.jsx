@@ -14,7 +14,17 @@ class BlogPostsList extends React.Component {
   render() {
     const { history, currentUser } = this.props;
     return (
-      <BlogPosts blogPosts={currentUser.blogPosts} />
+      <div id="blog-list">
+        <div id="blog-list-name">
+          <h5>
+            {currentUser.profileName}
+            &apos;s Blog Posts
+          </h5>
+        </div>
+        <div id="blogpost-area">
+          <BlogPosts blogPosts={currentUser.blogPosts} />
+        </div>
+      </div>
     );
   }
 }

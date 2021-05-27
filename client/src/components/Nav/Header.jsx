@@ -11,19 +11,32 @@ import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 import wolfebytew from '../../../public/img/wolfebyte-w.png';
 
-const Header = ({ history, getCurrentUser }) => (
+const Header = ({ history }) => (
   <div id="header">
-    <div id="header-info">
-      <span className="text-button">Sign Up</span>
-      {' | '}
-      <span className="text-button">Login</span>
-    </div>
     <Router history={history}>
+      <div id="header-info">
+        <Link
+          to="/"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
+          <span className="text-button">Sign Up</span>
+        </Link>
+        {' | '}
+        <Link
+          to="/"
+          onClick={() => {
+            history.push('/');
+          }}
+        >
+          <span className="text-button">Log In</span>
+        </Link>
+      </div>
       <Link
-        to="/"
+        to="/wolfebyte"
         onClick={() => {
-          getCurrentUser('/');
-          history.push('/');
+          history.push('/wolfebyte');
         }}
       >
         <Img

@@ -36,6 +36,9 @@ class MainBlog extends React.Component {
   render() {
     const { subscribeWindow } = this.state;
     const { currentUser, history } = this.props;
+    const sortedPosts = currentUser.blogPosts
+      ? currentUser.blogPosts.sort((a, b) => b[0] - a[0])
+      : undefined;
     return (
       <div id="main-blog">
         {subscribeWindow
@@ -52,20 +55,20 @@ class MainBlog extends React.Component {
               {currentUser.profileName}
               &apos;s Latest Blog Entry
               {' '}
-              [
-              <div
-                className="text-button"
-                onClick={this.openSubscribeWindow}
-                onKeyPress={this.openSubscribeWindow}
-                tabIndex={0}
-                role="button"
-              >
-                Subscribe
-              </div>
-              ]
             </h5>
+            [
+            <div
+              className="text-button"
+              onClick={this.openSubscribeWindow}
+              onKeyPress={this.openSubscribeWindow}
+              tabIndex={0}
+              role="button"
+            >
+              Subscribe
+            </div>
+            ]
           </div>
-          <MainBlogPosts blogPosts={currentUser.blogPosts} />
+          <MainBlogPosts blogPosts={sortedPosts} />
           <div id="main-blog-view-all">
             [
             <div className="text-button">

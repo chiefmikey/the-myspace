@@ -35,7 +35,7 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
         src={friend[1].profilePic}
         placeholder={loadingImage}
         error={errorImage}
-        // lazy
+        lazy
         cache
         alt="top friend profile icon"
       />

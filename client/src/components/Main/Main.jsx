@@ -9,6 +9,7 @@ import MainBlog from './MainBlog';
 import Blurbs from './Blurbs';
 import Friends from './Friends';
 import CommentsList from './CommentsList';
+import NotFound from '../Landing/NotFound';
 
 class Main extends React.Component {
   constructor(props) {
@@ -34,6 +35,13 @@ class Main extends React.Component {
       currentUser,
       getCurrentUser,
     } = this.props;
+    if (currentUser._id < 0) {
+      return (
+        <div id="main">
+          <NotFound />
+        </div>
+      );
+    }
 
     return (
       <div id="main">

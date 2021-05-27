@@ -38,7 +38,7 @@ class Friends extends React.Component {
         }
       }
     }
-    topFriends.sort().forEach((friend, index, array) => {
+    topFriends.forEach((friend, index, array) => {
       axios.get('/user/icon', {
         params: {
           iconUserId: friend[1],
@@ -47,7 +47,8 @@ class Friends extends React.Component {
         .then((res) => {
           friendsTop.push([friend[0], res.data]);
           if (friendsTop.length === array.length) {
-            this.setState({ friendsTop: friendsTop.sort() });
+            console.log(friendsTop.sort((a, b) => a - b));
+            this.setState({ friendsTop: friendsTop.sort((a, b) => a[0] - b[0]) });
           }
         });
     });

@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+import Profile from '../Main/Profile';
 import BlogPostList from './BlogPostList';
 import BlogPostCurrent from './BlogPostCurrent';
 
@@ -10,7 +11,7 @@ class Blog extends React.Component {
     this.state = {
       currentPost: {
         title: 'wow thats a big hot dog',
-        date: new Date,
+        date: new Date(),
         content: 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.',
       },
     };
@@ -29,25 +30,25 @@ class Blog extends React.Component {
   // }
 
   render() {
+    console.log('wow');
     const { history, currentUser } = this.props;
     const { currentPost } = this.state;
     return (
-      <>
-        <div id="blog">
-          <div id="blog-left">
-            <div id="blog-header">
-              <h3>
-                {currentUser.profileName}
-                &apos;s Blog
-              </h3>
-            </div>
-            <BlogPostList currentUser={currentUser} />
-          </div>
-          <div id="blog-right">
-            <BlogPostCurrent currentPost={currentPost} />
-          </div>
+      <div id="blog">
+        <div id="blog-left">
+          <Profile history={history} currentUser={currentUser} blog />
+          <BlogPostList history={history} currentUser={currentUser} />
         </div>
-      </>
+        <div id="blog-right">
+          <div id="blog-title">
+            <h4>
+              {currentUser.profileName}
+              &apos;s Blog
+            </h4>
+          </div>
+          <BlogPostCurrent currentPost={currentPost} />
+        </div>
+      </div>
     );
   }
 }

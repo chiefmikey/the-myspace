@@ -6,7 +6,7 @@ const MainBlogPosts = ({ blogPosts }) => (
   blogPosts.map((post) => (
     <div className="main-blogpost" key={blogPosts.indexOf(post)}>
       <LinesEllipsis
-        text={post[0]}
+        text={post[1]}
         maxLine="1"
         ellipsis="..."
         trimRight
