@@ -1,43 +1,81 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import axios from 'axios';
 
-import Profile from '../Main/Profile';
-import BlogPostList from './BlogPostList';
 import BlogPostCurrent from './BlogPostCurrent';
+import BlogPostList from './BlogPostList';
+import Profile from '../Main/Profile';
+import BlogUpdates from '../Main/BlogUpdates';
+import BlogSocial from '../Nav/BlogSocial';
 
 class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPost: {
-        title: 'wow thats a big hot dog',
-        date: new Date(),
-        content: 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.',
-      },
+      currentPost: [],
+      highlightPost: -1,
     };
+    this.selectPost = this.selectPost.bind(this);
+    this.postHighlight = this.postHighlight.bind(this);
   }
 
-  // componentDidMount() {
-  //   const { routeProps, getCurrentUser } = this.props;
-  //   getCurrentUser(routeProps.match.url);
-  // }
+  componentDidMount() {
+    const { currentUser } = this.props;
+    if (currentUser.blogPosts) {
+      this.selectPost();
+    }
+  }
 
-  // componentDidUpdate(prevProps) {
-  //   const { routeProps, getCurrentUser } = this.props;
-  //   if (prevProps.routeProps.match.url !== routeProps.match.url) {
-  //     getCurrentUser(routeProps.match.url);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    const { currentUser } = this.props;
+    if (prevProps.currentUser.urlAddress !== currentUser.urlAddress) {
+      this.selectPost();
+    }
+  }
+
+  postHighlight(postId) {
+    this.setState({ highlightPost: postId });
+  }
+
+  selectPost(postId) {
+    const { currentUser } = this.props;
+    this.postHighlight(postId);
+    axios.get('/user/blogPost', {
+      params: {
+        urlAddress: currentUser.urlAddress,
+        postId,
+      },
+    })
+      .then((res) => this.setState({ currentPost: res.data }))
+      .catch((error) => console.error(error));
+  }
 
   render() {
-    console.log('wow');
     const { history, currentUser } = this.props;
-    const { currentPost } = this.state;
+    const { currentPost, highlightPost } = this.state;
     return (
       <div id="blog">
         <div id="blog-left">
-          <Profile history={history} currentUser={currentUser} blog />
-          <BlogPostList history={history} currentUser={currentUser} />
+          <Profile
+            history={history}
+            currentUser={currentUser}
+            blog
+          />
+          <BlogPostList
+            history={history}
+            currentUser={currentUser}
+            selectPost={this.selectPost}
+            currentPost={currentPost}
+            highlightPost={highlightPost}
+          />
+          <div id="url">
+            <div id="url-name">.net URL</div>
+            <div id="url-address">
+              http://wolfebyte.net
+              {currentUser.urlAddress}
+              /blog
+            </div>
+          </div>
         </div>
         <div id="blog-right">
           <div id="blog-title">
@@ -47,6 +85,10 @@ class Blog extends React.Component {
             </h4>
           </div>
           <BlogPostCurrent currentPost={currentPost} />
+          <BlogSocial currentPost={currentPost} />
+          <div id="blog-updates">
+            <BlogUpdates currentUser={currentUser} />
+          </div>
         </div>
       </div>
     );

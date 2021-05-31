@@ -11,33 +11,37 @@ import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 import wolfebytew from '../../../public/img/wolfebyte-w.png';
 
-const Header = ({ history, getCurrentUser }) => (
+const Header = ({
+  history, getCurrentUser, activeUser, showLogIn,
+}) => (
   <div id="header">
     <Router history={history}>
-      <div id="header-info">
-        <Link
-          to="/"
-          onClick={() => {
-            history.push('/');
-          }}
-        >
-          <span className="text-button">Sign Up</span>
-        </Link>
-        {' | '}
-        <Link
-          to="/"
-          onClick={() => {
-            history.push('/');
-          }}
-        >
-          <span className="text-button">Log In</span>
-        </Link>
-      </div>
+      {activeUser._id && activeUser._id >= 0
+        ? (
+          <div id="header-info">
+            <Link
+              to="/"
+            >
+              <span className="text-button">Log Out</span>
+            </Link>
+          </div>
+        )
+        : (
+          <div id="header-info">
+            <Link
+              to="/"
+            >
+              <span className="text-button">Sign Up</span>
+            </Link>
+            {' | '}
+            <span className="text-button" onClick={() => showLogIn('openLogIn')}>Log In</span>
+          </div>
+        )}
+
       <Link
         to="/wolfebyte"
         onClick={() => {
           getCurrentUser('/wolfebyte');
-          history.push('/wolfebyte');
         }}
       >
         <Img
@@ -56,10 +60,12 @@ const Header = ({ history, getCurrentUser }) => (
 
 Header.defaultProps = {
   history: {},
+  getCurrentUser: () => {},
 };
 
 Header.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
+  getCurrentUser: propTypes.func,
 };
 
 export default withRouter(Header);

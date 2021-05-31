@@ -19,6 +19,11 @@ module.exports = {
         },
       },
       {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
+      {
         test: /\.(png|ttf|jp(e*)g|svg)$/,
         use: 'url-loader?limit=100000&name=img/[name].[ext]',
       },

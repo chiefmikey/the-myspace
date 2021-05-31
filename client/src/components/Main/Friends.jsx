@@ -47,7 +47,6 @@ class Friends extends React.Component {
         .then((res) => {
           friendsTop.push([friend[0], res.data]);
           if (friendsTop.length === array.length) {
-            console.log(friendsTop.sort((a, b) => a - b));
             this.setState({ friendsTop: friendsTop.sort((a, b) => a[0] - b[0]) });
           }
         });

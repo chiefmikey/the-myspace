@@ -10,6 +10,7 @@ import {
 import Header from './Nav/Header';
 import Nav from './Nav/Nav';
 import Footer from './Nav/Footer';
+import LogIn from './Nav/LogIn';
 import Landing from './Landing/Landing';
 import Main from './Main/Main';
 import Blog from './Blog/Blog';
@@ -18,13 +19,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      activeUser: { _id: -1 },
       currentUser: {},
+      logIn: false,
     };
     this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.showLogIn = this.showLogIn.bind(this);
   }
 
   componentDidMount() {
-    this.getCurrentUser(window.location.href);
+    const { currentUser } = this.state;
+    const extract = window.location.href.split('/')[3];
+    const url = `/${extract}`;
+    if (url !== currentUser.urlAddress) {
+      this.getCurrentUser(url);
+    }
   }
 
   componentDidUpdate() {
@@ -46,18 +55,47 @@ class App extends React.Component {
         this.setState({ currentUser: res.data });
       })
       .catch((error) => {
-        console.error(error);
+        console.error('Error in App:getCurrentUser', error);
       });
+  }
+
+  logInUser(username, email, password) {
+    const { activeUser } = this.state;
+    axios.get('user/login', {
+      params: {
+        username,
+        email,
+        password,
+      },
+    })
+      .then((res) => this.state({ activeUser: res.data }))
+      .catch((error) => console.error('Error in App:logIn', error));
+  }
+
+  showLogIn(status) {
+    const { logIn } = this.state;
+    console.log(status);
+    if (status === 'openLogIn') {
+      this.setState({ logIn: true });
+    }
+    if (status === 'closeLogIn') {
+      this.setState({ logIn: false });
+    }
   }
 
   render() {
     const { history } = this.props;
-    const { currentUser } = this.state;
+    const { activeUser, currentUser, logIn } = this.state;
     return (
       <Router history={history}>
+        {logIn
+          ? <LogIn showLogIn={this.showLogIn} />
+          : undefined}
         <Header
           history={history}
           getCurrentUser={this.getCurrentUser}
+          activeUser={activeUser}
+          showLogIn={this.showLogIn}
         />
         <Nav />
         <Switch>
@@ -98,15 +136,23 @@ class App extends React.Component {
             /> */}
           <Route
             path="/:urlAddress/blog"
-            render={(routeProps) => (
+            render={() => (
               <Blog
                 history={history}
                 currentUser={currentUser}
-                routeProps={routeProps}
-                getCurrentUser={this.getCurrentUser}
               />
             )}
           />
+          <Route
+            path="/:urlAddress/blog/:postId"
+            render={() => (
+              <Blog
+                history={history}
+                currentUser={currentUser}
+              />
+            )}
+          />
+
         </Switch>
         <Footer />
       </Router>

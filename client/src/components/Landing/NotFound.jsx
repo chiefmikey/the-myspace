@@ -15,9 +15,6 @@ const NotFound = ({ history }) => (
     <Router history={history}>
       <Link
         to="/"
-        onClick={() => {
-          history.push('/');
-        }}
       >
         <Img
           id="not-found-pic-img"

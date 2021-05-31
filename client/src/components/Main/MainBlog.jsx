@@ -44,7 +44,7 @@ class MainBlog extends React.Component {
         {subscribeWindow
           ? (
             <Subscribe
-              profileName={currentUser.profileName}
+              currentUser={currentUser}
               closeSubscribeWindow={this.closeSubscribeWindow}
             />
           )
@@ -73,7 +73,7 @@ class MainBlog extends React.Component {
             [
             <div className="text-button">
               <Router history={history}>
-                <Link to={`${currentUser.urlAddress}/blog`} onClick={() => history.push(`${currentUser.urlAddress}/blog`)}>View All Entries</Link>
+                <Link to={`${currentUser.urlAddress}/blog`}>View All Entries</Link>
               </Router>
             </div>
             ]

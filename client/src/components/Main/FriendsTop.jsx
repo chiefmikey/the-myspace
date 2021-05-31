@@ -18,7 +18,6 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
       className="friends-top-icon"
       onClick={() => {
         getCurrentUser(friend[1].urlAddress);
-        history.push(friend[1].urlAddress);
       }}
     >
       <div className="friends-top-icon-name">

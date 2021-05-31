@@ -1,6 +1,8 @@
 exports.dummyData = [
   {
     _id: 0,
+    email: 'wolfebyte.net@gmail.com',
+    password: 'hotdog',
     profileName: 'wolfebyte',
     profilePic: '/img/wbyte.png',
     profileMood: 'cloudy',
@@ -27,11 +29,13 @@ exports.dummyData = [
     detailsOccupation: 'keepin it breezy',
     headline: 'ready to party rock',
     blogPosts: [
-      [4, 'approving comments ...', ''],
-      [3, 'new homepage look', ''],
-      [2, 'whats going on with friend counts?', ''],
-      [1, 'extended network', ''],
-      [0, 'am i online?', ''],
+      [6, 'what else', 'were not friends so dont text my parents anymore'],
+      [5, 'just because', 'i hate you.'],
+      [4, 'i could use some help', 'just kidding i hate you'],
+      [3, 'further discussion', 'dont forget i know everything'],
+      [2, 'what what', 'ah fuhck, i believe you have done me wrong.'],
+      [1, 'excellent', 'i will shoot forth the lasers from my eyeballs'],
+      [0, 'ok guys', 'stop it'],
     ],
     blurbsAboutMe: 'a blue-skinned humanoid who wears a purple hood over his bare-bone skull.',
     blurbsWhoIdLikeToMeet: 'your mom',
@@ -55,6 +59,8 @@ exports.dummyData = [
   },
   {
     _id: 1,
+    email: 'cliff.dawg@gmail.com',
+    password: 'dipshit',
     profileName: 'clifford',
     profilePic: 'https://static01.nyt.com/images/2018/05/17/arts/television/17clifford-item/17clifford-item-articleLarge.jpg?quality=75&auto=webp&disable=upscale',
     profileMood: 'woof',
@@ -81,8 +87,9 @@ exports.dummyData = [
     detailsOccupation: 'being a big dog',
     headline: 'woof woof woof woof',
     blogPosts: [
-      [1, 'crazy night', ''],
-      [0, 'sup', ''],
+      [2, 'wow thats a big hot dog', 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.'],
+      [1, 'crazy night', 'chess board am i right'],
+      [0, 'sup', 'stop it'],
     ],
     blurbsAboutMe: 'im clifford, dumbass',
     blurbsWhoIdLikeToMeet: 'charlie from charlie brown',

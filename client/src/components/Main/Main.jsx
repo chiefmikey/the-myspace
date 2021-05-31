@@ -22,12 +22,12 @@ class Main extends React.Component {
   //   getCurrentUser(routeProps.match.url);
   // }
 
-  // componentDidUpdate(prevProps) {
-  //   const { routeProps, getCurrentUser } = this.props;
-  //   if (prevProps.routeProps.match.url !== routeProps.match.url) {
-  //     getCurrentUser(routeProps.match.url);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    const { routeProps, getCurrentUser } = this.props;
+    if (prevProps.routeProps.match.url !== routeProps.match.url) {
+      getCurrentUser(routeProps.match.url);
+    }
+  }
 
   render() {
     const {
@@ -91,12 +91,14 @@ Main.defaultProps = {
   history: {},
   currentUser: {},
   getCurrentUser: () => {},
+  routeProps: {},
 };
 
 Main.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   getCurrentUser: propTypes.func,
+  routeProps: propTypes.oneOfType([propTypes.object]),
 };
 
 export default Main;

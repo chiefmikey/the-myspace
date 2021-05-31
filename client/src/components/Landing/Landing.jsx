@@ -21,18 +21,12 @@ const Landing = ({ history }) => (
         <div id="landing-action">
           <Link
             to="/"
-            onClick={() => {
-              history.push('/');
-            }}
           >
             Sign Up
           </Link>
           {' | '}
           <Link
             to="/"
-            onClick={() => {
-              history.push('/');
-            }}
           >
             Log In
           </Link>

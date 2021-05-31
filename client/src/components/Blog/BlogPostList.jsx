@@ -3,20 +3,14 @@ import propTypes from 'prop-types';
 
 import BlogPosts from './BlogPosts';
 
-class BlogPostsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPost: '',
-    };
-  }
-
-  render() {
-    const { history, currentUser } = this.props;
-    const sortedPosts = currentUser.blogPosts
-      ? currentUser.blogPosts.sort((a, b) => b[0] - a[0])
-      : undefined;
-    return (
+const BlogPostsList = ({
+  history, currentUser, selectPost, currentPost, highlightPost,
+}) => {
+  const sortedPosts = currentUser.blogPosts
+    ? currentUser.blogPosts.sort((a, b) => b[0] - a[0])
+    : [];
+  return currentUser.blogPosts
+    ? (
       <div id="blog-list">
         <div id="blog-list-name">
           <h5>
@@ -25,21 +19,33 @@ class BlogPostsList extends React.Component {
           </h5>
         </div>
         <div id="blogpost-area">
-          <BlogPosts blogPosts={sortedPosts} />
+          <BlogPosts
+            sortedPosts={sortedPosts}
+            selectPost={selectPost}
+            currentPost={currentPost}
+            highlightPost={highlightPost}
+            history={history}
+          />
         </div>
       </div>
-    );
-  }
-}
+    )
+    : <></>;
+};
 
 BlogPostsList.defaultProps = {
   history: {},
   currentUser: {},
+  currentPost: [],
+  highlightPost: -1,
+  selectPost: () => {},
 };
 
 BlogPostsList.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
+  currentPost: propTypes.oneOfType([propTypes.array]),
+  highlightPost: propTypes.number,
+  selectPost: propTypes.func,
 };
 
 export default BlogPostsList;

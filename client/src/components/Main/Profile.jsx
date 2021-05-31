@@ -12,13 +12,13 @@ import errorImage from '../../../public/img/404.jpeg';
 
 const Profile = ({ history, currentUser, blog }) => (
   <div id="profile">
-    <div id="profile-name">
+    <span id="profile-name">
       <h3>
         <Router history={history}>
-          <Link to={`${currentUser.urlAddress}`} onClick={() => history.push(`${currentUser.urlAddress}`)}>{currentUser.profileName}</Link>
+          <Link to={`${currentUser.urlAddress}`}>{currentUser.profileName}</Link>
         </Router>
       </h3>
-    </div>
+    </span>
     <div id="profile-pic">
       <Img
         id="profile-pic-img"
@@ -33,53 +33,51 @@ const Profile = ({ history, currentUser, blog }) => (
     {blog
       ? (
         <div id="profile-mood">
-          <div id="profile-mood-name">Mood:</div>
-          <div id="profile-mood-current">{currentUser.profileMood}</div>
-          <div id="profile-mood-current-emoji">{currentUser.profileMoodEmoji}</div>
-          <div id="profile-mood-view-pics">
-            [
-            <div className="text-button">
+          <span id="profile-mood-name">Mood:</span>
+          <span id="profile-mood-current">{currentUser.profileMood}</span>
+          <span id="profile-mood-current-emoji">{currentUser.profileMoodEmoji}</span>
+          <span id="profile-mood-view-pics">
+            View My:
+            {' '}
+            <span className="text-button">
               <Router history={history}>
-                <Link to={`${currentUser.urlAddress}`} onClick={() => history.push(`${currentUser.urlAddress}`)}>View Profile</Link>
+                <Link to={`${currentUser.urlAddress}`}>Profile</Link>
               </Router>
-            </div>
-            ]
-          </div>
+            </span>
+          </span>
         </div>
       )
       : (
         <div id="profile-mood">
-          <div id="profile-mood-name">Mood:</div>
-          <div id="profile-mood-current">{currentUser.profileMood}</div>
-          <div id="profile-mood-current-emoji">{currentUser.profileMoodEmoji}</div>
-          <div id="profile-mood-view-pics">
+          <span id="profile-mood-name">Mood:</span>
+          <span id="profile-mood-current">{currentUser.profileMood}</span>
+          <span id="profile-mood-current-emoji">{currentUser.profileMoodEmoji}</span>
+          <span id="profile-mood-view-pics">
             View My:
             {' '}
             <span className="text-button">Pics</span>
-            {' '}
-            |
-            {' '}
+            {' | '}
             <span className="text-button">Videos</span>
-          </div>
+          </span>
         </div>
       )}
     <div id="profile-desc">
-      <div id="profile-desc-status">
+      <span id="profile-desc-status">
         &quot;
         {currentUser.profileStatus}
         &quot;
-      </div>
-      <div id="profile-desc-gender">{currentUser.profileGender}</div>
-      <div id="profile-desc-age">
+      </span>
+      <span id="profile-desc-gender">{currentUser.profileGender}</span>
+      <span id="profile-desc-age">
         {currentUser.profileAge}
         {' '}
         years old
-      </div>
-      <div id="profile-desc-city">{currentUser.profileCity}</div>
-      <div id="profile-desc-state">{currentUser.profileState}</div>
-      <div id="profile-desc-country">{currentUser.profileCountry}</div>
-      <div id="profile-desc-login">Last Login:</div>
-      <div id="profile-desc-login-date">{currentUser.profileLogin}</div>
+      </span>
+      <span id="profile-desc-city">{currentUser.profileCity}</span>
+      <span id="profile-desc-state">{currentUser.profileState}</span>
+      <span id="profile-desc-country">{currentUser.profileCountry}</span>
+      <span id="profile-desc-login">Last Login:</span>
+      <span id="profile-desc-login-date">{currentUser.profileLogin}</span>
     </div>
   </div>
 );
