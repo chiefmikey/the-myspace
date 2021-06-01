@@ -26,7 +26,6 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
           maxLine="2"
           ellipsis="..."
           trimRight
-          basedOn="letters"
         />
       </div>
       <Img

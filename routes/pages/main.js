@@ -19,3 +19,16 @@ router.route('/')
       res.status(404).send(error);
     }
   });
+
+router.route('/:postTitle')
+  .get(async (req, res) => {
+    try {
+      // const {} = req.params;
+      // console.log(req.params);
+      // const result = await;
+      res.status(200).sendFile(path.join(__dirname, '../../client/public/posted.html'));
+    } catch (error) {
+      console.error(error);
+      res.status(404).send(error);
+    }
+  });

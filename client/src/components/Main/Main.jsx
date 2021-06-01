@@ -5,7 +5,7 @@ import Profile from './Profile';
 import Contact from './Contact';
 import Interests from './Interests';
 import Details from './Details';
-import MainBlog from './MainBlog';
+import MainPosted from './MainPosted';
 import Blurbs from './Blurbs';
 import Friends from './Friends';
 import CommentsList from './CommentsList';
@@ -70,7 +70,7 @@ class Main extends React.Component {
               {currentUser.headline}
             </h4>
           </div>
-          <MainBlog
+          <MainPosted
             currentUser={currentUser}
             history={history}
           />

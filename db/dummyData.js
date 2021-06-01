@@ -28,7 +28,7 @@ exports.dummyData = [
     detailsSmokeDrink: '69',
     detailsOccupation: 'keepin it breezy',
     headline: 'ready to party rock',
-    blogPosts: [
+    postedPosts: [
       [6, 'what else', 'were not friends so dont text my parents anymore'],
       [5, 'just because', 'i hate you.'],
       [4, 'i could use some help', 'just kidding i hate you'],
@@ -86,7 +86,7 @@ exports.dummyData = [
     detailsSmokeDrink: 'both',
     detailsOccupation: 'being a big dog',
     headline: 'woof woof woof woof',
-    blogPosts: [
+    postedPosts: [
       [2, 'wow thats a big hot dog', 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.'],
       [1, 'crazy night', 'chess board am i right'],
       [0, 'sup', 'stop it'],

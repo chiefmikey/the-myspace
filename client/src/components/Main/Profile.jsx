@@ -10,7 +10,7 @@ import {
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 
-const Profile = ({ history, currentUser, blog }) => (
+const Profile = ({ history, currentUser, posted }) => (
   <div id="profile">
     <span id="profile-name">
       <h3>
@@ -30,7 +30,7 @@ const Profile = ({ history, currentUser, blog }) => (
         alt="user profile avatar"
       />
     </div>
-    {blog
+    {posted
       ? (
         <div id="profile-mood">
           <span id="profile-mood-name">Mood:</span>
@@ -84,13 +84,13 @@ const Profile = ({ history, currentUser, blog }) => (
 
 Profile.defaultProps = {
   currentUser: {},
-  blog: false,
+  posted: false,
   history: {},
 };
 
 Profile.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
-  blog: propTypes.bool,
+  posted: propTypes.bool,
   history: propTypes.oneOfType([propTypes.object]),
 };
 

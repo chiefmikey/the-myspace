@@ -13,7 +13,7 @@ import Footer from './Nav/Footer';
 import LogIn from './Nav/LogIn';
 import Landing from './Landing/Landing';
 import Main from './Main/Main';
-import Blog from './Blog/Blog';
+import Posted from './Posted/Posted';
 
 class App extends React.Component {
   constructor() {
@@ -23,25 +23,23 @@ class App extends React.Component {
       currentUser: {},
       logIn: false,
     };
+    this.url = () => `/${window.location.href.split('/')[3]}`;
     this.getCurrentUser = this.getCurrentUser.bind(this);
     this.showLogIn = this.showLogIn.bind(this);
   }
 
   componentDidMount() {
     const { currentUser } = this.state;
-    const extract = window.location.href.split('/')[3];
-    const url = `/${extract}`;
-    if (url !== currentUser.urlAddress) {
-      this.getCurrentUser(url);
+    if (this.url() !== currentUser.urlAddress) {
+      this.getCurrentUser(this.url());
     }
   }
 
   componentDidUpdate() {
     const { currentUser } = this.state;
-    const extract = window.location.href.split('/')[3];
-    const url = `/${extract}`;
-    if (url !== currentUser.urlAddress) {
-      this.getCurrentUser(url);
+    if (this.url() !== currentUser.urlAddress) {
+      console.log(this.url());
+      this.getCurrentUser(this.url());
     }
   }
 
@@ -74,7 +72,6 @@ class App extends React.Component {
 
   showLogIn(status) {
     const { logIn } = this.state;
-    console.log(status);
     if (status === 'openLogIn') {
       this.setState({ logIn: true });
     }
@@ -98,62 +95,41 @@ class App extends React.Component {
           showLogIn={this.showLogIn}
         />
         <Nav />
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={() => (
-              <Landing />
-            )}
-          />
-          <Route
-            path="/:urlAddress"
-            exact
-            render={(routeProps) => (
-              <Main
-                history={history}
-                currentUser={currentUser}
-                routeProps={routeProps}
-                getCurrentUser={this.getCurrentUser}
+        {this.url() === currentUser.urlAddress
+          ? (
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => (
+                  <Landing />
+                )}
               />
-            )}
-          />
-          {/* <Route
-              path={`/${currentUser.urlAddress}`}
-              exact
-              render={(routeProps) => (
-                <Main
-                  history={history}
-                  currentUser={currentUser}
-                  routeProps={routeProps}
-                  getSelectedUser={this.getSelectedUser}
-                />
-              )}
-            /> */}
-          {/* <Route
-              path={`/${selectedUser.urlAddress}`}
-              render={() => <Main history={history} currentUser={selectedUser} />}
-            /> */}
-          <Route
-            path="/:urlAddress/blog"
-            render={() => (
-              <Blog
-                history={history}
-                currentUser={currentUser}
+              <Route
+                path="/:urlAddress"
+                exact
+                render={(routeProps) => (
+                  <Main
+                    history={history}
+                    currentUser={currentUser}
+                    routeProps={routeProps}
+                    getCurrentUser={this.getCurrentUser}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/:urlAddress/blog/:postId"
-            render={() => (
-              <Blog
-                history={history}
-                currentUser={currentUser}
+              <Route
+                path="/:urlAddress/:postTitle"
+                exact
+                render={() => (
+                  <Posted
+                    history={history}
+                    currentUser={currentUser}
+                  />
+                )}
               />
-            )}
-          />
-
-        </Switch>
+            </Switch>
+          )
+          : <></>}
         <Footer />
       </Router>
     );

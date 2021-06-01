@@ -1,7 +1,7 @@
 const Router = require('express-promise-router');
 const { getCurrentUser } = require('../../db/queries/getCurrentUser');
 const { getUserIcon } = require('../../db/queries/getUserIcon');
-const { getBlogPost } = require('../../db/queries/getBlogPost');
+const { getPostedPost } = require('../../db/queries/getPostedPost');
 
 const router = new Router();
 
@@ -31,11 +31,11 @@ router.route('/icon')
     }
   });
 
-router.route('/blogPost')
+router.route('/postedPost')
   .get(async (req, res) => {
     try {
-      const { urlAddress, postId } = req.query;
-      const result = await getBlogPost(urlAddress, postId);
+      const { urlAddress, postTitle } = req.query;
+      const result = await getPostedPost(urlAddress, postTitle);
       res.status(200).send(result);
     } catch (error) {
       console.error(error);
