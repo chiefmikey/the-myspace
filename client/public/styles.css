@@ -168,9 +168,9 @@ h6 {
   padding-top: 15px;
 }
 
-/* Main */
+/* Profile */
 
-#main {
+#profile {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -179,19 +179,19 @@ h6 {
   background-color: white;
 }
 
-#main-left {
+#profile-left {
   width: 400px;
   padding: 30px 20px 30px 30px;
 }
 
-#main-right {
+#profile-right {
   width: 600px;
   padding: 30px 30px 30px 20px;
 }
 
-/* Main Left Side */
+/* Profile Left Side */
 
-#profile {
+#description {
   display: grid;
   grid-template-columns: 250px;
   grid-template-rows: auto 200px 75px;
@@ -201,13 +201,13 @@ h6 {
     "mood login";
 }
 
-#profile-name {
+#description-name {
   grid-area: name;
   align-self: end;
   padding: 0 0 15px 0;
 }
 
-#profile-pic {
+#description-pic {
   grid-area: pic;
   overflow: hidden;
   display: flex;
@@ -215,12 +215,12 @@ h6 {
   align-items: center;
 }
 
-#profile-pic-img {
+#description-pic-img {
   width: 100%;
   object-fit: cover;
 }
 
-#profile-mood {
+#description-mood {
   white-space: pre;
   padding: 18px 20px 0 0;
   height: 20px;
@@ -232,22 +232,22 @@ h6 {
     "view view view";
 }
 
-#profile-mood-name {
+#description-mood-name {
   height: 25px;
   grid-area: name;
 }
 
-#profile-mood-current {
+#description-mood-current {
   height: 25px;
   grid-area: current;
 }
 
-#profile-mood-current-emoji {
+#description-mood-current-emoji {
   height: 25px;
   grid-area: emoji;
 }
 
-#profile-mood-view-pics {
+#description-mood-view-pics {
   height: 20px;
   grid-area: view;
   display: flex;
@@ -255,11 +255,11 @@ h6 {
   white-space: pre;
 }
 
-#profile-mood-view-pics a {
+#description-mood-view-pics a {
   font-weight: 600;
 }
 
-#profile-desc {
+#description-desc {
   white-space: pre;
   padding: 0 20px 0 20px;
   grid-area: desc;
@@ -267,15 +267,15 @@ h6 {
   flex-direction: column;
 }
 
-#profile-desc-status {
+#description-desc-status {
   height: 40px;
 }
 
-#profile-desc-gender, #profile-desc-age, #profile-desc-city, #profile-desc-state, #profile-desc-country, #profile-desc-login-date {
+#description-desc-gender, #description-desc-age, #description-desc-city, #description-desc-state, #description-desc-country, #description-desc-login-date {
   height: 20px;
 }
 
-#profile-desc-login {
+#description-desc-login {
   height: 40px;
   display: flex;
   flex-direction: column;
@@ -412,7 +412,7 @@ h6 {
   height: 100% - 4px;
 }
 
-/* Main Right Side */
+/* Profile Right Side */
 
 #headline {
   border: 2px solid black;
@@ -422,42 +422,42 @@ h6 {
   padding: 35px 0 35px 0;
 }
 
-#main-posted {
+#profile-posted {
   white-space: pre-wrap;
   padding: 25px 0 25px 0;
   display: grid;
   grid-template-columns: 1fr;
 }
 
-#main-posted div {
+#profile-posted div {
   grid-row-start: 1;
   grid-column-start: 1;
 }
 
-#main-posted-content {
+#profile-posted-content {
   flex-flow: wrap;
 }
 
-#main-posted-name {
+#profile-posted-name {
   height: 20px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
 }
 
-#main-posted-name h5 {
+#profile-posted-name h5 {
   display: flex;
   flex-direction: row;
 }
 
-.main-posted-post {
+.profile-posted-post {
   height: 20px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
 }
 
-.main-posted-post-more {
+.profile-posted-post-more {
   padding-left: 5px;
   display: flex;
   flex-direction: row;
@@ -465,7 +465,7 @@ h6 {
   white-space: nowrap;
 }
 
-#main-posted-view-all {
+#profile-posted-view-all {
   display: flex;
   flex-direction: row;
 }

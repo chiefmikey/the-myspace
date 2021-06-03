@@ -12,7 +12,7 @@ import Nav from './Nav/Nav';
 import Footer from './Nav/Footer';
 import LogIn from './Nav/LogIn';
 import Landing from './Landing/Landing';
-import Main from './Main/Main';
+import Profile from './Profile/Profile';
 import Posted from './Posted/Posted';
 
 class App extends React.Component {
@@ -109,7 +109,7 @@ class App extends React.Component {
                 path="/:urlAddress"
                 exact
                 render={(routeProps) => (
-                  <Main
+                  <Profile
                     history={history}
                     currentUser={currentUser}
                     routeProps={routeProps}

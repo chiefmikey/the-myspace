@@ -2,7 +2,7 @@
   "name": "wolfebyte.net",
   "version": "0.0.1",
   "description": "w o l f e b y t e",
-  "main": "app.js",
+  "profile": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",

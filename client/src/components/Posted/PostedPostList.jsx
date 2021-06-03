@@ -14,7 +14,7 @@ const PostedPostsList = ({
       <div id="posted-list">
         <div id="posted-list-name">
           <h5>
-            {currentUser.profileName}
+            {currentUser.descriptionName}
             &apos;s Posts
           </h5>
         </div>

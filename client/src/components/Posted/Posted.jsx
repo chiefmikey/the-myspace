@@ -4,8 +4,8 @@ import axios from 'axios';
 
 import PostedPostCurrent from './PostedPostCurrent';
 import PostedPostList from './PostedPostList';
-import Profile from '../Main/Profile';
-import PostedUpdates from '../Main/PostedUpdates';
+import Description from '../Profile/Description';
+import PostedUpdates from '../Profile/PostedUpdates';
 import PostedSocial from '../Nav/PostedSocial';
 import NotFound from '../Landing/NotFound';
 
@@ -75,7 +75,7 @@ class Posted extends React.Component {
             : (
               <>
                 <div id="posted-left">
-                  <Profile
+                  <Description
                     history={history}
                     currentUser={currentUser}
                     posted
@@ -98,8 +98,9 @@ class Posted extends React.Component {
                 <div id="posted-right">
                   <div id="posted-title">
                     <h4>
-                      {currentUser.profileName}
-                      &apos;s Posts
+                      Posted by
+                      {' '}
+                      {currentUser.descriptionName}
                     </h4>
                   </div>
                   <PostedPostCurrent currentPost={currentPost} />
