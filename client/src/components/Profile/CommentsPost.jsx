@@ -59,15 +59,13 @@ class CommentsPost extends React.Component {
               >
                 <div className="comments-post-left-name">
                   <LinesEllipsis
-                    text={commentUser.descriptionName}
+                    text={commentUser.description.name}
                     maxLine="2"
-                    ellipsis="..."
-                    trimRight
                   />
                 </div>
                 <Img
                   className="comments-post-left-pic"
-                  src={commentUser.descriptionPic}
+                  src={commentUser.description.pic}
                   placeholder={loadingImage}
                   error={errorImage}
                   lazy

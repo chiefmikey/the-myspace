@@ -17,7 +17,6 @@ class ProfilePosted extends React.Component {
     };
     this.openSubscribeWindow = this.openSubscribeWindow.bind(this);
     this.closeSubscribeWindow = this.closeSubscribeWindow.bind(this);
-    this.postUrl = this.postUrl.bind(this);
   }
 
   openSubscribeWindow() {
@@ -34,18 +33,11 @@ class ProfilePosted extends React.Component {
     }
   }
 
-  postUrl(postTitle) {
-    const { history, currentUser } = this.props;
-    if (postTitle) {
-      history.push(`${currentUser.urlAddress}/${postTitle.split(' ').join('-')}`);
-    }
-  }
-
   render() {
     const { subscribeWindow } = this.state;
     const { currentUser, history } = this.props;
     const sortedPosts = currentUser.postedPosts
-      ? currentUser.postedPosts.sort((a, b) => b[0] - a[0]).slice(0, 5)
+      ? currentUser.postedPosts.sort((a, b) => b._id - a._id).slice(0, 5)
       : undefined;
     return (
       <div id="profile-posted">
@@ -58,30 +50,38 @@ class ProfilePosted extends React.Component {
           )
           : undefined}
         <div id="profile-posted-content">
-          <div id="profile-posted-name">
-            <h5>
-              {currentUser.descriptionName}
-              &apos;s Latest Posted Entry
-              {' '}
-            </h5>
-            [
-            <div
-              className="text-button"
-              onClick={this.openSubscribeWindow}
-              onKeyPress={this.openSubscribeWindow}
-              tabIndex={0}
-              role="button"
-            >
-              Subscribe
+          <div id="profile-posted-head">
+            <div id="profile-posted-name">
+              <h5>
+                {currentUser.description.name}
+                &apos;s Latest Posted Entry
+                {' '}
+              </h5>
             </div>
-            ]
+            <div id="profile-posted-subscribe">
+              [
+              <div
+                className="text-button"
+                onClick={this.openSubscribeWindow}
+                onKeyPress={this.openSubscribeWindow}
+                tabIndex={0}
+                role="button"
+              >
+                Subscribe
+              </div>
+              ]
+            </div>
           </div>
-          <ProfilePostedPosts postedPosts={sortedPosts} postUrl={this.postUrl} />
+          <ProfilePostedPosts
+            history={history}
+            currentUser={currentUser}
+            postedPosts={sortedPosts}
+          />
           <div id="profile-posted-view-all">
             [
             <div className="text-button">
               <Router history={history}>
-                <Link to={`${currentUser.urlAddress}/${sortedPosts[0][1].split(' ').join('-')}`}>View All Entries</Link>
+                <Link to={`${currentUser.urlAddress}/${sortedPosts[0].title.split(' ').join('-')}`}>View All Entries</Link>
               </Router>
             </div>
             ]

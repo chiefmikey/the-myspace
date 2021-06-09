@@ -63,7 +63,7 @@ class Profile extends React.Component {
         <div id="profile-right">
           <div id="headline">
             <h4>
-              {currentUser.descriptionName}
+              {currentUser.description.name}
               {' '}
               is
               {' '}

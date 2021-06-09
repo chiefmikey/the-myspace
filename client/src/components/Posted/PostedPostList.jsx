@@ -7,14 +7,14 @@ const PostedPostsList = ({
   history, currentUser, selectPost, currentPost, highlightPost,
 }) => {
   const sortedPosts = currentUser.postedPosts
-    ? currentUser.postedPosts.sort((a, b) => b[0] - a[0])
+    ? currentUser.postedPosts.sort((a, b) => b._id - a._id)
     : [];
   return currentUser.postedPosts
     ? (
       <div id="posted-list">
         <div id="posted-list-name">
           <h5>
-            {currentUser.descriptionName}
+            {currentUser.description.name}
             &apos;s Posts
           </h5>
         </div>
@@ -23,6 +23,7 @@ const PostedPostsList = ({
             sortedPosts={sortedPosts}
             selectPost={selectPost}
             currentPost={currentPost}
+            currentUser={currentUser}
             highlightPost={highlightPost}
             history={history}
           />
@@ -35,16 +36,16 @@ const PostedPostsList = ({
 PostedPostsList.defaultProps = {
   history: {},
   currentUser: {},
-  currentPost: [],
-  highlightPost: '',
+  currentPost: {},
+  highlightPost: -1,
   selectPost: () => {},
 };
 
 PostedPostsList.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
-  currentPost: propTypes.oneOfType([propTypes.array]),
-  highlightPost: propTypes.string,
+  currentPost: propTypes.oneOfType([propTypes.object]),
+  highlightPost: propTypes.number,
   selectPost: propTypes.func,
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 const PostedPostCurrent = ({ currentPost }) => {
-  if (currentPost[0] < 0) {
+  if (currentPost._id < 0) {
     return (
       <div id="posted-current-post">
         <div id="posted-current-post-title">
@@ -20,22 +20,22 @@ const PostedPostCurrent = ({ currentPost }) => {
     <div id="posted-current-post">
       <div id="posted-current-post-title">
         <h5>
-          {currentPost[1]}
+          {currentPost.title}
         </h5>
       </div>
       <div id="posted-current-post-content">
-        {currentPost[2]}
+        {currentPost.content}
       </div>
     </div>
   );
 };
 
 PostedPostCurrent.defaultProps = {
-  currentPost: [],
+  currentPost: {},
 };
 
 PostedPostCurrent.propTypes = {
-  currentPost: propTypes.oneOfType([propTypes.array]),
+  currentPost: propTypes.oneOfType([propTypes.object]),
 };
 
 export default PostedPostCurrent;

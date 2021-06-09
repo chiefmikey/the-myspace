@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Img from 'react-cool-img';
-import LinesEllipsis from 'react-lines-ellipsis';
+import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
 import {
   Router,
   Link,
@@ -21,16 +21,14 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
       }}
     >
       <div className="friends-top-icon-name">
-        <LinesEllipsis
-          text={friend[1].descriptionName}
-          maxLine="2"
-          ellipsis="..."
-          trimRight
+        <LinesEllipsisLoose
+          text={friend[1].description.name}
+          maxLine="1"
         />
       </div>
       <Img
         className="friends-top-icon-img"
-        src={friend[1].descriptionPic}
+        src={friend[1].description.pic}
         placeholder={loadingImage}
         error={errorImage}
         lazy

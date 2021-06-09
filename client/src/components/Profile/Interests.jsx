@@ -5,7 +5,7 @@ const Interests = ({ currentUser }) => (
   <div id="interests">
     <div id="interests-name">
       <h5>
-        {currentUser.descriptionName}
+        {currentUser.description.name}
         &apos;s Interests
       </h5>
     </div>
@@ -18,7 +18,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsGeneral}
+            {currentUser.interests.general}
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsMusic}
+            {currentUser.interests.music}
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsMovies}
+            {currentUser.interests.movies}
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsTelevision}
+            {currentUser.interests.television}
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsBooks}
+            {currentUser.interests.books}
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ const Interests = ({ currentUser }) => (
         </div>
         <div className="interests-right">
           <div className="interests-content">
-            {currentUser.interestsHeroes}
+            {currentUser.interests.heroes}
           </div>
         </div>
       </div>

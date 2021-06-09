@@ -38,7 +38,6 @@ class App extends React.Component {
   componentDidUpdate() {
     const { currentUser } = this.state;
     if (this.url() !== currentUser.urlAddress) {
-      console.log(this.url());
       this.getCurrentUser(this.url());
     }
   }
@@ -120,10 +119,11 @@ class App extends React.Component {
               <Route
                 path="/:urlAddress/:postTitle"
                 exact
-                render={() => (
+                render={(routeProps) => (
                   <Posted
                     history={history}
                     currentUser={currentUser}
+                    routeProps={routeProps}
                   />
                 )}
               />

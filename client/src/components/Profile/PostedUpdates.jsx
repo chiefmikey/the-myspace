@@ -28,7 +28,7 @@ class PostedUpdates extends React.Component {
         <h5>
           Sign up for updates from
           {' '}
-          {currentUser.descriptionName}
+          {currentUser.description.name}
         </h5>
         <form onSubmit={this.onSubmit}>
           <input

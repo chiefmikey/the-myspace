@@ -15,14 +15,14 @@ const Description = ({ history, currentUser, posted }) => (
     <span id="description-name">
       <h3>
         <Router history={history}>
-          <Link to={`${currentUser.urlAddress}`}>{currentUser.descriptionName}</Link>
+          <Link to={`${currentUser.urlAddress}`}>{currentUser.description.name}</Link>
         </Router>
       </h3>
     </span>
     <div id="description-pic">
       <Img
         id="description-pic-img"
-        src={currentUser.descriptionPic}
+        src={currentUser.description.pic}
         placeholder={loadingImage}
         error={errorImage}
         lazy
@@ -34,8 +34,8 @@ const Description = ({ history, currentUser, posted }) => (
       ? (
         <div id="description-mood">
           <span id="description-mood-name">Mood:</span>
-          <span id="description-mood-current">{currentUser.descriptionMood}</span>
-          <span id="description-mood-current-emoji">{currentUser.descriptionMoodEmoji}</span>
+          <span id="description-mood-current">{currentUser.description.mood}</span>
+          <span id="description-mood-current-emoji">{currentUser.description.moodEmoji}</span>
           <span id="description-mood-view-pics">
             View My:
             {' '}
@@ -50,8 +50,8 @@ const Description = ({ history, currentUser, posted }) => (
       : (
         <div id="description-mood">
           <span id="description-mood-name">Mood:</span>
-          <span id="description-mood-current">{currentUser.descriptionMood}</span>
-          <span id="description-mood-current-emoji">{currentUser.descriptionMoodEmoji}</span>
+          <span id="description-mood-current">{currentUser.description.mood}</span>
+          <span id="description-mood-current-emoji">{currentUser.description.moodEmoji}</span>
           <span id="description-mood-view-pics">
             View My:
             {' '}
@@ -64,20 +64,20 @@ const Description = ({ history, currentUser, posted }) => (
     <div id="description-desc">
       <span id="description-desc-status">
         &quot;
-        {currentUser.descriptionStatus}
+        {currentUser.description.status}
         &quot;
       </span>
-      <span id="description-desc-gender">{currentUser.descriptionGender}</span>
+      <span id="description-desc-gender">{currentUser.description.gender}</span>
       <span id="description-desc-age">
-        {currentUser.descriptionAge}
+        {currentUser.description.age}
         {' '}
         years old
       </span>
-      <span id="description-desc-city">{currentUser.descriptionCity}</span>
-      <span id="description-desc-state">{currentUser.descriptionState}</span>
-      <span id="description-desc-country">{currentUser.descriptionCountry}</span>
+      <span id="description-desc-city">{currentUser.description.city}</span>
+      <span id="description-desc-state">{currentUser.description.state}</span>
+      <span id="description-desc-country">{currentUser.description.country}</span>
       <span id="description-desc-login">Last Login:</span>
-      <span id="description-desc-login-date">{currentUser.descriptionLogin}</span>
+      <span id="description-desc-login-date">{currentUser.description.login}</span>
     </div>
   </div>
 );

@@ -426,28 +426,20 @@ h6 {
   white-space: pre-wrap;
   padding: 25px 0 25px 0;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-areas: center;
 }
 
-#profile-posted div {
-  grid-row-start: 1;
-  grid-column-start: 1;
-}
-
-#profile-posted-content {
-  flex-flow: wrap;
-}
-
-#profile-posted-name {
+#profile-posted-name, #profile-posted-subscribe, #profile-posted-head {
   height: 20px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
 }
 
-#profile-posted-name h5 {
-  display: flex;
-  flex-direction: row;
+#profile-posted-content {
+  grid-area: center;
 }
 
 .profile-posted-post {
@@ -455,6 +447,11 @@ h6 {
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+}
+
+.profile-posted-title {
+  overflow: hidden;
 }
 
 .profile-posted-post-more {
@@ -476,18 +473,20 @@ h6 {
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, .5);
+  grid-area: center;
   z-index: 1;
 }
 
 #subscribe-name {
   height: 30px;
   background-color: rgb(102, 153, 204);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 20px;
+  grid-template-rows: auto;
   padding-left: 10px;
   color: white;
   box-sizing: border-box;
+  align-items: center;
 }
 
 #subscribe-box {
@@ -495,30 +494,24 @@ h6 {
   border: 2px solid rgb(102, 153, 204);
   width: 400px;
   height: 200px;
-  display: grid;
-  grid-template-rows: 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 #subscribe-close {
   font-size: 16px;
-  padding: 3px 10px 0 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-self: flex-end;
   color: white;
   cursor: pointer;
 }
 
 #subscribe-content {
-  grid-area: title;
-  justify-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: rgb(52,102,153);
   line-height: 20px;
+  margin: auto;
 }
 
 #subscribe-content form {
@@ -540,7 +533,7 @@ h6 {
 #subscribe-submit {
   width: 100px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 15px;
   grid-area: submit;
   color: white;
   font-weight: 600;
@@ -749,14 +742,6 @@ h6 {
   line-height: 18px;
 }
 
-.posted-post .first {
-  padding-top: 10px;
-}
-
-.posted-post .last {
-  padding-bottom: 10px;
-}
-
 .posted-post:hover {
   background-color: rgb(214,231,251);
   cursor: pointer;
@@ -764,6 +749,10 @@ h6 {
 
 .posted-post.selected {
   background-color: rgb(214,231,251);
+}
+
+.posted-post-title {
+  overflow: hidden;
 }
 
 #posted-title {
@@ -782,8 +771,7 @@ h6 {
 }
 
 #posted-current-post-title {
-  height: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0 20px 0;
 }
 
 #posted-current-post-content {
@@ -792,7 +780,7 @@ h6 {
 
 #posted-current-post-share {
   font-size: 10px;
-  padding-top: 20px;
+  padding-top: 45px;
   display: flex;
   flex-direction: row;
   white-space: pre;

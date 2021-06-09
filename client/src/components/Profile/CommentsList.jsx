@@ -8,7 +8,7 @@ const CommentsList = ({ currentUser, getCurrentUser, history }) => (
   <div id="comments">
     <div id="comments-name">
       <h5>
-        {currentUser.descriptionName}
+        {currentUser.description.name}
         &apos;s Friends Comments
       </h5>
     </div>

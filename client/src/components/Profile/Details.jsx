@@ -5,7 +5,7 @@ const Details = ({ currentUser }) => (
   <div id="details">
     <div id="details-name">
       <h5>
-        {currentUser.descriptionName}
+        {currentUser.description.name}
         &apos;s Details
       </h5>
     </div>
@@ -18,7 +18,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsStatus}
+            {currentUser.details.status}
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsHereFor}
+            {currentUser.details.hereFor}
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsHometown}
+            {currentUser.details.hometown}
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsZodiacSign}
+            {currentUser.details.zodiacSign}
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsSmokeDrink}
+            {currentUser.details.smokeDrink}
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ const Details = ({ currentUser }) => (
         </div>
         <div className="details-right">
           <div className="details-content">
-            {currentUser.detailsOccupation}
+            {currentUser.details.occupation}
           </div>
         </div>
       </div>

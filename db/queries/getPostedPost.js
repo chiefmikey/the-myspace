@@ -9,7 +9,7 @@ exports.getPostedPost = async (urlAddress, postTitle) => {
       for (let i = 0; i < dummyData.length; i += 1) {
         if (dummyData[i].urlAddress === urlAddress) {
           for (let j = 0; j < dummyData[i].postedPosts.length; j += 1) {
-            if (highestId < dummyData[i].postedPosts[j][0]) {
+            if (highestId < dummyData[i].postedPosts[j]._id) {
               [highestId] = dummyData[i].postedPosts[j];
               idIndex = j;
             }
@@ -26,7 +26,7 @@ exports.getPostedPost = async (urlAddress, postTitle) => {
       for (let i = 0; i < dummyData.length; i += 1) {
         if (dummyData[i].urlAddress === urlAddress) {
           for (let j = 0; j < dummyData[i].postedPosts.length; j += 1) {
-            if (dummyData[i].postedPosts[j][1] === postTitle) {
+            if (dummyData[i].postedPosts[j].title === postTitle) {
               post = dummyData[i].postedPosts[j];
               break;
             }
@@ -35,7 +35,11 @@ exports.getPostedPost = async (urlAddress, postTitle) => {
       }
     }
     if (!post) {
-      post = [-1, 'error', 'no post found'];
+      post = {
+        _id: -1,
+        title: 'error',
+        content: 'no post found',
+      };
     }
     const result = await JSON.stringify(post);
     return result;

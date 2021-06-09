@@ -60,12 +60,12 @@ class Friends extends React.Component {
       <div id="friends">
         <div id="friends-name">
           <h5>
-            {currentUser.descriptionName}
+            {currentUser.description.name}
             &apos;s Friend Space
           </h5>
         </div>
         <div id="friends-count">
-          {currentUser.descriptionName}
+          {currentUser.description.name}
           {' has '}
           <div id="friends-count-current">
             {currentUser.friends ? currentUser.friends.length : ''}
@@ -82,7 +82,7 @@ class Friends extends React.Component {
         <a id="friends-view-all" href="http://wolfebyte.net">
           View all of
           {' '}
-          {currentUser.descriptionName}
+          {currentUser.description.name}
           &apos;s friends
         </a>
       </div>

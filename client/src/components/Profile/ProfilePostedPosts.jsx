@@ -1,29 +1,33 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import LinesEllipsis from 'react-lines-ellipsis';
+import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
+import {
+  Router,
+  Link,
+  withRouter,
+} from 'react-router-dom';
 
-const ProfilePostedPosts = ({ postedPosts, postUrl }) => (
+const ProfilePostedPosts = ({
+  history, currentUser, postedPosts,
+}) => (
   postedPosts.map((post) => (
     <div className="profile-posted-post" key={postedPosts.indexOf(post)}>
-      <LinesEllipsis
-        text={post[1]}
-        maxLine="1"
-        ellipsis="..."
-        trimRight
+      <LinesEllipsisLoose
+        className="profile-posted-title"
+        text={post.title}
       />
-      <span className="profile-posted-post-more">
+      <div className="profile-posted-post-more">
         (
-        <div
-          className="text-button"
-          onClick={() => postUrl(post[1])}
-          onKeyPress={() => postUrl(post[1])}
-          tabIndex={0}
-          role="button"
-        >
-          view more
-        </div>
+        <Router history={history}>
+          <Link
+            to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
+            className="text-button"
+          >
+            view more
+          </Link>
+        </Router>
         )
-      </span>
+      </div>
     </div>
   ))
 );
@@ -38,4 +42,4 @@ ProfilePostedPosts.propTypes = {
   postUrl: propTypes.func,
 };
 
-export default ProfilePostedPosts;
+export default withRouter(ProfilePostedPosts);

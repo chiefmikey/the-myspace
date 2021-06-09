@@ -12,11 +12,11 @@ const PostedSocial = ({ currentPost }) => (
 );
 
 PostedSocial.defaultProps = {
-  currentPost: [],
+  currentPost: {},
 };
 
 PostedSocial.propTypes = {
-  currentPost: propTypes.oneOfType([propTypes.array]),
+  currentPost: propTypes.oneOfType([propTypes.object]),
 };
 
 export default PostedSocial;

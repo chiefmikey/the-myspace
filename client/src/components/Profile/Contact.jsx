@@ -11,7 +11,7 @@ const Contact = ({ currentUser }) => (
       <h5>
         Contacting
         {' '}
-        {currentUser.descriptionName}
+        {currentUser.description.name}
       </h5>
     </div>
     <div id="contact-left">

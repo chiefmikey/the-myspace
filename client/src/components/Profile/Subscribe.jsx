@@ -10,15 +10,15 @@ const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
         <h5>
           Subscribe
         </h5>
-      </div>
-      <div
-        id="subscribe-close"
-        onClick={closeSubscribeWindow}
-        onKeyPress={closeSubscribeWindow}
-        tabIndex={0}
-        role="button"
-      >
-        &times;
+        <div
+          id="subscribe-close"
+          onClick={closeSubscribeWindow}
+          onKeyPress={closeSubscribeWindow}
+          tabIndex={0}
+          role="button"
+        >
+          &times;
+        </div>
       </div>
       <PostedUpdates currentUser={currentUser} />
     </div>

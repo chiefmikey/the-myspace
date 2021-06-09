@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import LinesEllipsis from 'react-lines-ellipsis';
+import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
 import {
   Router,
   Link,
@@ -8,34 +8,33 @@ import {
 } from 'react-router-dom';
 
 const PostedPosts = ({
-  sortedPosts, selectPost, currentPost, highlightPost, history,
+  sortedPosts, selectPost, currentPost, highlightPost, history, currentUser,
 }) => {
   if (sortedPosts.length > 0) {
     let highlightId = highlightPost;
     return sortedPosts.map((post) => {
       let className = 'posted-post';
-      if (!highlightId || highlightId === '') {
-        [[, highlightId]] = sortedPosts;
+      if (!highlightId) {
+        highlightId = sortedPosts[0]._id;
       }
-      if (highlightId === post[1]) {
+      if (highlightId === post._id) {
         className = 'posted-post selected';
       }
       return (
-        <div
-          className={className}
-          key={sortedPosts.indexOf(post)}
-          onClick={() => selectPost(post[1])}
-          onKeyPress={() => selectPost(post[1])}
-          tabIndex={0}
-          role="button"
-        >
-          <LinesEllipsis
-            text={post[1]}
-            maxLine="2"
-            ellipsis="..."
-            trimRight
-          />
-        </div>
+        <Router history={history} key={sortedPosts.indexOf(post)}>
+          <Link
+            to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
+            className={className}
+            onClick={() => {
+              selectPost(post.title);
+            }}
+          >
+            <LinesEllipsisLoose
+              className="posted-post-title"
+              text={post.title}
+            />
+          </Link>
+        </Router>
       );
     });
   }
@@ -56,17 +55,19 @@ const PostedPosts = ({
 PostedPosts.defaultProps = {
   history: {},
   sortedPosts: [],
-  currentPost: [],
+  currentPost: {},
+  currentUser: {},
   selectPost: () => {},
-  highlightPost: '',
+  highlightPost: -1,
 };
 
 PostedPosts.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   sortedPosts: propTypes.oneOfType([propTypes.array]),
-  currentPost: propTypes.oneOfType([propTypes.array]),
+  currentPost: propTypes.oneOfType([propTypes.object]),
+  currentUser: propTypes.oneOfType([propTypes.object]),
   selectPost: propTypes.func,
-  highlightPost: propTypes.string,
+  highlightPost: propTypes.number,
 };
 
-export default PostedPosts;
+export default withRouter(PostedPosts);

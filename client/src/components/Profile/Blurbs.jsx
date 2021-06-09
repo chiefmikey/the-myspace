@@ -5,7 +5,7 @@ const Blurbs = ({ currentUser }) => (
   <div id="blurbs">
     <div id="blurbs-name">
       <h5>
-        {currentUser.descriptionName}
+        {currentUser.description.name}
         &apos;s Blurbs
       </h5>
     </div>
@@ -13,11 +13,11 @@ const Blurbs = ({ currentUser }) => (
       <div id="blurbs-about-me">
         About Me:
       </div>
-      {currentUser.blurbsAboutMe}
+      {currentUser.blurbs.aboutMe}
       <div id="blurbs-about-meet">
         Who Id Like To Meet:
       </div>
-      {currentUser.blurbsWhoIdLikeToMeet}
+      {currentUser.blurbs.whoIdLikeToMeet}
     </div>
   </div>
 );
