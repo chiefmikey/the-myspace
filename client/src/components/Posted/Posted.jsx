@@ -70,10 +70,10 @@ class Posted extends React.Component {
   render() {
     const { history, currentUser } = this.props;
     const { currentPost, highlightPost } = this.state;
-    return currentPost._id
+    return currentPost._id || currentPost._id === 0
       ? (
         <div id="posted">
-          {currentPost[1] === 'error'
+          {currentPost._id === -1
             ? <NotFound />
             : (
               <>

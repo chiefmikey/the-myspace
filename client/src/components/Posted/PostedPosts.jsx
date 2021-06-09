@@ -14,7 +14,7 @@ const PostedPosts = ({
     let highlightId = highlightPost;
     return sortedPosts.map((post) => {
       let className = 'posted-post';
-      if (!highlightId) {
+      if (!highlightId && highlightId !== 0) {
         highlightId = sortedPosts[0]._id;
       }
       if (highlightId === post._id) {
