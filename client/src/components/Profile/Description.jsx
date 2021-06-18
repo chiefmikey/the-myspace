@@ -10,15 +10,8 @@ import {
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
 
-const Description = ({ history, currentUser, posted }) => (
+const Description = ({ history, currentUser, contentView }) => (
   <div id="description">
-    <span id="description-name">
-      <h3>
-        <Router history={history}>
-          <Link to={`${currentUser.urlAddress}`}>{currentUser.description.name}</Link>
-        </Router>
-      </h3>
-    </span>
     <div id="description-pic">
       <Img
         id="description-pic-img"
@@ -30,35 +23,49 @@ const Description = ({ history, currentUser, posted }) => (
         alt="user description avatar"
       />
     </div>
-    {posted
+    {contentView
       ? (
-        <div id="description-mood">
-          <span id="description-mood-name">Mood:</span>
-          <span id="description-mood-current">{currentUser.description.mood}</span>
-          <span id="description-mood-current-emoji">{currentUser.description.moodEmoji}</span>
-          <span id="description-mood-view-pics">
+        <div id="description-mood-view">
+          <div id="description-mood">
+            <span id="description-mood-name">Mood: </span>
+            <span id="description-mood-current">
+              {currentUser.description.mood}
+            </span>
+            <span id="description-mood-current-emoji">
+              {' '}
+              {currentUser.description.moodEmoji}
+            </span>
+          </div>
+          <div id="description-view-pics">
             View My:
             {' '}
-            <span className="text-button">
+            <span className="a-button">
               <Router history={history}>
-                <Link to={`${currentUser.urlAddress}`}>Description</Link>
+                <Link to={`${currentUser.urlAddress}`}>Profile</Link>
               </Router>
             </span>
-          </span>
+          </div>
         </div>
       )
       : (
-        <div id="description-mood">
-          <span id="description-mood-name">Mood:</span>
-          <span id="description-mood-current">{currentUser.description.mood}</span>
-          <span id="description-mood-current-emoji">{currentUser.description.moodEmoji}</span>
-          <span id="description-mood-view-pics">
+        <div id="description-mood-view">
+          <div id="description-mood">
+            <span id="description-mood-name">Mood: </span>
+            <span id="description-mood-current">
+              {currentUser.description.mood}
+            </span>
+            <span id="description-mood-current-emoji">
+              {' '}
+              {currentUser.description.moodEmoji}
+            </span>
+          </div>
+          <div id="description-view-pics">
             View My:
             {' '}
-            <span className="text-button">Pics</span>
+            <span className="a-button">Pics</span>
             {' | '}
-            <span className="text-button">Videos</span>
-          </span>
+            <span className="a-button">Videos</span>
+          </div>
         </div>
       )}
     <div id="description-desc">
@@ -84,13 +91,13 @@ const Description = ({ history, currentUser, posted }) => (
 
 Description.defaultProps = {
   currentUser: {},
-  posted: false,
+  contentView: false,
   history: {},
 };
 
 Description.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
-  posted: propTypes.bool,
+  contentView: propTypes.bool,
   history: propTypes.oneOfType([propTypes.object]),
 };
 

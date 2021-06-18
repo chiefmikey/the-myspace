@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import PostedUpdates from './PostedUpdates';
+import ContentUpdates from './ContentUpdates';
 
 const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
   <div id="subscribe">
@@ -20,7 +20,7 @@ const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
           &times;
         </div>
       </div>
-      <PostedUpdates currentUser={currentUser} />
+      <ContentUpdates currentUser={currentUser} />
     </div>
   </div>
 );

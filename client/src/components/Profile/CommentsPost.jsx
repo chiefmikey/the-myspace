@@ -57,12 +57,12 @@ class CommentsPost extends React.Component {
                   getCurrentUser(commentUser.urlAddress);
                 }}
               >
-                <div className="comments-post-left-name">
-                  <LinesEllipsis
-                    text={commentUser.description.name}
-                    maxLine="2"
-                  />
-                </div>
+                <LinesEllipsis
+                  className="comments-post-left-name"
+                  text={`${commentUser.description.name} `}
+                  ellipsis="... "
+                  basedOn="letters"
+                />
                 <Img
                   className="comments-post-left-pic"
                   src={commentUser.description.pic}
@@ -79,7 +79,7 @@ class CommentsPost extends React.Component {
             <div className="comments-post-right-date">
               {comment[2]}
             </div>
-            <div className="comments-post-right-content">
+            <div className="comments-post-right-text">
               {comment[3]}
             </div>
           </div>

@@ -22,7 +22,7 @@ const Header = ({
             <Link
               to="/"
             >
-              <span className="text-button">Log Out</span>
+              <span className="a-button">Log Out</span>
             </Link>
           </div>
         )
@@ -31,10 +31,10 @@ const Header = ({
             <Link
               to="/"
             >
-              <span className="text-button">Sign Up</span>
+              <span className="a-button">Sign Up</span>
             </Link>
             {' | '}
-            <span className="text-button" onClick={() => showLogIn('openLogIn')}>Log In</span>
+            <span className="a-button" onClick={() => showLogIn('openLogIn')}>Log In</span>
           </div>
         )}
 

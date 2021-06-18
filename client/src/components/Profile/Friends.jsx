@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 import FriendsTop from './FriendsTop';
 
@@ -58,19 +59,38 @@ class Friends extends React.Component {
     const { friendsTop } = this.state;
     return (
       <div id="friends">
-        <div id="friends-name">
-          <h5>
-            {currentUser.description.name}
+        <h5 id="friends-name">
+          <LinesEllipsis
+            text={`${currentUser.description.name} `}
+            ellipsis="... "
+            basedOn="letters"
+            component="span"
+          />
+          <span id="friends-name-text">
             &apos;s Friend Space
-          </h5>
-        </div>
+          </span>
+        </h5>
         <div id="friends-count">
-          {currentUser.description.name}
-          {' has '}
-          <div id="friends-count-current">
-            {currentUser.friends ? currentUser.friends.length : ''}
-          </div>
-          {' friends.'}
+          <LinesEllipsis
+            id="friends-count-name"
+            text={`${currentUser.description.name} `}
+            ellipsis="... "
+            basedOn="letters"
+            component="span"
+          />
+          <span id="friends-count-text">
+            {'has '}
+          </span>
+          <LinesEllipsis
+            id="friends-count-current"
+            text={`${currentUser.friends ? currentUser.friends.length : ''} `}
+            ellipsis="... "
+            basedOn="letters"
+            component="span"
+          />
+          <span id="friends-count-text-end">
+            {' friends.'}
+          </span>
         </div>
         <div id="friends-top">
           <FriendsTop
@@ -80,10 +100,20 @@ class Friends extends React.Component {
           />
         </div>
         <a id="friends-view-all" href="http://wolfebyte.net">
-          View all of
-          {' '}
-          {currentUser.description.name}
-          &apos;s friends
+          <span id="friends-view-all-text">
+            {'View all of '}
+          </span>
+          <LinesEllipsis
+            id="friends-view-all-name"
+            text={`${currentUser.description.name} `}
+            ellipsis="... "
+            basedOn="letters"
+            component="span"
+          />
+          <span id="friends-view-all-text-end">
+            &apos;s friends
+          </span>
+
         </a>
       </div>
     );

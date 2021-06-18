@@ -26,7 +26,7 @@ router.route('/:postTitle')
       // const {} = req.params;
       // console.log(req.params);
       // const result = await;
-      res.status(200).sendFile(path.join(__dirname, '../../client/public/posted.html'));
+      res.status(200).sendFile(path.join(__dirname, '../../client/public/content.html'));
     } catch (error) {
       console.error(error);
       res.status(404).send(error);

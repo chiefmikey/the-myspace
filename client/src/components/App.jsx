@@ -13,15 +13,23 @@ import Footer from './Nav/Footer';
 import LogIn from './Nav/LogIn';
 import Landing from './Landing/Landing';
 import Profile from './Profile/Profile';
-import Posted from './Posted/Posted';
+import Content from './Content/Content';
 
 class App extends React.Component {
+  static postSort(currentUser) {
+    if (currentUser.contentPosts && currentUser.contentPosts.length > 0) {
+      return currentUser.contentPosts.sort((a, b) => b._id - a._id).slice(0, 5);
+    }
+    return currentUser.contentPosts;
+  }
+
   constructor() {
     super();
     this.state = {
       activeUser: { _id: -1 },
       currentUser: {},
       logIn: false,
+      sortedPosts: [],
     };
     this.url = () => `/${window.location.href.split('/')[3]}`;
     this.getCurrentUser = this.getCurrentUser.bind(this);
@@ -49,7 +57,8 @@ class App extends React.Component {
       },
     })
       .then((res) => {
-        this.setState({ currentUser: res.data });
+        const sortedPosts = App.postSort(res.data);
+        this.setState({ currentUser: res.data, sortedPosts });
       })
       .catch((error) => {
         console.error('Error in App:getCurrentUser', error);
@@ -81,7 +90,9 @@ class App extends React.Component {
 
   render() {
     const { history } = this.props;
-    const { activeUser, currentUser, logIn } = this.state;
+    const {
+      activeUser, currentUser, logIn, sortedPosts,
+    } = this.state;
     return (
       <Router history={history}>
         {logIn
@@ -113,6 +124,7 @@ class App extends React.Component {
                     currentUser={currentUser}
                     routeProps={routeProps}
                     getCurrentUser={this.getCurrentUser}
+                    sortedPosts={sortedPosts}
                   />
                 )}
               />
@@ -120,10 +132,11 @@ class App extends React.Component {
                 path="/:urlAddress/:postTitle"
                 exact
                 render={(routeProps) => (
-                  <Posted
+                  <Content
                     history={history}
                     currentUser={currentUser}
                     routeProps={routeProps}
+                    sortedPosts={sortedPosts}
                   />
                 )}
               />

@@ -1,14 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const Blurbs = ({ currentUser }) => (
   <div id="blurbs">
-    <div id="blurbs-name">
-      <h5>
-        {currentUser.description.name}
+    <h5 id="blurbs-name">
+      <LinesEllipsis
+        text={`${currentUser.description.name} `}
+        ellipsis="... "
+        basedOn="letters"
+        component="span"
+      />
+      <span id="blurbs-name-text">
         &apos;s Blurbs
-      </h5>
-    </div>
+      </span>
+    </h5>
     <div id="blurbs-about">
       <div id="blurbs-about-me">
         About Me:

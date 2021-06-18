@@ -38,7 +38,7 @@ h6 {
   font-size: 13px;
 }
 
-.text-button {
+.a-button {
   color: rgb(1,50,153);
   font-weight: 600;
   cursor: pointer;
@@ -170,23 +170,40 @@ h6 {
 
 /* Profile */
 
-#profile {
-  height: 100%;
+#profile, #content {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
   background-color: white;
 }
 
-#profile-left {
-  width: 400px;
-  padding: 30px 20px 30px 30px;
+.profile-name {
+  padding: 30px 40px 20px 40px;
+  color: black;
+  cursor: default;
+  word-break: break-all;
 }
 
-#profile-right {
+#profile-layout, #content-layout {
+  height: 100%;
+  padding: 0px 40px 40px 40px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "left right";
+}
+
+#profile-left, #content-left {
+  grid-area: left;
+  width: 400px;
+  padding-right: 20px;
+  justify-self: left;
+}
+
+#profile-right, #content-right {
+  grid-area: right;
   width: 600px;
-  padding: 30px 30px 30px 20px;
+  padding-left: 20px;
+  justify-self: right;
 }
 
 /* Profile Left Side */
@@ -199,12 +216,6 @@ h6 {
     "name name"
     "pic desc"
     "mood login";
-}
-
-#description-name {
-  grid-area: name;
-  align-self: end;
-  padding: 0 0 15px 0;
 }
 
 #description-pic {
@@ -220,34 +231,41 @@ h6 {
   object-fit: cover;
 }
 
-#description-mood {
+#description-mood-view {
+  grid-area: mood;
   white-space: pre;
   padding: 18px 20px 0 0;
   height: 20px;
   display: grid;
-  grid-template-columns: 55px 55px auto;
   grid-template-rows: 22px auto;
   grid-template-areas:
-    "name current emoji"
-    "view view view";
+    "mood"
+    "view";
+}
+
+#description-mood {
+  display: flex;
+  flex-direction: row;
+  grid-area: mood;
 }
 
 #description-mood-name {
   height: 25px;
-  grid-area: name;
 }
 
 #description-mood-current {
   height: 25px;
   grid-area: current;
+  justify-self: flex-start;
 }
 
 #description-mood-current-emoji {
   height: 25px;
   grid-area: emoji;
+  justify-self: flex-start;
 }
 
-#description-mood-view-pics {
+#description-view-pics {
   height: 20px;
   grid-area: view;
   display: flex;
@@ -255,7 +273,7 @@ h6 {
   white-space: pre;
 }
 
-#description-mood-view-pics a {
+#description-view-pics a {
   font-weight: 600;
 }
 
@@ -282,33 +300,38 @@ h6 {
   justify-content: flex-end;
 }
 
-#contact {
-  width: 100%;
+#contact-layout {
   line-height: 15px;
   display: grid;
   grid-template-columns: 180px auto;
-  grid-template-rows: 25px auto;
+  grid-template-rows: auto;
   grid-template-areas:
-    "name name"
     "left right";
   white-space: pre;
-  border: 2px solid rgb(102, 153, 204);
-  margin-bottom: 30px;
   box-sizing: border-box;
-  overflow: hidden;
-  margin-top: 2px;
 }
 
-#contact-name, #interests-name, #details-name {
-  grid-area: name;
+#contact-name, #interests-name, #details-name, #content-list-name {
   height: 30px;
   background-color: rgb(102, 153, 204);
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
   color: white;
   box-sizing: border-box;
+  word-break: break-all;
+  white-space: pre-wrap;
+  margin-top: -2px;
+}
+
+#contact-name-text {
+  white-space: pre;
+}
+
+#details-name-text, #interests-name-text, #content-list-name-text {
+  margin-left: -5px;
+  white-space: pre;
 }
 
 #contact-left {
@@ -361,14 +384,18 @@ h6 {
   padding-left: 15px;
 }
 
-#interests, #details {
+#interests, #details, #contact, #content-list {
   border: 2px solid rgb(102, 153, 204);
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   margin-bottom: 15px;
 }
+
+#contact, #content-list {
+  margin-bottom: 30px;
+}
+
 
 #interests-name, #details-name {
   padding-left: 10px;
@@ -405,7 +432,7 @@ h6 {
   height: 100% - 4px;
 }
 
-.interests-content, .details-content {
+.interests-text, .details-text {
   min-height: 30px;
   padding: 4px;
   width: 100% - 4px;
@@ -416,55 +443,79 @@ h6 {
 
 #headline {
   border: 2px solid black;
+  padding: 35px;
+  line-height: 30px;
+  width: 600px;
+  height: 130px;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 35px 0 35px 0;
 }
 
-#profile-posted {
+#headline-name {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+#headline-text {
+  white-space: pre;
+  margin-left: -5px;
+}
+
+#profile-content {
   padding: 25px 0 25px 0;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto;
-  grid-template-areas: center;
-  justify-content: flex-start;
+  grid-template-areas: "center";
 }
 
-#profile-posted-name, #profile-posted-subscribe, #profile-posted-head {
+#profile-content-title, #profile-content-title-name, #profile-content-subscribe, #profile-content-head {
   height: 20px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  white-space: nowrap;
 }
 
-#profile-posted-subscribe {
+#profile-content-title-name {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+#profile-content-title-text {
+  margin-left: -5px;
+}
+
+#profile-content-subscribe {
   padding-left: 5px;
 }
 
-#profile-posted-content {
+#profile-content-text {
   grid-area: center;
   width: 100%;
 }
 
-.profile-posted-post {
+.profile-content-post {
   height: 20px;
   padding-bottom: 20px;
   display: flex;
+  width: auto;
 }
 
-.profile-posted-title {
-  overflow: hidden;
+.profile-content-post-title {
   width: auto;
   word-break: break-all;
+  white-space: pre-wrap;
 }
 
-.profile-posted-post-more {
-  padding-left: 5px;
+.profile-content-post-more {
   white-space: nowrap;
 }
 
-#profile-posted-view-all {
+#profile-content-view-all {
   display: flex;
   flex-direction: row;
 }
@@ -477,6 +528,7 @@ h6 {
   background-color: rgba(255, 255, 255, .5);
   grid-area: center;
   z-index: 1;
+  padding-top: 30px;
 }
 
 #subscribe-name {
@@ -506,7 +558,7 @@ h6 {
   cursor: pointer;
 }
 
-#subscribe-content {
+#subscribe-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -516,11 +568,22 @@ h6 {
   margin: auto;
 }
 
-#subscribe-content form {
+#subscribe-text form {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 5px;
+}
+
+#subscribe-text-name {
+  word-break: break-all;
+  white-space: pre-wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+#subscribe-text-name-text {
+  white-space: pre;
 }
 
 #subscribe-email {
@@ -551,12 +614,20 @@ h6 {
 
 #blurbs-name, #friends-name, #comments-name {
   background-color: rgb(254,205,153);
-  padding-left: 15px;
+  padding: 0 10px 0 10px;
   height: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   color: rgb(255,105,15);
+  box-sizing: border-box;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+#blurbs-name-text, #friends-name-text, #comments-name-text {
+  margin-left: -5px;
+  white-space: nowrap;
 }
 
 #blurbs-about {
@@ -574,15 +645,31 @@ h6 {
 #friends-count {
   height: 35px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
   padding-bottom: 15px;
   font-weight: 600;
+}
+
+#friends-count-name {
+  box-sizing: border-box;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+#friends-count-text {
+  white-space: pre;
+  margin-left: -5px;
+}
+
+#friends-count-text-end {
   white-space: pre;
 }
 
 #friends-count-current {
   color: rgb(204,2,0);
   font-weight: 100;
+  white-space: nowrap;
 }
 
 #friends-top {
@@ -610,6 +697,7 @@ h6 {
   line-height: 15px;
   text-align: center;
   padding-bottom: 10px;
+  word-break: break-all;
 }
 
 .friends-top-icon-img {
@@ -626,6 +714,20 @@ h6 {
   color: rgb(204,2,0);
   font-weight: 600;
   text-decoration: none;
+}
+
+#friends-view-all-name {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+#friends-view-all-text {
+  white-space: pre;
+}
+
+#friends-view-all-text-end {
+  white-space: pre;
+  margin-left: -5px;
 }
 
 #comments-count {
@@ -658,11 +760,25 @@ h6 {
   align-items: center;
   justify-content: center;
   border-right: 2px solid white;
+  padding: 10px;
+}
+
+.comments-post-left-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
 }
 
 .comments-post-left-name, .comments-post-right-date {
   line-height: 35px;
   font-weight: 600;
+}
+
+.comments-post-left-name {
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .comments-post-left-pic {
@@ -681,57 +797,22 @@ h6 {
   padding: 10px 10px 10px 20px;
 }
 
-/* Posted */
+/* Content */
 
-#posted {
-  height: 100%;
+#content-list-title {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: white;
-}
-
-#posted-left {
-  width: 400px;
-  padding: 30px 20px 30px 30px;
-}
-
-#posted-right {
-  width: 600px;
-  padding: 30px 30px 30px 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-#posted-list {
-  width: 100%;
-  line-height: 15px;
-  display: flex;
-  flex-direction: column;
-  white-space: pre-wrap;
-  border: 2px solid rgb(102, 153, 204);
-  margin-bottom: 30px;
-  overflow: hidden;
-  margin-top: 2px;
-  box-sizing: border-box;
-}
-
-#posted-list-name {
-  height: 30px;
   background-color: rgb(102, 153, 204);
-  display: flex;
-  flex-direction: row;
+  height: 30px;
   align-items: center;
-  padding-left: 10px;
   color: white;
 }
 
-#posted-post-area {
+#content-post-area {
   justify-self: left;
 }
 
-.posted-post {
+.content-post {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -744,44 +825,39 @@ h6 {
   line-height: 18px;
 }
 
-.posted-post:hover {
+.content-post:hover {
   background-color: rgb(214,231,251);
   cursor: pointer;
 }
 
-.posted-post.selected {
+.content-post.selected {
   background-color: rgb(214,231,251);
 }
 
-.posted-post-title {
-  overflow: hidden;
+.content-post-title {
   word-break: break-all;
+  white-space: pre-wrap;
 }
 
-#posted-title {
-  border: 2px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 35px 0 35px 0;
-}
-
-#posted-current-post {
+#content-current-post {
   padding-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#posted-current-post-title {
+#content-current-post-title {
   padding: 20px 0 20px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  width: 100%;
 }
 
-#posted-current-post-content {
+#content-current-post-text {
   line-height: 22px;
 }
 
-#posted-current-post-share {
+#content-current-post-share {
   font-size: 10px;
   padding-top: 45px;
   display: flex;
@@ -790,6 +866,6 @@ h6 {
   align-self: flex-end;
 }
 
-#posted-updates {
+#content-updates {
   padding-top: 40px;
 }

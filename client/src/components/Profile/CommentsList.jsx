@@ -1,17 +1,23 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 import CommentsCount from './CommentsCount';
 import CommentsPost from './CommentsPost';
 
 const CommentsList = ({ currentUser, getCurrentUser, history }) => (
   <div id="comments">
-    <div id="comments-name">
-      <h5>
-        {currentUser.description.name}
+    <h5 id="comments-name">
+      <LinesEllipsis
+        text={`${currentUser.description.name} `}
+        ellipsis="... "
+        basedOn="letters"
+        component="span"
+      />
+      <span id="comments-name-text">
         &apos;s Friends Comments
-      </h5>
-    </div>
+      </span>
+    </h5>
     <CommentsCount comments={currentUser.comments} />
     {currentUser.comments.length > 0
       ? currentUser.comments.map((comment) => (

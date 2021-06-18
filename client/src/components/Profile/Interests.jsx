@@ -1,14 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const Interests = ({ currentUser }) => (
   <div id="interests">
-    <div id="interests-name">
-      <h5>
-        {currentUser.description.name}
+    <h5 id="interests-name">
+      <LinesEllipsis
+        text={`${currentUser.description.name} `}
+        ellipsis="... "
+        basedOn="letters"
+        component="span"
+      />
+      <span id="interests-name-text">
         &apos;s Interests
-      </h5>
-    </div>
+      </span>
+    </h5>
     <div id="interests-main">
       <div id="interests-general">
         <div className="interests-left">
@@ -17,7 +23,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.general}
           </div>
         </div>
@@ -29,7 +35,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.music}
           </div>
         </div>
@@ -41,7 +47,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.movies}
           </div>
         </div>
@@ -53,7 +59,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.television}
           </div>
         </div>
@@ -65,7 +71,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.books}
           </div>
         </div>
@@ -77,7 +83,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-content">
+          <div className="interests-text">
             {currentUser.interests.heroes}
           </div>
         </div>

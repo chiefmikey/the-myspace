@@ -3,8 +3,9 @@ exports.dummyData = [
     _id: 0,
     email: 'wolfebyte.net@gmail.com',
     password: 'hotdog',
+    joined: '4/20/2010',
     description: {
-      name: 'wolfebyte',
+      name: 'wolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebytewolfebyte',
       pic: '/img/wbyte.png',
       mood: 'cloudy',
       moodEmoji: ';)',
@@ -34,41 +35,41 @@ exports.dummyData = [
       occupation: 'keepin it breezy',
     },
     headline: 'ready to party rock',
-    postedPosts: [
+    contentPosts: [
       {
         _id: 6,
         title: 'what else',
-        content: 'were not friends so dont text my parents anymore',
+        text: 'were not friends so dont text my parents anymore',
       },
       {
         _id: 5,
         title: 'just because',
-        content: 'i hate you.',
+        text: 'i hate you.',
       },
       {
         _id: 4,
         title: 'i could use some help',
-        content: 'just kidding i hate you',
+        text: 'just kidding i hate you',
       },
       {
         _id: 3,
         title: 'further discussion',
-        content: 'dont forget i know everything',
+        text: 'dont forget i know everything',
       },
       {
         _id: 2,
-        title: 'what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what',
-        content: 'ah fuhck, i believe you have done me wrong.',
+        title: 'what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what what',
+        text: 'ah fuhck, i believe you have done me wrong.',
       },
       {
         _id: 1,
         title: 'excellent',
-        content: 'i will shoot forth the lasers from my eyeballs',
+        text: 'i will shoot forth the lasers from my eyeballs',
       },
       {
         _id: 0,
         title: 'ok guys',
-        content: 'stop it',
+        text: 'stop it',
       },
     ],
     blurbs: {
@@ -97,6 +98,7 @@ exports.dummyData = [
     _id: 1,
     email: 'cliff.dawg@gmail.com',
     password: 'dipshit',
+    joined: '4/20/2011',
     description: {
       name: 'clifford',
       pic: 'https://static01.nyt.com/images/2018/05/17/arts/television/17clifford-item/17clifford-item-articleLarge.jpg?quality=75&auto=webp&disable=upscale',
@@ -128,21 +130,21 @@ exports.dummyData = [
       occupation: 'being a big dog',
     },
     headline: 'woof woof woof woof',
-    postedPosts: [
+    contentPosts: [
       {
         _id: 2,
         title: 'wow thats a big hot dog',
-        content: 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.',
+        text: 'its of the casper variety i suppose, but one could argue that. im not sure if the absolute quantity of remaining sausage is enough for your mom to fit in her mouth. so dont forget that and keep a visual of it in your mind when you go to sleep at night. if this is long enough i can stop typing and just see if this example fits in the stupid column or not but whatever its just part of what i do and typing is a hoot.',
       },
       {
         _id: 1,
         title: 'crazy night',
-        content: 'chess board am i right',
+        text: 'chess board am i right',
       },
       {
         _id: 0,
         title: 'sup',
-        content: 'stop it',
+        text: 'stop it',
       },
     ],
     blurbs: {

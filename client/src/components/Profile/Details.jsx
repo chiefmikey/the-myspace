@@ -1,14 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const Details = ({ currentUser }) => (
   <div id="details">
-    <div id="details-name">
-      <h5>
-        {currentUser.description.name}
+    <h5 id="details-name">
+      <LinesEllipsis
+        text={`${currentUser.description.name} `}
+        ellipsis="... "
+        basedOn="letters"
+        component="span"
+      />
+      <span id="details-name-text">
         &apos;s Details
-      </h5>
-    </div>
+      </span>
+    </h5>
     <div id="details-main">
       <div id="details-status">
         <div className="details-left">
@@ -17,7 +23,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.status}
           </div>
         </div>
@@ -29,7 +35,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.hereFor}
           </div>
         </div>
@@ -41,7 +47,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.hometown}
           </div>
         </div>
@@ -53,7 +59,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.zodiacSign}
           </div>
         </div>
@@ -65,7 +71,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.smokeDrink}
           </div>
         </div>
@@ -77,7 +83,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-content">
+          <div className="details-text">
             {currentUser.details.occupation}
           </div>
         </div>
