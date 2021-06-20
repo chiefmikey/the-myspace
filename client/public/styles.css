@@ -287,6 +287,18 @@ h6 {
 
 #description-desc-status {
   height: 40px;
+  display: flex;
+  flex-direction: row;
+  white-space: pre;
+}
+
+#description-desc-status-text {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+#description-desc-status-text-quote {
+  margin-left: -5px;
 }
 
 #description-desc-gender, #description-desc-age, #description-desc-city, #description-desc-state, #description-desc-country, #description-desc-login-date {
@@ -330,8 +342,8 @@ h6 {
 }
 
 #details-name-text, #interests-name-text, #content-list-name-text {
-  margin-left: -5px;
   white-space: pre;
+  margin-left: -5px;
 }
 
 #contact-left {
@@ -363,8 +375,7 @@ h6 {
 
 #url {
   border: 1px solid rgb(102, 153, 204);
-  padding: 5px 5px 5px 10px;
-  line-height: 0;
+  padding: 5px 10px 5px 10px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 30px;
@@ -373,15 +384,21 @@ h6 {
 #url-name, #url-address {
   display: flex;
   align-items: center;
-  height: 20px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+#url-address {
+  padding: 0 15px 0 15px;
+}
+
+#url-address-text {
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 #url-name {
   font-weight: 600;
-}
-
-#url-address {
-  padding-left: 15px;
 }
 
 #interests, #details, #contact, #content-list {
@@ -460,8 +477,12 @@ h6 {
 }
 
 #headline-text {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+#headline-text-content {
   white-space: pre;
-  margin-left: -5px;
 }
 
 #profile-content {
@@ -626,8 +647,8 @@ h6 {
 }
 
 #blurbs-name-text, #friends-name-text, #comments-name-text {
-  margin-left: -5px;
   white-space: nowrap;
+  margin-left: -5px;
 }
 
 #blurbs-about {
@@ -659,7 +680,6 @@ h6 {
 
 #friends-count-text {
   white-space: pre;
-  margin-left: -5px;
 }
 
 #friends-count-text-end {

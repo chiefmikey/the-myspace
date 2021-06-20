@@ -39,18 +39,19 @@ class App extends React.Component {
   componentDidMount() {
     const { currentUser } = this.state;
     if (this.url() !== currentUser.urlAddress) {
-      this.getCurrentUser(this.url());
+      this.getCurrentUser();
     }
   }
 
   componentDidUpdate() {
     const { currentUser } = this.state;
     if (this.url() !== currentUser.urlAddress) {
-      this.getCurrentUser(this.url());
+      this.getCurrentUser();
     }
   }
 
-  getCurrentUser(urlAddress) {
+  getCurrentUser() {
+    const urlAddress = this.url();
     axios.get('/user/current', {
       params: {
         urlAddress,

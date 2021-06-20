@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Img from 'react-cool-img';
+import LinesEllipsis from 'react-lines-ellipsis';
 import {
   Router,
   Link,
@@ -71,8 +72,16 @@ const Description = ({ history, currentUser, contentView }) => (
     <div id="description-desc">
       <span id="description-desc-status">
         &quot;
-        {currentUser.description.status}
-        &quot;
+        <LinesEllipsis
+          id="description-desc-status-text"
+          text={`${currentUser.description.status} `}
+          ellipsis="... "
+          basedOn="letters"
+          component="span"
+        />
+        <span id="description-desc-status-text-quote">
+          &quot;
+        </span>
       </span>
       <span id="description-desc-gender">{currentUser.description.gender}</span>
       <span id="description-desc-age">

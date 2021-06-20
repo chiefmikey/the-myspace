@@ -54,7 +54,7 @@ class CommentsPost extends React.Component {
                 to={commentUser.urlAddress}
                 className="comments-post-left-icon"
                 onClick={() => {
-                  getCurrentUser(commentUser.urlAddress);
+                  getCurrentUser();
                 }}
               >
                 <LinesEllipsis

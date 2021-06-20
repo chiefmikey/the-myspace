@@ -1,7 +1,7 @@
 {
   "name": "wolfebyte.net",
   "version": "0.0.1",
-  "description": "w o l f e b y t e",
+  "description": "chiefmikey.com",
   "profile": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -13,14 +13,14 @@
     "url": "git+https://github.com/wolfebyte/wolfebyte.net.git"
   },
   "keywords": [
-    "wolfebyte"
+    "chiefmikey"
   ],
-  "author": "wolfebyte",
+  "author": "chiefmikey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wolfebyte/wolfebyte.net/issues"
+    "url": "https://github.com/chiefmikey/wolfebyte.net/issues"
   },
-  "homepage": "https://github.com/wolfebyte/wolfebyte.net#readme",
+  "homepage": "https://github.com/chiefmikey/wolfebyte.net#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "browser-image-compression": "^1.0.14",

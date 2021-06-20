@@ -23,15 +23,10 @@ class Profile extends React.Component {
     this.state = {};
   }
 
-  // componentDidMount() {
-  //   const { routeProps, getCurrentUser } = this.props;
-  //   getCurrentUser(routeProps.match.url);
-  // }
-
   componentDidUpdate(prevProps) {
     const { routeProps, getCurrentUser } = this.props;
     if (prevProps.routeProps.match.url !== routeProps.match.url) {
-      getCurrentUser(routeProps.match.url);
+      getCurrentUser();
     }
   }
 
@@ -88,9 +83,12 @@ class Profile extends React.Component {
                 ellipsis="... "
                 basedOn="letters"
               />
-              <div id="headline-text">
-                {`is ${currentUser.headline}`}
-              </div>
+              <LinesEllipsis
+                id="headline-text"
+                text={`is ${currentUser.headline}`}
+                ellipsis="... "
+                basedOn="letters"
+              />
             </h4>
             <ProfileContent
               currentUser={currentUser}

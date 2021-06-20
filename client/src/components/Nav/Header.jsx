@@ -39,9 +39,9 @@ const Header = ({
         )}
 
       <Link
-        to="/wolfebyte"
+        to="/chiefmikey"
         onClick={() => {
-          getCurrentUser('/wolfebyte');
+          getCurrentUser();
         }}
       >
         <Img

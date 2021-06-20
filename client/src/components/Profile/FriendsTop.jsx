@@ -17,7 +17,7 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) => friendsTop.map((
       to={friend[1].urlAddress}
       className="friends-top-icon"
       onClick={() => {
-        getCurrentUser(friend[1].urlAddress);
+        getCurrentUser();
       }}
     >
       <LinesEllipsis

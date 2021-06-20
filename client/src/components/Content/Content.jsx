@@ -118,7 +118,7 @@ class Content extends React.Component {
                   </div>
                   <div id="content-right">
                     <h4 id="headline">
-                      <div id="headline-text">
+                      <div id="headline-text-content">
                         Content by
                       </div>
                       <LinesEllipsis
