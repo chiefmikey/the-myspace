@@ -1,12 +1,12 @@
 exports.dummyData = [
   {
     _id: 0,
-    email: 'wolfebyte.net@gmail.com',
+    email: 'mikl@lovefidelity.com',
     password: 'hotdog',
     joined: '4/20/2010',
     description: {
       name: 'Chief Mikey',
-      pic: '/img/wbyte.png',
+      pic: 'https://f4.bcbits.com/img/a0174446049_10.jpg',
       mood: 'cloudy',
       moodEmoji: ';)',
       status: ':-)',

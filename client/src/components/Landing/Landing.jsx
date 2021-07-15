@@ -11,7 +11,7 @@ const Landing = ({ history }) => (
     <div id="landing-main">
       <div id="landing-main-logo">
         <h5>
-          wolfebyte.net
+          themyspace.org
         </h5>
       </div>
       <h1>

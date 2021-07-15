@@ -24,7 +24,7 @@ const Footer = () => (
       <a href="">link ten</a>
     </div>
     <div id="footer-copyright">
-      © wolfebyte 2021
+      © Th Myspace 2021
     </div>
   </div>
 );

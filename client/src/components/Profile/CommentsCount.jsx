@@ -20,11 +20,11 @@ const CommentsCount = ({ comments }) => {
         {comments.length}
       </div>
       {' comments ( '}
-      <a href="http://wolfebyte.net">
+      <a href="http://themyspace.org">
         View All
       </a>
       {' | '}
-      <a href="http://wolfebyte.net">
+      <a href="http://themyspace.org">
         Add Comment
       </a>
       {' ) '}

@@ -1,5 +1,5 @@
 {
-  "name": "wolfebyte.net",
+  "name": "the-myspace",
   "version": "0.0.1",
   "description": "chiefmikey.com",
   "profile": "app.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wolfebyte/wolfebyte.net.git"
+    "url": "git+https://github.com/chiefmikey/the-myspace.git"
   },
   "keywords": [
     "chiefmikey"
@@ -18,9 +18,9 @@
   "author": "chiefmikey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chiefmikey/wolfebyte.net/issues"
+    "url": "https://github.com/chiefmikey/the-myspace/issues"
   },
-  "homepage": "https://github.com/chiefmikey/wolfebyte.net#readme",
+  "homepage": "https://github.comchiefmikey/the-myspace#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "browser-image-compression": "^1.0.14",

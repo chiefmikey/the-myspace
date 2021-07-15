@@ -99,7 +99,7 @@ class Friends extends React.Component {
             getCurrentUser={getCurrentUser}
           />
         </div>
-        <a id="friends-view-all" href="http://wolfebyte.net">
+        <a id="friends-view-all" href="http://themyspace.org">
           <span id="friends-view-all-text">
             {'View all of '}
           </span>

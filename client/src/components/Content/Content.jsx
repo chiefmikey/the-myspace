@@ -111,7 +111,7 @@ class Content extends React.Component {
                     <div id="url">
                       <div id="url-name">.net URL</div>
                       <div id="url-address">
-                        http://wolfebyte.net
+                        http://themyspace.org
                         {currentUser.urlAddress}
                       </div>
                     </div>

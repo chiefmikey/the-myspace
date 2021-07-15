@@ -68,7 +68,7 @@ class Profile extends React.Component {
                 .net URL
               </div>
               <div id="url-address">
-                http://wolfebyte.net
+                http://themyspace.org
                 {currentUser.urlAddress}
               </div>
             </div>
@@ -85,8 +85,8 @@ class Profile extends React.Component {
               />
               <LinesEllipsis
                 id="headline-text"
-                text={`is ${currentUser.headline}`}
-                ellipsis="... "
+                text={`is ${currentUser.headline} `}
+                ellipsis="..."
                 basedOn="letters"
               />
             </h4>

@@ -21,44 +21,44 @@ const Contact = ({ currentUser }) => (
     </h5>
     <div id="contact-layout">
       <div id="contact-left">
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           <span className="contact-icon"><BiMailSend /></span>
           {' '}
           Send Message
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           <span className="contact-icon"><AiOutlineUserAdd /></span>
           {' '}
           Add to Friends
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           <span className="contact-icon"><RiWechatLine /></span>
           {' '}
           Instant Message
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           <span className="contact-icon"><AiOutlineUsergroupAdd /></span>
           {' '}
           Add to Group
         </a>
       </div>
       <div id="contact-right">
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           Forward to Friend
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           Add to Favorites
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           Block User
         </a>
         {'\n'}
-        <a className="contact-link" href="http://wolfebyte.net">
+        <a className="contact-link" href="http://themyspace.org">
           Rank User
         </a>
       </div>
