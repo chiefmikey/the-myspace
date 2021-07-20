@@ -12,8 +12,6 @@ Close your eyes. Do you hear that? It's the sound of a million keyboards clackin
 
 Don't let the fleeting memories of the first time you were socially conditioned from the comfort of your home leave you. Skip the hot tub and take this time machine back to that photo comment from your crush, the soul defining url address, and the inbox full of messages from real life actor Mischa Barton.
 
----
-
 ### *#1 Review: "It's bomb"*
 
 Let's face it, today there are just too many options for social media platforms. The problem is deciding which one to commit to, because linking them all together is confusing and stupid. **The Myspace** solves this by making other apps seem pointless as they are inferior, leaving you with no other logical choice. Succumb to the powers that you cannot control and sign up today!
@@ -25,8 +23,6 @@ Our user feedback is always taken very seriously, but so far nobody legit has co
 Even ding dongs who don't know squat about virtual anxiety driven platforms are into it:
 
 > "I really like **The Myspace**, I just wish I could link it to my Bebo."
-
----
 
 ## What are doing?
 
