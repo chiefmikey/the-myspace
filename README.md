@@ -2,9 +2,9 @@
 
 Full stack recreation of a popular social networking platform
 
-- Solved single page URL navigation by creatively leveraging React Router
-- Improved accessibility with dynamic string lengths clamped using LinesEllipsis
-- Reduced time to first contentful paint by progressively rendering images
+- Engaged users by reducing time to first contentful paint with progressively rendered images
+- Expanded availability with single page URL navigation that creatively leverages React Router
+- Influenced client accessibility with dynamic string lengths clamped using LinesEllipsis
 
 ## 2007 called, it wants its Myspace profile back
 
