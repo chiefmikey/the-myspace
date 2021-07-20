@@ -24,7 +24,7 @@ Even *ding dongs* who don't know squat about virtual anxiety driven platforms ar
 
 > "I really like **The Myspace**, I just wish I could link it to my Bebo account."
 
-## What are doing?
+## What are you doing?
 
 ### Visit http://localhost:8080 *right now* to make your **The Myspace** profile
 
