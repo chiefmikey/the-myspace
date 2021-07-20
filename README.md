@@ -18,11 +18,11 @@ Let's face it, today there are just too many options for social media platforms.
 
 Our user feedback is always taken very seriously, but so far nobody legit has complained at all. Our most common feedback has consistently been:
 
-> "Instagram is for @losers like some of the characters Paul Rudd plays in movies. But real life actor Paul Rudd sends me a messages on **The Myspace**!"
+> "Instagram is for @losers like some of the characters Paul Rudd plays in movies. But real life actor Paul Rudd sends me messages on **The Myspace**!"
 
-Even ding dongs who don't know squat about virtual anxiety driven platforms are into it:
+Even *ding dongs* who don't know squat about virtual anxiety driven platforms are into it:
 
-> "I really like **The Myspace**, I just wish I could link it to my Bebo."
+> "I really like **The Myspace**, I just wish I could link it to my Bebo account."
 
 ## What are doing?
 
