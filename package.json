@@ -2,25 +2,24 @@
   "name": "the-myspace",
   "version": "0.0.1",
   "description": "chiefmikey.com",
-  "profile": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "build": "webpack --mode development -w"
+  "keywords": [
+    "chiefmikey"
+  ],
+  "homepage": "https://github.comchiefmikey/the-myspace#readme",
+  "bugs": {
+    "url": "https://github.com/chiefmikey/the-myspace/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chiefmikey/the-myspace.git"
   },
-  "keywords": [
-    "chiefmikey"
-  ],
-  "author": "chiefmikey",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chiefmikey/the-myspace/issues"
+  "author": "chiefmikey",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "webpack --mode development -w"
   },
-  "homepage": "https://github.comchiefmikey/the-myspace#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "browser-image-compression": "^1.0.14",
@@ -38,18 +37,31 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
+    "@babel/core": "^7.14.8",
+    "@babel/eslint-parser": "^7.14.7",
+    "@babel/eslint-plugin": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.23.1",
+    "babel-preset-airbnb": "^5.0.0",
+    "css-loader": "^6.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-compat": "^3.11.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-sonar": "^0.6.1",
     "file-loader": "^6.2.0",
-    "nodemon": "^2.0.7",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "sass-loader": "^12.1.0",
+    "source-map-js": "^0.6.2",
     "source-map-loader": "^3.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0"
-  }
+  },
+  "profile": "app.js"
 }
