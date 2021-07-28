@@ -1,3 +1,7 @@
+# Rollup
+build.js
+build.js.map
+
 # dotenv
 .env
 
