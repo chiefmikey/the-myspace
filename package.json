@@ -19,8 +19,7 @@
     "start": "node app.js",
     "test": "nodemon app.js",
     "build": "rollup -c",
-    "dev": "rollup -cw",
-    "bili": "bili"
+    "dev": "rollup -cw"
   },
   "dependencies": {
     "axios": "^0.21.1",
