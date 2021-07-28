@@ -3,9 +3,7 @@ import propTypes from 'prop-types';
 
 const ContentSocial = ({ currentPost }) => (
   <div id="content-current-post-share">
-    Share:
-    {' '}
-    <div className="a-button">tweeter</div>
+    Share: <div className="a-button">tweeter</div>
     {' | '}
     <div className="a-button">fakbook</div>
   </div>

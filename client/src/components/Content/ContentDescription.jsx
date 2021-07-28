@@ -1,11 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Img from 'react-cool-img';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';

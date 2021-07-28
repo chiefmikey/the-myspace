@@ -1,14 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
 const ContentPosts = ({
-  sortedPosts, selectPost, currentPost, highlightPost, history, currentUser,
+  sortedPosts,
+  selectPost,
+  currentPost,
+  highlightPost,
+  history,
+  currentUser,
 }) => {
   if (sortedPosts.length > 0) {
     let highlightId = highlightPost;
