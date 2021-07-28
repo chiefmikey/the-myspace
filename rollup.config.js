@@ -44,5 +44,11 @@ export default {
     format: 'iife',
     sourcemap: true,
   },
+  onwarn: function (warning) {
+    if (warning.code === 'THIS_IS_UNDEFINED') {
+      return;
+    }
+    console.warn(warning.message);
+  },
   plugins,
 };
