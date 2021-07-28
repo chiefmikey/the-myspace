@@ -1,19 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
-import {
-  Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 
-import Header from './Nav/Header';
-import Nav from './Nav/Nav';
-import Footer from './Nav/Footer';
-import LogIn from './Nav/LogIn';
-import Landing from './Landing/Landing';
-import Profile from './Profile/Profile';
-import Content from './Content/Content';
+import Header from './Nav/Header.jsx';
+import Nav from './Nav/Nav.jsx';
+import Footer from './Nav/Footer.jsx';
+import LogIn from './Nav/LogIn.jsx';
+import Landing from './Landing/Landing.jsx';
+import Profile from './Profile/Profile.jsx';
+import Content from './Content/Content.jsx';
 
 class App extends React.Component {
   static postSort(currentUser) {
@@ -52,11 +48,12 @@ class App extends React.Component {
 
   getCurrentUser() {
     const urlAddress = this.url();
-    axios.get('/user/current', {
-      params: {
-        urlAddress,
-      },
-    })
+    axios
+      .get('/user/current', {
+        params: {
+          urlAddress,
+        },
+      })
       .then((res) => {
         const sortedPosts = App.postSort(res.data);
         this.setState({ currentUser: res.data, sortedPosts });
@@ -68,13 +65,14 @@ class App extends React.Component {
 
   logInUser(username, email, password) {
     const { activeUser } = this.state;
-    axios.get('user/login', {
-      params: {
-        username,
-        email,
-        password,
-      },
-    })
+    axios
+      .get('user/login', {
+        params: {
+          username,
+          email,
+          password,
+        },
+      })
       .then((res) => this.state({ activeUser: res.data }))
       .catch((error) => console.error('Error in App:logIn', error));
   }
@@ -91,14 +89,10 @@ class App extends React.Component {
 
   render() {
     const { history } = this.props;
-    const {
-      activeUser, currentUser, logIn, sortedPosts,
-    } = this.state;
+    const { activeUser, currentUser, logIn, sortedPosts } = this.state;
     return (
       <Router history={history}>
-        {logIn
-          ? <LogIn showLogIn={this.showLogIn} />
-          : undefined}
+        {logIn ? <LogIn showLogIn={this.showLogIn} /> : undefined}
         <Header
           history={history}
           getCurrentUser={this.getCurrentUser}
@@ -106,44 +100,38 @@ class App extends React.Component {
           showLogIn={this.showLogIn}
         />
         <Nav />
-        {this.url() === currentUser.urlAddress
-          ? (
-            <Switch>
-              <Route
-                path="/"
-                exact
-                render={() => (
-                  <Landing />
-                )}
-              />
-              <Route
-                path="/:urlAddress"
-                exact
-                render={(routeProps) => (
-                  <Profile
-                    history={history}
-                    currentUser={currentUser}
-                    routeProps={routeProps}
-                    getCurrentUser={this.getCurrentUser}
-                    sortedPosts={sortedPosts}
-                  />
-                )}
-              />
-              <Route
-                path="/:urlAddress/:postTitle"
-                exact
-                render={(routeProps) => (
-                  <Content
-                    history={history}
-                    currentUser={currentUser}
-                    routeProps={routeProps}
-                    sortedPosts={sortedPosts}
-                  />
-                )}
-              />
-            </Switch>
-          )
-          : <></>}
+        {this.url() === currentUser.urlAddress ? (
+          <Switch>
+            <Route path="/" exact render={() => <Landing />} />
+            <Route
+              path="/:urlAddress"
+              exact
+              render={(routeProps) => (
+                <Profile
+                  history={history}
+                  currentUser={currentUser}
+                  routeProps={routeProps}
+                  getCurrentUser={this.getCurrentUser}
+                  sortedPosts={sortedPosts}
+                />
+              )}
+            />
+            <Route
+              path="/:urlAddress/:postTitle"
+              exact
+              render={(routeProps) => (
+                <Content
+                  history={history}
+                  currentUser={currentUser}
+                  routeProps={routeProps}
+                  sortedPosts={sortedPosts}
+                />
+              )}
+            />
+          </Switch>
+        ) : (
+          <></>
+        )}
         <Footer />
       </Router>
     );
