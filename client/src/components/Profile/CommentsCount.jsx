@@ -10,23 +10,13 @@ const CommentsCount = ({ comments }) => {
   }
   return (
     <div id="comments-count">
-      Displaying
-      {' '}
-      <div id="comments-count-current">
-        {count}
-      </div>
+      Displaying <div id="comments-count-current">{count}</div>
       {' of '}
-      <div id="comments-count-total">
-        {comments.length}
-      </div>
+      <div id="comments-count-total">{comments.length}</div>
       {' comments ( '}
-      <a href="http://themyspace.org">
-        View All
-      </a>
+      <a href="http://themyspace.org">View All</a>
       {' | '}
-      <a href="http://themyspace.org">
-        Add Comment
-      </a>
+      <a href="http://themyspace.org">Add Comment</a>
       {' ) '}
     </div>
   );

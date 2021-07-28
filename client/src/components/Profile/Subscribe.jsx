@@ -1,15 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import ContentUpdates from './ContentUpdates';
+import ContentUpdates from './ContentUpdates.jsx';
 
 const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
   <div id="subscribe">
     <div id="subscribe-box">
       <div id="subscribe-name">
-        <h5>
-          Subscribe
-        </h5>
+        <h5>Subscribe</h5>
         <div
           id="subscribe-close"
           onClick={closeSubscribeWindow}

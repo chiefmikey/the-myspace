@@ -1,14 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
-import Subscribe from './Subscribe';
-import ProfileContentPosts from './ProfileContentPosts';
+import Subscribe from './Subscribe.jsx';
+import ProfileContentPosts from './ProfileContentPosts.jsx';
 
 class ProfileContent extends React.Component {
   constructor(props) {
@@ -39,14 +35,12 @@ class ProfileContent extends React.Component {
     const { currentUser, history, sortedPosts } = this.props;
     return (
       <div id="profile-content">
-        {subscribeWindow
-          ? (
-            <Subscribe
-              currentUser={currentUser}
-              closeSubscribeWindow={this.closeSubscribeWindow}
-            />
-          )
-          : undefined}
+        {subscribeWindow ? (
+          <Subscribe
+            currentUser={currentUser}
+            closeSubscribeWindow={this.closeSubscribeWindow}
+          />
+        ) : undefined}
         <div id="profile-content-text">
           <div id="profile-content-head">
             <h5 id="profile-content-title">
@@ -83,7 +77,13 @@ class ProfileContent extends React.Component {
             [
             <div className="a-button">
               <Router history={history}>
-                <Link to={`${currentUser.urlAddress}/${sortedPosts[0].title.split(' ').join('-')}`}>View All Posts</Link>
+                <Link
+                  to={`${currentUser.urlAddress}/${sortedPosts[0].title
+                    .split(' ')
+                    .join('-')}`}
+                >
+                  View All Posts
+                </Link>
               </Router>
             </div>
             ]

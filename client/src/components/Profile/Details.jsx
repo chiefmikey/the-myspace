@@ -11,9 +11,7 @@ const Details = ({ currentUser }) => (
         basedOn="letters"
         component="span"
       />
-      <span id="details-name-text">
-        &apos;s Details
-      </span>
+      <span id="details-name-text">&apos;s Details</span>
     </h5>
     <div id="details-main">
       <div id="details-status">
@@ -23,9 +21,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.status}
-          </div>
+          <div className="details-text">{currentUser.details.status}</div>
         </div>
       </div>
       <div id="details-here">
@@ -35,9 +31,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.hereFor}
-          </div>
+          <div className="details-text">{currentUser.details.hereFor}</div>
         </div>
       </div>
       <div id="details-hometown">
@@ -47,9 +41,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.hometown}
-          </div>
+          <div className="details-text">{currentUser.details.hometown}</div>
         </div>
       </div>
       <div id="details-zodiac">
@@ -59,9 +51,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.zodiacSign}
-          </div>
+          <div className="details-text">{currentUser.details.zodiacSign}</div>
         </div>
       </div>
       <div id="details-smoke">
@@ -71,9 +61,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.smokeDrink}
-          </div>
+          <div className="details-text">{currentUser.details.smokeDrink}</div>
         </div>
       </div>
       <div id="details-occupation">
@@ -83,9 +71,7 @@ const Details = ({ currentUser }) => (
           </div>
         </div>
         <div className="details-right">
-          <div className="details-text">
-            {currentUser.details.occupation}
-          </div>
+          <div className="details-text">{currentUser.details.occupation}</div>
         </div>
       </div>
     </div>

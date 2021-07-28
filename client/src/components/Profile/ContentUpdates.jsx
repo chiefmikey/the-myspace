@@ -27,10 +27,7 @@ class ContentUpdates extends React.Component {
     return (
       <div id="subscribe-text">
         <h5 id="subscribe-text-name">
-          <span id="subscribe-text-name-text">
-            Sign up for updates from
-            {' '}
-          </span>
+          <span id="subscribe-text-name-text">Sign up for updates from </span>
           <LinesEllipsis
             text={`${currentUser.description.name} `}
             ellipsis="... "

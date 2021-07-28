@@ -11,9 +11,7 @@ const Interests = ({ currentUser }) => (
         basedOn="letters"
         component="span"
       />
-      <span id="interests-name-text">
-        &apos;s Interests
-      </span>
+      <span id="interests-name-text">&apos;s Interests</span>
     </h5>
     <div id="interests-main">
       <div id="interests-general">
@@ -23,9 +21,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-text">
-            {currentUser.interests.general}
-          </div>
+          <div className="interests-text">{currentUser.interests.general}</div>
         </div>
       </div>
       <div id="interests-music">
@@ -35,9 +31,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-text">
-            {currentUser.interests.music}
-          </div>
+          <div className="interests-text">{currentUser.interests.music}</div>
         </div>
       </div>
       <div id="interests-movies">
@@ -47,9 +41,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-text">
-            {currentUser.interests.movies}
-          </div>
+          <div className="interests-text">{currentUser.interests.movies}</div>
         </div>
       </div>
       <div id="interests-television">
@@ -71,9 +63,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-text">
-            {currentUser.interests.books}
-          </div>
+          <div className="interests-text">{currentUser.interests.books}</div>
         </div>
       </div>
       <div id="interests-heroes">
@@ -83,9 +73,7 @@ const Interests = ({ currentUser }) => (
           </div>
         </div>
         <div className="interests-right">
-          <div className="interests-text">
-            {currentUser.interests.heroes}
-          </div>
+          <div className="interests-text">{currentUser.interests.heroes}</div>
         </div>
       </div>
     </div>

@@ -9,9 +9,7 @@ import { RiWechatLine } from 'react-icons/ri';
 const Contact = ({ currentUser }) => (
   <div id="contact">
     <h5 id="contact-name">
-      <span id="contact-name-text">
-        Contacting
-      </span>
+      <span id="contact-name-text">Contacting</span>
       <LinesEllipsis
         text={` ${currentUser.description.name} `}
         ellipsis="... "
@@ -22,26 +20,30 @@ const Contact = ({ currentUser }) => (
     <div id="contact-layout">
       <div id="contact-left">
         <a className="contact-link" href="http://themyspace.org">
-          <span className="contact-icon"><BiMailSend /></span>
-          {' '}
+          <span className="contact-icon">
+            <BiMailSend />
+          </span>{' '}
           Send Message
         </a>
         {'\n'}
         <a className="contact-link" href="http://themyspace.org">
-          <span className="contact-icon"><AiOutlineUserAdd /></span>
-          {' '}
+          <span className="contact-icon">
+            <AiOutlineUserAdd />
+          </span>{' '}
           Add to Friends
         </a>
         {'\n'}
         <a className="contact-link" href="http://themyspace.org">
-          <span className="contact-icon"><RiWechatLine /></span>
-          {' '}
+          <span className="contact-icon">
+            <RiWechatLine />
+          </span>{' '}
           Instant Message
         </a>
         {'\n'}
         <a className="contact-link" href="http://themyspace.org">
-          <span className="contact-icon"><AiOutlineUsergroupAdd /></span>
-          {' '}
+          <span className="contact-icon">
+            <AiOutlineUsergroupAdd />
+          </span>{' '}
           Add to Group
         </a>
       </div>

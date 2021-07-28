@@ -1,15 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
-const ProfileContentPosts = ({
-  history, currentUser, sortedPosts,
-}) => (
+const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
   sortedPosts.map((post) => (
     <div className="profile-content-post" key={sortedPosts.indexOf(post)}>
       <LinesEllipsis
@@ -31,8 +25,7 @@ const ProfileContentPosts = ({
         )
       </div>
     </div>
-  ))
-);
+  ));
 
 ProfileContentPosts.defaultProps = {
   sortedPosts: [],

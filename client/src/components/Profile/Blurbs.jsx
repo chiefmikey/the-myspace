@@ -11,18 +11,12 @@ const Blurbs = ({ currentUser }) => (
         basedOn="letters"
         component="span"
       />
-      <span id="blurbs-name-text">
-        &apos;s Blurbs
-      </span>
+      <span id="blurbs-name-text">&apos;s Blurbs</span>
     </h5>
     <div id="blurbs-about">
-      <div id="blurbs-about-me">
-        About Me:
-      </div>
+      <div id="blurbs-about-me">About Me:</div>
       {currentUser.blurbs.aboutMe}
-      <div id="blurbs-about-meet">
-        Who Id Like To Meet:
-      </div>
+      <div id="blurbs-about-meet">Who Id Like To Meet:</div>
       {currentUser.blurbs.whoIdLikeToMeet}
     </div>
   </div>

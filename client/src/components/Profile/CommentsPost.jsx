@@ -3,11 +3,7 @@ import propTypes from 'prop-types';
 import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
 import axios from 'axios';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
 import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
@@ -34,58 +30,55 @@ class CommentsPost extends React.Component {
   }
 
   getCommentUser(iconUserId) {
-    axios.get('/user/icon', {
-      params: {
-        iconUserId,
-      },
-    })
+    axios
+      .get('/user/icon', {
+        params: {
+          iconUserId,
+        },
+      })
       .then((res) => this.setState({ commentUser: res.data }));
   }
 
   render() {
     const { comment, getCurrentUser, history } = this.props;
     const { commentUser } = this.state;
-    return commentUser.urlAddress
-      ? (
-        <div className="comments-post">
-          <div className="comments-post-left">
-            <Router history={history}>
-              <Link
-                to={commentUser.urlAddress}
-                className="comments-post-left-icon"
-                onClick={() => {
-                  getCurrentUser();
-                }}
-              >
-                <LinesEllipsis
-                  className="comments-post-left-name"
-                  text={`${commentUser.description.name} `}
-                  ellipsis="... "
-                  basedOn="letters"
-                />
-                <Img
-                  className="comments-post-left-pic"
-                  src={commentUser.description.pic}
-                  placeholder={loadingImage}
-                  error={errorImage}
-                  lazy
-                  cache
-                  alt="comment author avatar"
-                />
-              </Link>
-            </Router>
-          </div>
-          <div className="comments-post-right">
-            <div className="comments-post-right-date">
-              {comment[2]}
-            </div>
-            <div className="comments-post-right-text">
-              {comment[3]}
-            </div>
-          </div>
+    return commentUser.urlAddress ? (
+      <div className="comments-post">
+        <div className="comments-post-left">
+          <Router history={history}>
+            <Link
+              to={commentUser.urlAddress}
+              className="comments-post-left-icon"
+              onClick={() => {
+                getCurrentUser();
+              }}
+            >
+              <LinesEllipsis
+                className="comments-post-left-name"
+                text={`${commentUser.description.name} `}
+                ellipsis="... "
+                basedOn="letters"
+              />
+              <Img
+                className="comments-post-left-pic"
+                src={commentUser.description.pic}
+                placeholder={loadingImage}
+                error={errorImage}
+                lazy
+                cache
+                alt="comment author avatar"
+              />
+            </Link>
+          </Router>
         </div>
-      )
-      : (<div className="comments-post" />);
+        <div className="comments-post-right">
+          <div className="comments-post-right-date">{comment[2]}</div>
+          <div className="comments-post-right-text">{comment[3]}</div>
+        </div>
+      </div>
+    ) : (
+      <div className="comments-post" />
+    );
   }
 }
 

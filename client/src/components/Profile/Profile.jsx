@@ -1,21 +1,17 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
-import Description from './Description';
-import Contact from './Contact';
-import Interests from './Interests';
-import Details from './Details';
-import ProfileContent from './ProfileContent';
-import Blurbs from './Blurbs';
-import Friends from './Friends';
-import CommentsList from './CommentsList';
-import NotFound from '../Landing/NotFound';
+import Description from './Description.jsx';
+import Contact from './Contact.jsx';
+import Interests from './Interests.jsx';
+import Details from './Details.jsx';
+import ProfileContent from './ProfileContent.jsx';
+import Blurbs from './Blurbs.jsx';
+import Friends from './Friends.jsx';
+import CommentsList from './CommentsList.jsx';
+import NotFound from '../Landing/NotFound.jsx';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -31,12 +27,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const {
-      history,
-      currentUser,
-      getCurrentUser,
-      sortedPosts,
-    } = this.props;
+    const { history, currentUser, getCurrentUser, sortedPosts } = this.props;
     if (currentUser._id < 0) {
       return (
         <div id="profile">
@@ -64,9 +55,7 @@ class Profile extends React.Component {
             <Description currentUser={currentUser} />
             <Contact currentUser={currentUser} />
             <div id="url">
-              <div id="url-name">
-                .net URL
-              </div>
+              <div id="url-name">.net URL</div>
               <div id="url-address">
                 http://themyspace.org
                 {currentUser.urlAddress}
