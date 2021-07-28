@@ -23,9 +23,7 @@ const Footer = () => (
       <div id="nav-div">|</div>
       <a href="">link ten</a>
     </div>
-    <div id="footer-copyright">
-      © Th Myspace 2021
-    </div>
+    <div id="footer-copyright">© Th Myspace 2021</div>
   </div>
 );
 

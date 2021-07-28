@@ -1,10 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {
-  Router,
-  Link,
-  withRouter,
-} from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
 const LogIn = ({ history, showLogIn }) => (
   <div id="login">
@@ -19,7 +15,6 @@ const LogIn = ({ history, showLogIn }) => (
     >
       X
     </span>
-
   </div>
 );
 
