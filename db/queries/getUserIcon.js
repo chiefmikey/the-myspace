@@ -12,8 +12,7 @@ exports.getUserIcon = async (userId) => {
     if (!user) {
       [user] = dummyData;
     }
-    const result = await JSON.stringify(user);
-    return result;
+    return await JSON.stringify(user);
   } catch (error) {
     console.error(error);
     return error;

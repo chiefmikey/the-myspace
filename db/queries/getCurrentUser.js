@@ -12,8 +12,7 @@ exports.getCurrentUser = async (urlAddress) => {
     if (!user) {
       user = { _id: -1, urlAddress };
     }
-    const result = await JSON.stringify(user);
-    return result;
+    return await JSON.stringify(user);
   } catch (error) {
     console.error(error);
     return error;

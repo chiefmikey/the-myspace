@@ -41,8 +41,7 @@ exports.getContentPost = async (urlAddress, postTitle) => {
         text: 'no post found',
       };
     }
-    const result = await JSON.stringify(post);
-    return result;
+    return await JSON.stringify(post);
   } catch (error) {
     console.error(error);
     return error;
