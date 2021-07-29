@@ -1,6 +1,6 @@
-const { dummyData } = require('../dummyData');
+import dummyData from '../dummyData.js';
 
-exports.getCurrentUser = async (urlAddress) => {
+const getCurrentUser = async (urlAddress) => {
   try {
     let user;
     for (let i = 0; i < dummyData.length; i += 1) {
@@ -18,3 +18,5 @@ exports.getCurrentUser = async (urlAddress) => {
     return error;
   }
 };
+
+export default getCurrentUser;

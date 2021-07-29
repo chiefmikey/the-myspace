@@ -1,6 +1,6 @@
-const { dummyData } = require('../dummyData');
+import dummyData from '../dummyData.js';
 
-exports.getContentPost = async (urlAddress, postTitle) => {
+const getContentPost = async (urlAddress, postTitle) => {
   try {
     let post;
     if (!postTitle) {
@@ -47,3 +47,5 @@ exports.getContentPost = async (urlAddress, postTitle) => {
     return error;
   }
 };
+
+export default getContentPost;
