@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-expressions */
-import less from 'rollup-plugin-less';
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -10,6 +9,7 @@ import externals from 'rollup-plugin-node-externals';
 import css from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import dotenv from 'dotenv';
+import autoprefixer from 'autoprefixer';
 
 dotenv.config();
 
@@ -22,9 +22,8 @@ const plugins = [
     'process.browser': true,
     'process.env.NODE_ENV': JSON.stringify('development'),
   }),
-  css(),
   image(),
-  less(),
+  css({ extensions: ['.css'], plugins: [autoprefixer()] }),
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
@@ -40,7 +39,8 @@ if (process.env.NODE_ENV === 'production') {
 export default {
   input: 'client/src/index.js',
   output: {
-    file: 'client/public/build.js',
+    file: 'client/public/dist/build.js',
+    name: 'mainBuild',
     format: 'iife',
     sourcemap: true,
   },
