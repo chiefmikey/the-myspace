@@ -13,17 +13,19 @@ import autoprefixer from 'autoprefixer';
 
 dotenv.config();
 
+const cssPlugins = [];
+
 const plugins = [
   externals(),
-  json(),
-  nodeResolve({ browser: true, jsnext: 'main' }),
   replace({
     preventAssignment: true,
     'process.browser': true,
     'process.env.NODE_ENV': JSON.stringify('development'),
   }),
+  nodeResolve({ browser: true, jsnext: 'main' }),
+  json(),
   image(),
-  css({ extensions: ['.css'], plugins: [autoprefixer()] }),
+  css({ extensions: ['.css'], plugins: cssPlugins }),
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
@@ -34,6 +36,7 @@ const plugins = [
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(terser());
+  cssPlugins.push(autoprefixer());
 }
 
 export default {
