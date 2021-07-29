@@ -13,6 +13,7 @@ class CommentsPost extends React.Component {
     super(props);
     this.state = {
       commentUser: {},
+      mounted: false,
     };
     this.getCommentUser = this.getCommentUser.bind(this);
   }
@@ -24,9 +25,14 @@ class CommentsPost extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { currentUser, comment } = this.props;
-    if (prevProps.currentUser._id !== currentUser._id) {
+    const { mounted } = this.state;
+    if (mounted && prevProps.currentUser._id !== currentUser._id) {
       this.getCommentUser(comment[1]);
     }
+  }
+
+  componentWillUnmount() {
+    this.setState({ mounted: false });
   }
 
   getCommentUser(iconUserId) {
@@ -36,7 +42,7 @@ class CommentsPost extends React.Component {
           iconUserId,
         },
       })
-      .then((res) => this.setState({ commentUser: res.data }));
+      .then((res) => this.setState({ commentUser: res.data, mounted: true }));
   }
 
   render() {
@@ -83,11 +89,17 @@ class CommentsPost extends React.Component {
 }
 
 CommentsPost.defaultProps = {
+  history: {},
+  getCurrentUser: () => {},
   comment: [],
+  currentUser: {},
 };
 
 CommentsPost.propTypes = {
+  history: propTypes.oneOfType([propTypes.object]),
+  getCurrentUser: propTypes.func,
   comment: propTypes.oneOfType([propTypes.array]),
+  currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
 export default withRouter(CommentsPost);

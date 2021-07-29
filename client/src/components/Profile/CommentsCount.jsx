@@ -14,9 +14,13 @@ const CommentsCount = ({ comments }) => {
       {' of '}
       <div id="comments-count-total">{comments.length}</div>
       {' comments ( '}
-      <a href="http://themyspace.org">View All</a>
+      <a href="http://themyspace.org" target="_blank" rel="noreferrer">
+        View All
+      </a>
       {' | '}
-      <a href="http://themyspace.org">Add Comment</a>
+      <a href="http://themyspace.org" target="_blank" rel="noreferrer">
+        Add Comment
+      </a>
       {' ) '}
     </div>
   );
