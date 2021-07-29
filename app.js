@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const mountRoutes = require('./routes');
-// const db = require('./db');
+import express from 'express';
+import cors from 'cors';
+import mountRoutes from './routes/index.js';
+// import db from './db';
 
 const port = process.env.PORT || 8080;
 
@@ -22,3 +22,5 @@ mountRoutes(app);
 app.listen(port, () => {
   console.log('Express server is listening on port', port);
 });
+
+export default app;
