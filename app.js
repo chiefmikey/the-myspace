@@ -20,7 +20,7 @@ app.use(express.static('./client/public'));
 mountRoutes(app);
 
 app.listen(port, () => {
-  console.log('Express server is listening on port', port);
+  console.log(`Express server is live at http://localhost:${port}`);
 });
 
 export default app;
