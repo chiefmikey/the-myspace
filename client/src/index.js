@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 
+import './styles.css';
 import App from './components/App.jsx';
 
 const history = createBrowserHistory();
