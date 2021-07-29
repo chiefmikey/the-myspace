@@ -22,14 +22,20 @@ const Header = ({ history, getCurrentUser, activeUser, showLogIn }) => (
             <span className="a-button">Sign Up</span>
           </Link>
           {' | '}
-          <span className="a-button" onClick={() => showLogIn('openLogIn')}>
+          <span
+            className="a-button"
+            onClick={() => showLogIn('openLogIn')}
+            onKeyPress={() => showLogIn('openLogIn')}
+            tabIndex={0}
+            role="button"
+          >
             Log In
           </span>
         </div>
       )}
 
       <Link
-        to="/chiefmikey"
+        to="/wolfe"
         onClick={() => {
           getCurrentUser();
         }}
