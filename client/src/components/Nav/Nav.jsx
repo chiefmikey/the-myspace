@@ -2,25 +2,45 @@ import React from 'react';
 
 const Nav = () => (
   <div id="nav">
-    <a href="">link one</a>
+    <a href="" target="_blank">
+      link one
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link two</a>
+    <a href="" target="_blank">
+      link two
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link three</a>
+    <a href="" target="_blank">
+      link three
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link four</a>
+    <a href="" target="_blank">
+      link four
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link five</a>
+    <a href="" target="_blank">
+      link five
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link six</a>
+    <a href="" target="_blank">
+      link six
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link seven</a>
+    <a href="" target="_blank">
+      link seven
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link eight</a>
+    <a href="" target="_blank">
+      link eight
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link nine</a>
+    <a href="" target="_blank">
+      link nine
+    </a>
     <div id="nav-div">|</div>
-    <a href="">link ten</a>
+    <a href="" target="_blank">
+      link ten
+    </a>
   </div>
 );
 
