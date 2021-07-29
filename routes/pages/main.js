@@ -1,11 +1,11 @@
-const Router = require('express-promise-router');
-const path = require('path');
+import Router from 'express-promise-router';
+import path from 'path';
 // const db = require('../db/index.js');
 // const helper = require('./helper.js');
 
-const router = new Router();
+const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
-module.exports = router;
+const router = new Router();
 
 router.route('/').get(async (req, res) => {
   try {
@@ -34,3 +34,5 @@ router.route('/:postTitle').get(async (req, res) => {
     res.status(404).send(error);
   }
 });
+
+export default router;

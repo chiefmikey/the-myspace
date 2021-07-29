@@ -1,11 +1,9 @@
-const Router = require('express-promise-router');
-const { getCurrentUser } = require('../../db/queries/getCurrentUser');
-const { getUserIcon } = require('../../db/queries/getUserIcon');
-const { getContentPost } = require('../../db/queries/getContentPost');
+import Router from 'express-promise-router';
+import getCurrentUser from '../../db/queries/getCurrentUser.js';
+import getUserIcon from '../../db/queries/getUserIcon.js';
+import getContentPost from '../../db/queries/getContentPost.js';
 
 const router = new Router();
-
-module.exports = router;
 
 router.route('/current').get(async (req, res) => {
   try {
@@ -39,3 +37,5 @@ router.route('/contentPost').get(async (req, res) => {
     res.status(404).send(error);
   }
 });
+
+export default router;
