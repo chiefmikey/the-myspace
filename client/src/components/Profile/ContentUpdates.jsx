@@ -29,7 +29,7 @@ class ContentUpdates extends React.Component {
         <h5 id="subscribe-text-name">
           <span id="subscribe-text-name-text">Sign up for updates from </span>
           <LinesEllipsis
-            text={`${currentUser.description.name} `}
+            text={`${currentUser.description.firstName} `}
             ellipsis="... "
             basedOn="letters"
             component="span"

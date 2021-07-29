@@ -42,8 +42,8 @@ class Profile extends React.Component {
           <Link to={`${currentUser.urlAddress}`}>
             <h3>
               <LinesEllipsis
-                className="profile-name"
-                text={`${currentUser.description.name} `}
+                className="profile-firstName"
+                text={`${currentUser.description.firstName} ${currentUser.description.lastName} `}
                 ellipsis="... "
                 basedOn="letters"
               />
@@ -55,7 +55,7 @@ class Profile extends React.Component {
             <Description currentUser={currentUser} />
             <Contact currentUser={currentUser} />
             <div id="url">
-              <div id="url-name">.net URL</div>
+              <div id="url-name">.org</div>
               <div id="url-address">
                 http://themyspace.org
                 {currentUser.urlAddress}
@@ -68,7 +68,7 @@ class Profile extends React.Component {
             <h4 id="headline">
               <LinesEllipsis
                 id="headline-name"
-                text={`${currentUser.description.name} `}
+                text={`${currentUser.description.firstName} `}
                 ellipsis="... "
                 basedOn="letters"
               />

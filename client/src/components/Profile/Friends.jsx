@@ -31,7 +31,7 @@ class Friends extends React.Component {
     const friendsTop = [];
     if (currentUser.friends) {
       for (let i = 0; i < currentUser.friends.length; i += 1) {
-        if (currentUser.friends[i][0] <= 8) {
+        if (currentUser.friends[i][0] < 8) {
           topFriends.push(currentUser.friends[i]);
           if (topFriends.length >= 8) {
             break;
@@ -64,7 +64,7 @@ class Friends extends React.Component {
       <div id="friends">
         <h5 id="friends-name">
           <LinesEllipsis
-            text={`${currentUser.description.name} `}
+            text={`${currentUser.description.firstName} `}
             ellipsis="... "
             basedOn="letters"
             component="span"
@@ -74,7 +74,7 @@ class Friends extends React.Component {
         <div id="friends-count">
           <LinesEllipsis
             id="friends-count-name"
-            text={`${currentUser.description.name} `}
+            text={`${currentUser.description.firstName} `}
             ellipsis="... "
             basedOn="letters"
             component="span"
@@ -100,7 +100,7 @@ class Friends extends React.Component {
           <span id="friends-view-all-text">{'View all of '}</span>
           <LinesEllipsis
             id="friends-view-all-name"
-            text={`${currentUser.description.name} `}
+            text={`${currentUser.description.firstName} `}
             ellipsis="... "
             basedOn="letters"
             component="span"

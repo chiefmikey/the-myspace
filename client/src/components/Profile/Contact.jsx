@@ -11,7 +11,7 @@ const Contact = ({ currentUser }) => (
     <h5 id="contact-name">
       <span id="contact-name-text">Contacting</span>
       <LinesEllipsis
-        text={` ${currentUser.description.name} `}
+        text={` ${currentUser.description.firstName} `}
         ellipsis="... "
         basedOn="letters"
         component="span"
@@ -48,20 +48,20 @@ const Contact = ({ currentUser }) => (
         </a>
       </div>
       <div id="contact-right">
-        <a className="contact-link" href="http://themyspace.org">
-          Forward to Friend
+        <a className="contact-link" href={currentUser.links.link1.url}>
+          {currentUser.links.link1.name}
         </a>
         {'\n'}
-        <a className="contact-link" href="http://themyspace.org">
-          Add to Favorites
+        <a className="contact-link" href={currentUser.links.link1.url}>
+          {currentUser.links.link2.name}
         </a>
         {'\n'}
-        <a className="contact-link" href="http://themyspace.org">
-          Block User
+        <a className="contact-link" href={currentUser.links.link1.url}>
+          {currentUser.links.link3.name}
         </a>
         {'\n'}
-        <a className="contact-link" href="http://themyspace.org">
-          Rank User
+        <a className="contact-link" href={currentUser.links.link1.url}>
+          {currentUser.links.link4.name}
         </a>
       </div>
     </div>

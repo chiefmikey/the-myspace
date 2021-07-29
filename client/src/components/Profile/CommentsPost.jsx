@@ -55,7 +55,7 @@ class CommentsPost extends React.Component {
             >
               <LinesEllipsis
                 className="comments-post-left-name"
-                text={`${commentUser.description.name} `}
+                text={`${commentUser.description.firstName} `}
                 ellipsis="... "
                 basedOn="letters"
               />

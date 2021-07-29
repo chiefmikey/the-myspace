@@ -6,7 +6,7 @@ const Interests = ({ currentUser }) => (
   <div id="interests">
     <h5 id="interests-name">
       <LinesEllipsis
-        text={`${currentUser.description.name} `}
+        text={`${currentUser.description.firstName} `}
         ellipsis="... "
         basedOn="letters"
         component="span"

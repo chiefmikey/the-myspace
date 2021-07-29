@@ -46,7 +46,7 @@ class ProfileContent extends React.Component {
             <h5 id="profile-content-title">
               <LinesEllipsis
                 id="profile-content-title-name"
-                text={`${currentUser.description.name} `}
+                text={`${currentUser.description.firstName} `}
                 ellipsis="... "
                 basedOn="letters"
               />

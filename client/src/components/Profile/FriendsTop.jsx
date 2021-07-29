@@ -19,7 +19,7 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
       >
         <LinesEllipsis
           className="friends-top-icon-name"
-          text={`${friend[1].description.name} `}
+          text={`${friend[1].description.firstName} `}
           ellipsis="... "
           basedOn="letters"
         />

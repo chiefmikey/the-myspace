@@ -9,7 +9,7 @@ const CommentsList = ({ currentUser, getCurrentUser, history }) => (
   <div id="comments">
     <h5 id="comments-name">
       <LinesEllipsis
-        text={`${currentUser.description.name} `}
+        text={`${currentUser.description.firstName} `}
         ellipsis="... "
         basedOn="letters"
         component="span"
