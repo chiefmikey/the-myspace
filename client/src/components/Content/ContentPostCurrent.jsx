@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 
 import ContentSocial from './ContentSocial.jsx';
 
@@ -19,10 +20,15 @@ const ContentPostCurrent = ({ currentPost }) => {
   }
   return (
     <div id="content-current-post">
-      <div id="content-current-post-title">
+      {/* <div id="content-current-post-title">
         <h5>{currentPost.title}</h5>
-      </div>
-      <div id="content-current-post-text">{currentPost.text}</div>
+      </div> */}
+      <div
+        id="content-current-post-text"
+        dangerouslySetInnerHTML={{
+          __html: currentPost.text,
+        }}
+      ></div>
       <ContentSocial currentPost={currentPost} />
     </div>
   );

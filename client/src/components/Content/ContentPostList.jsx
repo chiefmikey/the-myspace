@@ -18,7 +18,7 @@ const ContentPostsList = ({
     <div id="content-list">
       <h5 id="content-list-name">
         <LinesEllipsis
-          text={`${currentUser.description.name} `}
+          text={`${currentUser.description.firstName} `}
           ellipsis="... "
           basedOn="letters"
           component="span"
