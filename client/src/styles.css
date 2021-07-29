@@ -309,7 +309,7 @@ ul {
 }
 
 #description-desc-status-text-quote {
-  margin-left: -5px;
+  margin-left: -4px;
 }
 
 #description-desc-gender, #description-desc-age, #description-desc-city, #description-desc-state, #description-desc-country, #description-desc-login-date {
@@ -354,34 +354,32 @@ ul {
 
 #details-name-text, #interests-name-text, #content-list-name-text {
   white-space: pre;
-  margin-left: -5px;
+  margin-left: -4px;
 }
 
 #contact-left {
   grid-area: left;
-  padding: 20px 0 10px 10px;
+  padding: 20px 0 20px 10px;
   justify-self: center;
 }
 
 #contact-right {
   grid-area: right;
-  padding: 10px;
-  padding: 20px 10px 10px 0;
-  justify-self: center;
+  padding: 20px 10px 20px 0;
 }
 
 .contact-link {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-  height: 22px;
+  align-items: center;
+  padding: 7px 0 7px 0;
+  height: 20px;
 }
 
 .contact-icon {
   font-size: 20px;
-  padding-right: 10px;
+  padding: 0 10px 0 20px;
 }
 
 #url {
@@ -517,7 +515,8 @@ ul {
 }
 
 #profile-content-title-text {
-  margin-left: -5px;
+  white-space: nowrap;
+  margin-left: -4px;
 }
 
 #profile-content-subscribe {
@@ -661,7 +660,7 @@ ul {
 
 #blurbs-name-text, #friends-name-text, #comments-name-text {
   white-space: nowrap;
-  margin-left: -5px;
+  margin-left: -4px;
 }
 
 #blurbs-about {
@@ -759,7 +758,7 @@ ul {
 
 #friends-view-all-text-end {
   white-space: pre;
-  margin-left: -5px;
+  margin-left: -4px;
 }
 
 #comments-count {
