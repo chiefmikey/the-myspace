@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "chiefmikey.com",
   "keywords": [
-    "chiefmikey"
+    "myspace",
+    "social",
+    "profile"
   ],
   "homepage": "https://github.comchiefmikey/the-myspace#readme",
   "bugs": {
@@ -14,7 +16,10 @@
     "url": "git+https://github.com/chiefmikey/the-myspace.git"
   },
   "license": "ISC",
-  "author": "chiefmikey",
+  "author": "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)",
+  "contributors": [
+    "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
+  ],
   "type": "module",
   "main": "app.js",
   "scripts": {
