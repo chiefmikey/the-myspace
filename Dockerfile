@@ -1,4 +1,5 @@
 FROM node:latest
+EXPOSE 8080
 WORKDIR /the-myspace
 COPY . .
 COPY init.sh /bin
