@@ -32,18 +32,19 @@ class App extends React.Component {
     this.showLogIn = this.showLogIn.bind(this);
   }
 
-  componentDidMount() {
+  checkUrl() {
     const { currentUser } = this.state;
     if (this.url() !== currentUser.urlAddress) {
       this.getCurrentUser();
     }
   }
 
+  componentDidMount() {
+    this.checkUrl();
+  }
+
   componentDidUpdate() {
-    const { currentUser } = this.state;
-    if (this.url() !== currentUser.urlAddress) {
-      this.getCurrentUser();
-    }
+    this.checkUrl();
   }
 
   getCurrentUser() {
@@ -102,7 +103,22 @@ class App extends React.Component {
         <Nav />
         {this.url() === currentUser.urlAddress ? (
           <Switch>
-            <Route path="/" exact render={() => <Landing />} />
+            <Route
+              path="/"
+              exact
+              render={(routeProps) => {
+                window.location.href = 'http://localhost:8080/wolfe';
+                return (
+                  <Profile
+                    history={history}
+                    currentUser={currentUser}
+                    routeProps={routeProps}
+                    getCurrentUser={this.getCurrentUser}
+                    sortedPosts={sortedPosts}
+                  />
+                );
+              }}
+            />
             <Route
               path="/:urlAddress"
               exact
