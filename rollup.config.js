@@ -17,24 +17,26 @@ const cssPlugins = [];
 
 const plugins = [
   externals(),
-  replace({
-    preventAssignment: true,
-    'process.browser': true,
-    'process.env.NODE_ENV': JSON.stringify('development'),
-  }),
   nodeResolve({ browser: true, jsnext: 'main' }),
   json(),
-  image(),
   css({ extensions: ['.css'], plugins: cssPlugins }),
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
     extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
   }),
-  commonjs(),
 ];
 
 if (process.env.NODE_ENV === 'production') {
+  plugins.push(
+    replace({
+      preventAssignment: true,
+      'process.browser': true,
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+  );
+  plugins.push(image());
+  plugins.push(commonjs());
   plugins.push(terser());
   cssPlugins.push(autoprefixer());
 }
