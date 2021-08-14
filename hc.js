@@ -2,7 +2,6 @@ import http from 'http';
 
 const options = {
   host: 'localhost',
-  port: '8080',
   timeout: 2000,
 };
 const request = http.request(options, (res) => {
