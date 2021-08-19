@@ -13,6 +13,8 @@ import autoprefixer from 'autoprefixer';
 
 dotenv.config();
 
+const production = process.env.NODE_ENV || 'production';
+
 const cssPlugins = [];
 
 const plugins = [
@@ -27,7 +29,7 @@ const plugins = [
   }),
 ];
 
-if (process.env.NODE_ENV === 'production') {
+if (production === 'production') {
   plugins.push(
     replace({
       preventAssignment: true,
