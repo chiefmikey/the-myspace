@@ -107,10 +107,9 @@ class App extends React.Component {
               path="/"
               exact
               render={(routeProps) => {
-                const location = window.location.href
-                  .split('/')
-                  .splice(3, 1, 'wolfe')
-                  .join('');
+                const address = window.location.href.split('/');
+                address.splice(3, 1, 'wolfe');
+                const location = address.join('/');
                 window.location.href = location;
                 return (
                   <Profile
