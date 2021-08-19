@@ -107,7 +107,11 @@ class App extends React.Component {
               path="/"
               exact
               render={(routeProps) => {
-                window.location.href = 'http://localhost/wolfe';
+                const location = window.location.href
+                  .split('/')
+                  .splice(3, 1, 'wolfe')
+                  .join('');
+                window.location.href = location;
                 return (
                   <Profile
                     history={history}
