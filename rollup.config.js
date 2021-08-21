@@ -10,6 +10,7 @@ import css from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import dotenv from 'dotenv';
 import autoprefixer from 'autoprefixer';
+import cache from './rollup-plugin-cache';
 
 dotenv.config();
 
@@ -27,6 +28,9 @@ const plugins = [
     exclude: 'node_modules/**',
     extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
   }),
+  image(),
+  commonjs(),
+  cache(),
 ];
 
 if (production === 'production') {
@@ -37,16 +41,14 @@ if (production === 'production') {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   );
-  plugins.push(image());
-  plugins.push(commonjs());
   plugins.push(terser());
   cssPlugins.push(autoprefixer());
 }
 
-export default {
-  input: 'client/src/index.js',
+const config = {
+  input: './client/src/index.js',
   output: {
-    file: 'client/public/dist/build.js',
+    file: './client/public/dist/build.js',
     name: 'mainBuild',
     format: 'iife',
     sourcemap: true,
@@ -59,3 +61,5 @@ export default {
   },
   plugins,
 };
+
+export default config;
