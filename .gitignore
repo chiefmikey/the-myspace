@@ -122,3 +122,6 @@ dist
 
 #VS Code Counter directory
 .VSCodeCounter
+
+# Rollup Cache
+rollup-cache.json
