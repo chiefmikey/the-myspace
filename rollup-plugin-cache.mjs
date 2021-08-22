@@ -75,29 +75,38 @@ const cache = (cachePath) => {
       return o;
     },
 
-    resolveId(source) {
-      if (
-        input.length > 0 &&
-        source !== path.join(__dirname, input) &&
-        stringCache.includes(source)
-      ) {
-        return false;
-      }
-      return null;
-    },
+    // resolveId(source) {
+    //   if (
+    //     input.length > 0 &&
+    //     source !== path.join(__dirname, input) &&
+    //     stringCache.includes(source)
+    //   ) {
+    //     return false;
+    //   }
+    //   return null;
+    // },
 
     // transform(code, id) {
+    //   const prevMod = this.getModuleInfo();
+    //   console.log(id, altMod);
+
     //   if (goodCache) {
     //     const stringId = JSON.stringify(id);
     //     if (stringCache.includes(stringId)) {
+    //       console.log(id, this.getModuleInfo().facadeModuleId);
     //       for (let i = 0; i < parsedCache.modules.length; i += 1) {
+    //         // console.log(
+    //         //   JSON.stringify(parsedCache.modules[i]).includes(
+    //         //     JSON.stringify(this.getModuleInfo()),
+    //         //   ),
+    //         // );
     //         if (
     //           code &&
     //           parsedCache.modules[i].code &&
     //           id === parsedCache.modules[i].id
     //         ) {
     //           if (code !== parsedCache.modules[i].code) {
-    //             parsedCache.modules[i] = moduleInfo;
+    //             parsedCache.modules[i] = prevMod;
     //             console.log('cache module overwritten');
     //             break;
     //           } else {
@@ -107,11 +116,11 @@ const cache = (cachePath) => {
     //         }
     //       }
     //     } else {
-    //       parsedCache.modules.push(moduleInfo);
+    //       parsedCache.modules.push(prevMod);
     //       console.log('cache module pushed');
     //     }
     //   } else {
-    //     parsedCache.modules.push(moduleInfo);
+    //     parsedCache.modules.push(prevMod);
     //     console.log('cache module pushed');
     //   }
     // },
@@ -146,8 +155,12 @@ const cache = (cachePath) => {
       }
     },
 
+    // outputOptions(o) {
+    //   console.log('hey', o);
+    // },
+
     generateBundle(options, bundle, isWrite) {
-      // console.log(bundle[output]);
+      console.log(bundle[output]);
     },
 
     closeBundle() {
