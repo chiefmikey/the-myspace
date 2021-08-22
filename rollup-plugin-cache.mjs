@@ -86,47 +86,17 @@ const cache = (cachePath) => {
       return null;
     },
 
-    transform(code, id) {
-      if (goodCache) {
-        const stringId = JSON.stringify(id);
-        if (stringCache.includes(stringId)) {
-          for (let i = 0; i < parsedCache.modules.length; i += 1) {
-            if (
-              code &&
-              parsedCache.modules[i].code &&
-              id === parsedCache.modules[i].id
-            ) {
-              if (code !== parsedCache.modules[i].code) {
-                parsedCache.modules[i] = moduleInfo;
-                console.log('cache module overwritten');
-                break;
-              } else {
-                console.log('cache module already exists');
-                break;
-              }
-            }
-          }
-        } else {
-          parsedCache.modules.push(moduleInfo);
-          console.log('cache module pushed');
-        }
-      } else {
-        parsedCache.modules.push(moduleInfo);
-        console.log('cache module pushed');
-      }
-    },
-
-    // moduleParsed(moduleInfo) {
+    // transform(code, id) {
     //   if (goodCache) {
-    //     const stringId = JSON.stringify(moduleInfo.id);
+    //     const stringId = JSON.stringify(id);
     //     if (stringCache.includes(stringId)) {
     //       for (let i = 0; i < parsedCache.modules.length; i += 1) {
     //         if (
-    //           moduleInfo.code &&
+    //           code &&
     //           parsedCache.modules[i].code &&
-    //           moduleInfo.id === parsedCache.modules[i].id
+    //           id === parsedCache.modules[i].id
     //         ) {
-    //           if (moduleInfo.code !== parsedCache.modules[i].code) {
+    //           if (code !== parsedCache.modules[i].code) {
     //             parsedCache.modules[i] = moduleInfo;
     //             console.log('cache module overwritten');
     //             break;
@@ -145,6 +115,36 @@ const cache = (cachePath) => {
     //     console.log('cache module pushed');
     //   }
     // },
+
+    moduleParsed(moduleInfo) {
+      if (goodCache) {
+        const stringId = JSON.stringify(moduleInfo.id);
+        if (stringCache.includes(stringId)) {
+          for (let i = 0; i < parsedCache.modules.length; i += 1) {
+            if (
+              moduleInfo.code &&
+              parsedCache.modules[i].code &&
+              moduleInfo.id === parsedCache.modules[i].id
+            ) {
+              if (moduleInfo.code !== parsedCache.modules[i].code) {
+                parsedCache.modules[i] = moduleInfo;
+                console.log('cache module overwritten');
+                break;
+              } else {
+                console.log('cache module already exists');
+                break;
+              }
+            }
+          }
+        } else {
+          parsedCache.modules.push(moduleInfo);
+          console.log('cache module pushed');
+        }
+      } else {
+        parsedCache.modules.push(moduleInfo);
+        console.log('cache module pushed');
+      }
+    },
 
     generateBundle(options, bundle, isWrite) {
       // console.log(bundle[output]);
