@@ -1,5 +1,8 @@
 import fs from 'fs';
+import path from 'path';
 // import { rollup } from 'rollup';
+
+const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
 const updateCache = (c, p) => {
   fs.writeFile(p, c, (e) => {
@@ -28,6 +31,8 @@ const cache = (cachePath) => {
   let parsedCache = { modules: [{ id: undefined }], plugins: {} };
   let stringCache = '';
   let goodCache = false;
+  let input = '';
+  let output = '';
   const cPath =
     cachePath || process.env.ROLLUP_CACHE_PATH || './rollup-cache.json';
   return {
@@ -50,6 +55,9 @@ const cache = (cachePath) => {
 
     options(o) {
       o.cache = { modules: [] };
+      input = o.input;
+      const split = o.output[0].file.split('/');
+      output = split[split.length - 1];
       if (fs.existsSync(cPath)) {
         const read = fs.readFileSync(cPath);
         if (isJ(read)) {
@@ -67,17 +75,28 @@ const cache = (cachePath) => {
       return o;
     },
 
-    moduleParsed(moduleInfo) {
+    resolveId(source) {
+      if (
+        input.length > 0 &&
+        source !== path.join(__dirname, input) &&
+        stringCache.includes(source)
+      ) {
+        return false;
+      }
+      return null;
+    },
+
+    transform(code, id) {
       if (goodCache) {
-        const stringId = JSON.stringify(moduleInfo.id);
+        const stringId = JSON.stringify(id);
         if (stringCache.includes(stringId)) {
           for (let i = 0; i < parsedCache.modules.length; i += 1) {
             if (
-              moduleInfo.code &&
+              code &&
               parsedCache.modules[i].code &&
-              moduleInfo.id === parsedCache.modules[i].id
+              id === parsedCache.modules[i].id
             ) {
-              if (moduleInfo.code !== parsedCache.modules[i].code) {
+              if (code !== parsedCache.modules[i].code) {
                 parsedCache.modules[i] = moduleInfo;
                 console.log('cache module overwritten');
                 break;
@@ -96,6 +115,41 @@ const cache = (cachePath) => {
         console.log('cache module pushed');
       }
     },
+
+    // moduleParsed(moduleInfo) {
+    //   if (goodCache) {
+    //     const stringId = JSON.stringify(moduleInfo.id);
+    //     if (stringCache.includes(stringId)) {
+    //       for (let i = 0; i < parsedCache.modules.length; i += 1) {
+    //         if (
+    //           moduleInfo.code &&
+    //           parsedCache.modules[i].code &&
+    //           moduleInfo.id === parsedCache.modules[i].id
+    //         ) {
+    //           if (moduleInfo.code !== parsedCache.modules[i].code) {
+    //             parsedCache.modules[i] = moduleInfo;
+    //             console.log('cache module overwritten');
+    //             break;
+    //           } else {
+    //             console.log('cache module already exists');
+    //             break;
+    //           }
+    //         }
+    //       }
+    //     } else {
+    //       parsedCache.modules.push(moduleInfo);
+    //       console.log('cache module pushed');
+    //     }
+    //   } else {
+    //     parsedCache.modules.push(moduleInfo);
+    //     console.log('cache module pushed');
+    //   }
+    // },
+
+    generateBundle(options, bundle, isWrite) {
+      // console.log(bundle[output]);
+    },
+
     closeBundle() {
       if (!goodCache) {
         stringCache = JSON.stringify(parsedCache);
