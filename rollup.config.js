@@ -49,7 +49,7 @@ const config = {
   input: './client/src/index.js',
   output: {
     file: './client/public/dist/build.js',
-    name: 'mainBuild',
+    name: 'build.js',
     format: 'iife',
     sourcemap: true,
   },
