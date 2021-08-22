@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/chiefmikey/the-myspace.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)",
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
