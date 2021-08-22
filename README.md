@@ -2,13 +2,6 @@
 
 Full stack recreation of a popular social networking platform
 
-- Engaged users by reducing time to First Contentful Paint with progressively
-  rendered images
-- Expanded availability to users with traditional URL navigation creatively
-  leveraging React Router
-- Improved client accessibility with dynamic string lengths clamped using
-  LinesEllipsis
-
 ## 2007 called, it wants its Myspace profile back
 
 Close your eyes. Do you hear that? It's the sound of a million keyboards
