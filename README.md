@@ -1,7 +1,5 @@
 # **The Myspace**
 
-A resurrection of the previously popular social networking platform
-
 ## 2007 called, it wants its Myspace profile back
 
 Close your eyes. Do you hear that? It's the sound of a million keyboards
