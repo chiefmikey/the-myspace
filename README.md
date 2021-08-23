@@ -1,6 +1,6 @@
 # **The Myspace**
 
-Full stack recreation of a popular social networking platform
+A resurrection of the previously popular social networking platform
 
 ## 2007 called, it wants its Myspace profile back
 
