@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-// import { rollup } from 'rollup';
 
 const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
@@ -28,34 +27,23 @@ const isJ = (j) => {
 };
 
 const cache = (cachePath) => {
-  let parsedCache = { modules: [{ id: undefined }], plugins: {} };
+  let parsedCache = { modules: {} };
   let stringCache = '';
   let goodCache = false;
+  const newModules = [];
+  let updatedModule = '';
   let input = '';
+  let entry = '';
   let output = '';
   const cPath =
     cachePath || process.env.ROLLUP_CACHE_PATH || './rollup-cache.json';
   return {
     name: 'cache',
-    // options(o) {
-    //   for (let i = 0; i < o.plugins.length; i += 1) {
-    //     if (o.plugins[i].name === 'cache') {
-    //       o.plugins.splice(i, 1);
-    //       break;
-    //     }
-    //   }
-    //   const bundle = () => rollup(o);
-    //   bundle().then((bundled) => {
-    //     o.cache = bundled.cache;
-    //     console.log(o.cache);
-    //     return o;
-    //   });
-    // },
-    // };
 
     options(o) {
-      o.cache = { modules: [] };
+      o.cache = { modules: [], plugins: {} };
       input = o.input;
+      entry = path.join(__dirname, input);
       const split = o.output[0].file.split('/');
       output = split[split.length - 1];
       if (fs.existsSync(cPath)) {
@@ -63,10 +51,11 @@ const cache = (cachePath) => {
         if (isJ(read)) {
           const parse = JSON.parse(read);
           parsedCache = parse;
-          stringCache = JSON.stringify(parse);
-          o.cache = parse;
           goodCache = true;
           console.log('cache loaded');
+          // o.cache = parse;
+        } else {
+          console.log('cache is corrupt');
         }
       } else {
         goodCache = false;
@@ -75,98 +64,107 @@ const cache = (cachePath) => {
       return o;
     },
 
-    // resolveId(source) {
-    //   if (
-    //     input.length > 0 &&
-    //     source !== path.join(__dirname, input) &&
-    //     stringCache.includes(source)
-    //   ) {
-    //     return false;
+    watchChange(id, change) {
+      if (change.event === 'update' && id !== entry) {
+        console.log('module update detected');
+        updatedModule = id;
+        this.resolve(id);
+      }
+    },
+
+    resolveId(source) {
+      if (source === updatedModule) {
+        // this.addWatchFile(source);
+        return source;
+      }
+      if (goodCache) {
+        if (
+          input.length > 0 &&
+          source !== entry &&
+          parsedCache.modules[source]
+        ) {
+          // return false;
+          return null;
+        }
+        if (source === entry) {
+          return null;
+        }
+        newModules.push(source);
+        this.addWatchFile(source);
+        return null;
+      }
+      this.addWatchFile(source);
+      return null;
+    },
+
+    load(id) {
+      if (parsedCache.modules[id] && id !== updatedModule) {
+        console.log('load');
+        return {
+          code: parsedCache.modules[id].code,
+          ast: parsedCache.modules[id].ast,
+        };
+      }
+      return null;
+    },
+
+    // transform(id) {
+    //   if (parsedCache.modules[id] && id !== updatedModule) {
+    //     console.log('transform');
+    //     return {
+    //       code: parsedCache.modules[id].code,
+    //       ast: parsedCache.modules[id].ast,
+    //     };
     //   }
     //   return null;
     // },
 
-    // transform(code, id) {
-    //   const prevMod = this.getModuleInfo();
-    //   console.log(id, altMod);
+    moduleParsed(modInfo) {
+      console.log('whats after load');
+      if (modInfo.id === updatedModule || !parsedCache.modules[modInfo.id]) {
+        if (!parsedCache.modules[modInfo.id]) {
+          parsedCache.modules[modInfo.id] = { ast: {}, code: '' };
+        }
+        parsedCache.modules[modInfo.id].ast = modInfo.ast;
+        parsedCache.modules[modInfo.id].code = modInfo.code;
+      } else {
+        console.log('its external now');
+        modInfo.isExternal = true;
+      }
+    },
 
+    resolveDynamicImport(specifier, importer) {
+      console.log('dynamo');
+    },
+
+    buildEnd(e) {
+      if (e) {
+        console.error('build error', e);
+      }
+    },
+
+    // generateBundle(options, bundle, isWrite) {
+    //   // console.log(typeof bundle[output].code, bundle[output].code);
     //   if (goodCache) {
-    //     const stringId = JSON.stringify(id);
-    //     if (stringCache.includes(stringId)) {
-    //       console.log(id, this.getModuleInfo().facadeModuleId);
-    //       for (let i = 0; i < parsedCache.modules.length; i += 1) {
-    //         // console.log(
-    //         //   JSON.stringify(parsedCache.modules[i]).includes(
-    //         //     JSON.stringify(this.getModuleInfo()),
-    //         //   ),
-    //         // );
-    //         if (
-    //           code &&
-    //           parsedCache.modules[i].code &&
-    //           id === parsedCache.modules[i].id
-    //         ) {
-    //           if (code !== parsedCache.modules[i].code) {
-    //             parsedCache.modules[i] = prevMod;
-    //             console.log('cache module overwritten');
-    //             break;
-    //           } else {
-    //             console.log('cache module already exists');
-    //             break;
-    //           }
-    //         }
-    //       }
-    //     } else {
-    //       parsedCache.modules.push(prevMod);
-    //       console.log('cache module pushed');
+    //     // add any new modules to parsedCache
+    //     for (let i = 0; i < newModules.length; i += 1) {
+    //       parsedCache.modules.push(newModules[i]);
     //     }
+    //     // set bundle[output] to parsedCache data
+    //     bundle[output].modules = parsedCache.modules;
+    //     bundle[output].code = parsedCache.code;
     //   } else {
-    //     parsedCache.modules.push(prevMod);
-    //     console.log('cache module pushed');
+    //     parsedCache.modules = bundle[output].modules;
+    //     parsedCache.code = bundle[output].code;
     //   }
     // },
 
-    moduleParsed(moduleInfo) {
-      if (goodCache) {
-        const stringId = JSON.stringify(moduleInfo.id);
-        if (stringCache.includes(stringId)) {
-          for (let i = 0; i < parsedCache.modules.length; i += 1) {
-            if (
-              moduleInfo.code &&
-              parsedCache.modules[i].code &&
-              moduleInfo.id === parsedCache.modules[i].id
-            ) {
-              if (moduleInfo.code !== parsedCache.modules[i].code) {
-                parsedCache.modules[i] = moduleInfo;
-                console.log('cache module overwritten');
-                break;
-              } else {
-                console.log('cache module already exists');
-                break;
-              }
-            }
-          }
-        } else {
-          parsedCache.modules.push(moduleInfo);
-          console.log('cache module pushed');
-        }
-      } else {
-        parsedCache.modules.push(moduleInfo);
-        console.log('cache module pushed');
-      }
-    },
-
-    // outputOptions(o) {
-    //   console.log('hey', o);
-    // },
-
-    generateBundle(options, bundle, isWrite) {
-      console.log(bundle[output]);
+    closeWatcher() {
+      console.log('watcher has been closed');
     },
 
     closeBundle() {
-      if (!goodCache) {
-        stringCache = JSON.stringify(parsedCache);
-      }
+      stringCache = JSON.stringify(parsedCache);
       updateCache(stringCache, cPath);
     },
   };
