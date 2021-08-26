@@ -46,7 +46,7 @@ if (production === 'production') {
 }
 
 const config = {
-  input: './client/src/index.js',
+  input: './client/src/index.jsx',
   output: {
     file: './client/public/dist/build.js',
     name: 'build.js',
