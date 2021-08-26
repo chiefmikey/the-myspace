@@ -26,7 +26,7 @@ complained at all. Our most common feedback has consistently been:
 > "Instagram is for @losers like some of the characters Paul Rudd plays in
 > movies. But real life actor Paul Rudd sends me messages on **The Myspace**!"
 
-Even _ding dongs_ who don't know squat about virtual anxiety driven platforms
+Even _ding dongs_ who don't know squat about virtual anxiety-driven platforms
 are into it:
 
 > "I really like **The Myspace**, I just wish I could link it to my Bebo
@@ -34,6 +34,6 @@ are into it:
 
 ## What are you doing?
 
-### Visit http://localhost:8080 _right now_ to make your **The Myspace** profile
+### Visit [http://localhost:8080](https://themyspace.org) _right now_ to make your **The Myspace** profile
 
 Mischa and Paul are waiting for you...
