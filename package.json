@@ -64,7 +64,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",
-    "autoprefixer": "^10.3.3",
+    "autoprefixer": "^10.3.4",
     "babel-loader": "^8.2.2",
     "babel-preset-airbnb": "^5.0.0",
     "bili": "^5.0.5",
