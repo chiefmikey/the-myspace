@@ -32,13 +32,6 @@ class App extends React.Component {
     this.showLogIn = this.showLogIn.bind(this);
   }
 
-  checkUrl() {
-    const { currentUser } = this.state;
-    if (this.url() !== currentUser.urlAddress) {
-      this.getCurrentUser();
-    }
-  }
-
   componentDidMount() {
     this.checkUrl();
   }
@@ -62,6 +55,13 @@ class App extends React.Component {
       .catch((error) => {
         console.error('Error in App:getCurrentUser', error);
       });
+  }
+
+  checkUrl() {
+    const { currentUser } = this.state;
+    if (this.url() !== currentUser.urlAddress) {
+      this.getCurrentUser();
+    }
   }
 
   logInUser(username, email, password) {
