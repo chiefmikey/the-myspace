@@ -13,7 +13,7 @@
     "test2": "node node_modules/eslint-plugin-no-autofix-2/lib/rules.cjs"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.3",
     "browser-image-compression": "^1.0.15",
     "cors": "^2.8.5",
     "dompurify": "^2.3.1",
@@ -29,15 +29,15 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-lines-ellipsis": "^0.15.0",
-    "react-router-dom": "^5.2.1"
+    "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.4",
+    "@babel/core": "^7.15.5",
     "@babel/eslint-parser": "^7.15.4",
     "@babel/eslint-plugin": "^7.14.5",
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-react": "^7.14.5",
-    "@mikey-pro/eslint-config-react": "^1.0.0",
+    "@mikey-pro/eslint-config-react": "^1.0.1",
     "@mikey-pro/style-guide": "^1.1.5",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
@@ -64,7 +64,7 @@
     "source-map-js": "^0.6.2",
     "source-map-loader": "^3.0.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.51.1",
+    "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0"
   },
   "license": "MIT",
