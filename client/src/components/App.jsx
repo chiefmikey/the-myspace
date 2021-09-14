@@ -7,7 +7,7 @@ import Header from './Nav/Header.jsx';
 import Nav from './Nav/Nav.jsx';
 import Footer from './Nav/Footer.jsx';
 import LogIn from './Nav/LogIn.jsx';
-import Landing from './Landing/Landing.jsx';
+// import Landing from './Landing/Landing.jsx';
 import Profile from './Profile/Profile.jsx';
 import Content from './Content/Content.jsx';
 
@@ -108,7 +108,7 @@ class App extends React.Component {
               exact
               render={(routeProps) => {
                 const address = window.location.href.split('/');
-                address.splice(3, 1, 'wolfe');
+                address.splice(3, 1, 'chiefmikey');
                 const location = address.join('/');
                 window.location.href = location;
                 return (
