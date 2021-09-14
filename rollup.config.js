@@ -10,37 +10,46 @@ import css from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import dotenv from 'dotenv';
 import autoprefixer from 'autoprefixer';
-import cache from './rollup-plugin-cache';
+import path from 'path';
+import cache from './rollup-plugin-cache.mjs';
 
 dotenv.config();
 
-const production = process.env.NODE_ENV || 'production';
-
 const cssPlugins = [];
+const production = process.env.NODE_ENV || 'production';
 
 const plugins = [
   externals(),
   nodeResolve({ browser: true, jsnext: 'main' }),
   json(),
-  css({ extensions: ['.css'], plugins: cssPlugins }),
+  css({ plugins: cssPlugins }),
+  image(),
+  replace({
+    preventAssignment: true,
+    'process.browser': true,
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
+  commonjs(),
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
     extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          targets: {
+            node: 'current',
+          },
+        },
+      ],
+      '@babel/preset-react',
+    ],
   }),
-  image(),
-  commonjs(),
   cache(),
 ];
 
 if (production === 'production') {
-  plugins.push(
-    replace({
-      preventAssignment: true,
-      'process.browser': true,
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-  );
   plugins.push(terser());
   cssPlugins.push(autoprefixer());
 }
@@ -51,7 +60,7 @@ const config = {
     file: './client/public/dist/build.js',
     name: 'build.js',
     format: 'iife',
-    sourcemap: true,
+    sourcemap: 'inline',
   },
   onwarn: function (warning) {
     if (warning.code === 'THIS_IS_UNDEFINED') {

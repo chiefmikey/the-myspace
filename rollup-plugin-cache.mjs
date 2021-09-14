@@ -3,8 +3,8 @@ import path from 'path';
 
 const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
-const updateCache = (c, p) => {
-  fs.writeFile(p, c, (e) => {
+const updateCache = (cachePath, cache) => {
+  fs.writeFile(cachePath, cache, (e) => {
     if (e) {
       console.error('cache write error', e);
     } else {
@@ -13,9 +13,9 @@ const updateCache = (c, p) => {
   });
 };
 
-const isJ = (j) => {
+const isJSON = (input) => {
   try {
-    const o = JSON.parse(j);
+    const o = JSON.parse(input);
     if (o && typeof o === 'object') {
       return true;
     }
@@ -34,26 +34,21 @@ const cache = (cachePath) => {
   let updatedModule = '';
   let input = '';
   let entry = '';
-  let output = '';
   const cPath =
     cachePath || process.env.ROLLUP_CACHE_PATH || './rollup-cache.json';
   return {
     name: 'cache',
 
     options(o) {
-      o.cache = { modules: [], plugins: {} };
       input = o.input;
       entry = path.join(__dirname, input);
-      const split = o.output[0].file.split('/');
-      output = split[split.length - 1];
       if (fs.existsSync(cPath)) {
         const read = fs.readFileSync(cPath);
-        if (isJ(read)) {
+        if (isJSON(read)) {
           const parse = JSON.parse(read);
           parsedCache = parse;
           goodCache = true;
           console.log('cache loaded');
-          // o.cache = parse;
         } else {
           console.log('cache is corrupt');
         }
@@ -83,8 +78,7 @@ const cache = (cachePath) => {
           source !== entry &&
           parsedCache.modules[source]
         ) {
-          // return false;
-          return null;
+          return false;
         }
         if (source === entry) {
           return null;
@@ -97,9 +91,9 @@ const cache = (cachePath) => {
       return null;
     },
 
-    load(id) {
-      if (parsedCache.modules[id] && id !== updatedModule) {
-        console.log('load');
+    transform(code, id) {
+      if (id === entry && goodCache) {
+        console.log('transform');
         return {
           code: parsedCache.modules[id].code,
           ast: parsedCache.modules[id].ast,
@@ -108,56 +102,33 @@ const cache = (cachePath) => {
       return null;
     },
 
-    // transform(id) {
-    //   if (parsedCache.modules[id] && id !== updatedModule) {
-    //     console.log('transform');
-    //     return {
-    //       code: parsedCache.modules[id].code,
-    //       ast: parsedCache.modules[id].ast,
-    //     };
-    //   }
-    //   return null;
-    // },
-
-    moduleParsed(modInfo) {
-      console.log('whats after load');
-      if (modInfo.id === updatedModule || !parsedCache.modules[modInfo.id]) {
-        if (!parsedCache.modules[modInfo.id]) {
-          parsedCache.modules[modInfo.id] = { ast: {}, code: '' };
-        }
-        parsedCache.modules[modInfo.id].ast = modInfo.ast;
-        parsedCache.modules[modInfo.id].code = modInfo.code;
-      } else {
-        console.log('its external now');
-        modInfo.isExternal = true;
-      }
-    },
-
-    resolveDynamicImport(specifier, importer) {
-      console.log('dynamo');
-    },
-
     buildEnd(e) {
       if (e) {
         console.error('build error', e);
       }
     },
 
-    // generateBundle(options, bundle, isWrite) {
-    //   // console.log(typeof bundle[output].code, bundle[output].code);
-    //   if (goodCache) {
-    //     // add any new modules to parsedCache
-    //     for (let i = 0; i < newModules.length; i += 1) {
-    //       parsedCache.modules.push(newModules[i]);
-    //     }
-    //     // set bundle[output] to parsedCache data
-    //     bundle[output].modules = parsedCache.modules;
-    //     bundle[output].code = parsedCache.code;
-    //   } else {
-    //     parsedCache.modules = bundle[output].modules;
-    //     parsedCache.code = bundle[output].code;
-    //   }
-    // },
+    renderChunk(code, chunk, options) {
+      console.log('chunky');
+      const rollup = ['(function(){'];
+      const rollup2 = ['}())'];
+      const chunkIds = Object.keys(chunk.modules);
+      for (let i = 0; i < chunkIds.length; i += 1) {
+        if (
+          chunkIds[i] === updatedModule ||
+          !Object.keys(parsedCache.modules).includes(chunkIds[i])
+        ) {
+          console.log(chunkIds[i]);
+          parsedCache.modules[chunkIds[i]] = chunk.modules[chunkIds[i]];
+        }
+      }
+      const parsedCacheIds = Object.keys(parsedCache.modules);
+      for (let j = 0; j < parsedCacheIds.length; j += 1) {
+        rollup.push(parsedCache.modules[parsedCacheIds[j]].code);
+      }
+      const result = rollup.concat(rollup2).join(' ');
+      return { code: result };
+    },
 
     closeWatcher() {
       console.log('watcher has been closed');
@@ -165,7 +136,7 @@ const cache = (cachePath) => {
 
     closeBundle() {
       stringCache = JSON.stringify(parsedCache);
-      updateCache(stringCache, cPath);
+      updateCache(cPath, stringCache);
     },
   };
 };
