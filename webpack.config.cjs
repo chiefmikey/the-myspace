@@ -1,9 +1,10 @@
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
-const DIST_DIR = path.join(__dirname, '/client/public');
+const DIST_DIR = path.join(__dirname, '/client/public/dist');
 
-const css = 'css-loader';
+const css = ['style-loader', 'css-loader'];
+const scss = ['style-loader', 'css-loader', 'sass-loader'];
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
@@ -14,36 +15,34 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  targets: {
-                    node: 'current',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      node: 'current',
+                    },
                   },
-                },
+                ],
+                '@babel/preset-react',
               ],
-              '@babel/preset-react',
-            ],
+            },
           },
-        },
+        ],
       },
       {
         test: /\.css$/,
-        use: [css],
+        use: css,
       },
       {
-        test: /\.scss$/,
-        use: [css, 'sass-loader'],
-      },
-      {
-        test: /\.sass$/,
-        use: [css, 'sass-loader'],
+        test: /\.s[ac]ss$/,
+        use: scss,
       },
       {
         test: /\.(png|ttf|jp(e*)g|svg)$/,
