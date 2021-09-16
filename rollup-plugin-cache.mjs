@@ -76,7 +76,8 @@ const cache = (cachePath) => {
         if (
           input.length > 0 &&
           source !== entry &&
-          parsedCache.modules[source]
+          parsedCache.modules[source] &&
+          source !== updatedModule
         ) {
           return false;
         }
@@ -92,11 +93,12 @@ const cache = (cachePath) => {
     },
 
     transform(code, id) {
-      if (id === entry && goodCache) {
+      if (id === entry && goodCache && parsedCache.modules[id].code === code) {
         console.log('transform');
         return {
           code: parsedCache.modules[id].code,
           ast: parsedCache.modules[id].ast,
+          map: { mappings: '' },
         };
       }
       return null;
@@ -109,7 +111,6 @@ const cache = (cachePath) => {
     },
 
     renderChunk(code, chunk, options) {
-      console.log('chunky');
       const rollup = ['(function(){'];
       const rollup2 = ['}())'];
       const chunkIds = Object.keys(chunk.modules);
@@ -118,7 +119,6 @@ const cache = (cachePath) => {
           chunkIds[i] === updatedModule ||
           !Object.keys(parsedCache.modules).includes(chunkIds[i])
         ) {
-          console.log(chunkIds[i]);
           parsedCache.modules[chunkIds[i]] = chunk.modules[chunkIds[i]];
         }
       }
@@ -127,7 +127,7 @@ const cache = (cachePath) => {
         rollup.push(parsedCache.modules[parsedCacheIds[j]].code);
       }
       const result = rollup.concat(rollup2).join(' ');
-      return { code: result };
+      return { code: result, map: { mappings: '' } };
     },
 
     closeWatcher() {

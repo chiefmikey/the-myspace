@@ -10,7 +10,6 @@ import css from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import dotenv from 'dotenv';
 import autoprefixer from 'autoprefixer';
-import path from 'path';
 import cache from './rollup-plugin-cache.mjs';
 
 dotenv.config();
