@@ -108,7 +108,7 @@ class App extends React.Component {
               exact
               render={(routeProps) => {
                 const address = window.location.href.split('/');
-                address.splice(3, 1, 'chiefmikey');
+                address.splice(3, 1, 'wolfe');
                 const location = address.join('/');
                 window.location.href = location;
                 return (
