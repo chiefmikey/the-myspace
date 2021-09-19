@@ -3,7 +3,7 @@ import cors from 'cors';
 import mountRoutes from './routes/index.js';
 // import db from './db';
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -19,8 +19,8 @@ app.use(express.json());
 app.use(express.static('./client/public'));
 mountRoutes(app);
 
-app.listen(port, () => {
-  console.log(`Express server is live at http://localhost:${port}`);
+app.listen(3000, () => {
+  console.log(`Express server is live at http://localhost:3000`);
 });
 
 export default app;
