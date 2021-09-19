@@ -1,5 +1,5 @@
 FROM alpine:latest
-EXPOSE 8080
+EXPOSE 3000
 WORKDIR /the-myspace
 COPY . .
 COPY init.sh /bin
