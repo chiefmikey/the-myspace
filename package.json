@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
     "history": "^4.10.1",
-    "mongoose": "^5.12.10",
+    "mongoose": "^6.0.8",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-cool-img": "^1.2.10",
