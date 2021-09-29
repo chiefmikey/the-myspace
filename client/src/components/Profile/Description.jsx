@@ -1,25 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import loadingImage from '../../../public/img/420.jpeg';
-import errorImage from '../../../public/img/404.jpeg';
+import ProfilePic from './ProfilePic.jsx';
 
 const Description = ({ history, currentUser, contentView }) => (
   <div id="description">
-    <div id="description-pic">
-      <Img
-        id="description-pic-img"
-        src={currentUser.description.pic}
-        placeholder={loadingImage}
-        error={errorImage}
-        lazy
-        cache
-        alt="user description avatar"
-      />
-    </div>
+    <ProfilePic currentUser={currentUser} />
     {contentView ? (
       <div id="description-mood-view">
         <div id="description-mood">
