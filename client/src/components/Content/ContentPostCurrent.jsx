@@ -1,8 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import DOMPurify from 'dompurify';
-
-import ContentSocial from './ContentSocial.jsx';
 
 const ContentPostCurrent = ({ currentPost }) => {
   if (currentPost._id < 0) {
@@ -14,7 +11,6 @@ const ContentPostCurrent = ({ currentPost }) => {
         <div id="content-current-post-text">
           tell them to post something lol
         </div>
-        <ContentSocial currentPost={currentPost} />
       </div>
     );
   }
@@ -28,8 +24,7 @@ const ContentPostCurrent = ({ currentPost }) => {
         dangerouslySetInnerHTML={{
           __html: currentPost.text,
         }}
-      ></div>
-      <ContentSocial currentPost={currentPost} />
+      />
     </div>
   );
 };
