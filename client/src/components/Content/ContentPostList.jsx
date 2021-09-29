@@ -9,7 +9,6 @@ const ContentPostsList = ({
   currentUser,
   selectPost,
   currentPost,
-  highlightPost,
 }) => {
   const sortedPosts = currentUser.contentPosts
     ? currentUser.contentPosts.sort((a, b) => b._id - a._id)
@@ -31,7 +30,6 @@ const ContentPostsList = ({
           selectPost={selectPost}
           currentPost={currentPost}
           currentUser={currentUser}
-          highlightPost={highlightPost}
           history={history}
         />
       </div>
@@ -45,7 +43,6 @@ ContentPostsList.defaultProps = {
   history: {},
   currentUser: {},
   currentPost: {},
-  highlightPost: -1,
   selectPost: () => {},
 };
 
@@ -53,7 +50,6 @@ ContentPostsList.propTypes = {
   history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   currentPost: propTypes.oneOfType([propTypes.object]),
-  highlightPost: propTypes.number,
   selectPost: propTypes.func,
 };
 
