@@ -6,8 +6,8 @@ import ProfilePic from '../Profile/ProfilePic.jsx';
 import ContentSocial from './ContentSocial.jsx';
 
 const ContentFoot = ({ currentUser, history, currentPost }) => (
-  <>
-    <div id="content-foot">
+  <div id="content-foot">
+    <div id="content-foot-card">
       <Router history={history}>
         <Link to={`${currentUser.urlAddress}`}>
           <h3>
@@ -48,7 +48,7 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
       </div>
     </div>
     <ContentSocial currentPost={currentPost} />
-  </>
+  </div>
 );
 
 ContentFoot.defaultProps = {
