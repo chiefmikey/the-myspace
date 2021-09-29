@@ -77,11 +77,7 @@ class ProfileContent extends React.Component {
             [
             <div className="a-button">
               <Router history={history}>
-                <Link
-                  to={`${currentUser.urlAddress}/${sortedPosts[0].title
-                    .split(' ')
-                    .join('-')}`}
-                >
+                <Link to={`${currentUser.urlAddress}/content`}>
                   View All Posts
                 </Link>
               </Router>
@@ -97,11 +93,13 @@ class ProfileContent extends React.Component {
 ProfileContent.defaultProps = {
   currentUser: {},
   history: {},
+  sortedPosts: [],
 };
 
 ProfileContent.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
   history: propTypes.oneOfType([propTypes.object]),
+  sortedPosts: propTypes.oneOfType([propTypes.array]),
 };
 
 export default withRouter(ProfileContent);
