@@ -1,13 +1,13 @@
 {
   "name": "the-myspace",
   "version": "0.0.1",
-  "description": "chiefmikey.com",
+  "description": "themyspace.org",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "nodemon --trace-warnings app.js",
     "build": "rollup -c",
     "dev": "rollup -cw",
+    "start": "node app.js",
+    "test": "nodemon --trace-warnings app.js",
     "wp": "webpack --mode development -w"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "draft-js": "^0.11.7",
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
-    "history": "^5.0.1",
+    "history": "^4.10.1",
     "mongoose": "^6.0.8",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -33,8 +33,8 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
-    "@mikey-pro/eslint-config-react": "^1.2.1",
-    "@mikey-pro/style-guide": "^1.5.1",
+    "@mikey-pro/eslint-config-react": "^1.2.2",
+    "@mikey-pro/style-guide": "^1.5.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-image": "^2.1.1",
@@ -61,7 +61,7 @@
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.55.0",
+    "webpack": "^5.55.1",
     "webpack-cli": "^4.8.0"
   },
   "license": "MIT",
