@@ -1,24 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
-import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
+import ContentAll from './ContentAll.jsx';
 import ContentPostCurrent from './ContentPostCurrent.jsx';
-import ContentPostList from './ContentPostList.jsx';
-import Description from '../Profile/Description.jsx';
-import ContentUpdates from '../Profile/ContentUpdates.jsx';
 import NotFound from '../Landing/NotFound.jsx';
+import ContentFoot from './ContentFoot';
 
 class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPost: {},
-      highlightPost: '',
+      currentPost: { _id: -2 },
     };
     this.selectPost = this.selectPost.bind(this);
-    this.postHighlight = this.postHighlight.bind(this);
   }
 
   componentDidMount() {
@@ -38,10 +34,6 @@ class Content extends React.Component {
     }
   }
 
-  postHighlight(postTitle) {
-    this.setState({ highlightPost: postTitle });
-  }
-
   postUrl(postTitle) {
     const { history, currentUser } = this.props;
     if (postTitle) {
@@ -58,8 +50,6 @@ class Content extends React.Component {
       [, , , , title] = window.location.href.split('/');
       title = title.split('-').join(' ');
     }
-    // this.postUrl(title);
-    // this.postHighlight(title);
     axios
       .get('/user/contentPost', {
         params: {
@@ -67,72 +57,37 @@ class Content extends React.Component {
           postTitle: title,
         },
       })
-      .then((res) =>
-        this.setState({ currentPost: res.data, highlightPost: res.data._id }),
-      )
+      .then((res) => this.setState({ currentPost: res.data }))
       .catch((error) => console.error(error));
   }
 
   render() {
     const { history, currentUser } = this.props;
-    const { currentPost, highlightPost } = this.state;
+    const { currentPost } = this.state;
     return currentPost._id || currentPost._id === 0 ? (
       <div id="content">
         {currentPost._id === -1 ? (
           <NotFound />
         ) : (
-          <>
-            <Router history={history}>
-              <Link to={`${currentUser.urlAddress}`}>
-                <h3>
-                  <LinesEllipsis
-                    className="profile-firstName"
-                    text={`${currentUser.description.firstName} ${currentUser.description.lastName} `}
-                    ellipsis="... "
-                    basedOn="letters"
-                  />
-                </h3>
-              </Link>
-            </Router>
-            <div id="content-layout">
-              <div id="content-left">
-                <Description
-                  history={history}
-                  currentUser={currentUser}
-                  contentView
-                />
-                <ContentPostList
-                  history={history}
-                  currentUser={currentUser}
-                  selectPost={this.selectPost}
-                  currentPost={currentPost}
-                  highlightPost={highlightPost}
-                />
-                <div id="url">
-                  <div id="url-name">.org URL</div>
-                  <div id="url-address">
-                    http://themyspace.org
-                    {currentUser.urlAddress}
-                  </div>
-                </div>
-              </div>
-              <div id="content-right">
-                <h4 id="headline">
-                  <div id="headline-text-content">Content by</div>
-                  <LinesEllipsis
-                    id="headline-name"
-                    text={` ${currentUser.description.firstName} ${currentUser.description.lastName} `}
-                    ellipsis="... "
-                    basedOn="letters"
-                  />
-                </h4>
+          <div id="content-layout">
+            {currentPost._id === -2 ? (
+              <ContentAll
+                history={history}
+                currentUser={currentUser}
+                currentPost={currentPost}
+                selectPost={this.selectPost}
+              />
+            ) : (
+              <>
                 <ContentPostCurrent currentPost={currentPost} />
-                <div id="content-updates">
-                  <ContentUpdates currentUser={currentUser} />
-                </div>
-              </div>
-            </div>
-          </>
+                <ContentFoot
+                  history={history}
+                  currentUser={currentUser}
+                  currentPost={currentPost}
+                />
+              </>
+            )}
+          </div>
         )}
       </div>
     ) : (
