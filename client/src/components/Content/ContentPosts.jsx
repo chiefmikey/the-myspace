@@ -7,25 +7,16 @@ const ContentPosts = ({
   sortedPosts,
   selectPost,
   currentPost,
-  highlightPost,
   history,
   currentUser,
 }) => {
   if (sortedPosts.length > 0) {
-    let highlightId = highlightPost;
     return sortedPosts.map((post) => {
-      let className = 'content-post';
-      if (!highlightId && highlightId !== 0) {
-        highlightId = sortedPosts[0]._id;
-      }
-      if (highlightId === post._id) {
-        className = 'content-post selected';
-      }
       return (
         <Router history={history} key={sortedPosts.indexOf(post)}>
           <Link
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
-            className={className}
+            className="content-post"
             onClick={() => {
               selectPost(post.title);
             }}
@@ -43,7 +34,7 @@ const ContentPosts = ({
   }
   return (
     <div
-      className="content-post selected"
+      className="content-post"
       key={-1}
       onClick={() => selectPost(-1)}
       onKeyPress={() => selectPost(-1)}
@@ -61,7 +52,6 @@ ContentPosts.defaultProps = {
   currentPost: {},
   currentUser: {},
   selectPost: () => {},
-  highlightPost: -1,
 };
 
 ContentPosts.propTypes = {
@@ -70,7 +60,6 @@ ContentPosts.propTypes = {
   currentPost: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   selectPost: propTypes.func,
-  highlightPost: propTypes.number,
 };
 
 export default withRouter(ContentPosts);
