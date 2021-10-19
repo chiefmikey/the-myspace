@@ -27,7 +27,10 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-lines-ellipsis": "^0.15.0",
-    "react-router-dom": "^5.3.0"
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
