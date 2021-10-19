@@ -27,7 +27,6 @@ class App extends React.Component {
       logIn: false,
       sortedPosts: [],
     };
-    this.url = () => `/${window.location.href.split('/')[3]}`;
     this.getCurrentUser = this.getCurrentUser.bind(this);
     this.showLogIn = this.showLogIn.bind(this);
   }
@@ -40,26 +39,34 @@ class App extends React.Component {
     this.checkUrl();
   }
 
-  getCurrentUser() {
-    const urlAddress = this.url();
-    axios
-      .get('/user/current', {
+  getLocation() {
+    const { history } = this.props;
+    return `/${history.location.pathname.split('/')[1]}`;
+  }
+
+  async getCurrentUser() {
+    try {
+      const urlAddress = this.getLocation();
+      const res = await axios.get('/user/current', {
         params: {
           urlAddress,
         },
-      })
-      .then((res) => {
-        const sortedPosts = App.postSort(res.data);
-        this.setState({ currentUser: res.data, sortedPosts });
-      })
-      .catch((error) => {
-        console.error('Error in App:getCurrentUser', error);
       });
+      const sortedPosts = App.postSort(res.data);
+      this.setState({ currentUser: res.data, sortedPosts });
+    } catch (e) {
+      console.error('Error in App:getCurrentUser', e);
+    }
   }
 
   checkUrl() {
+    const { history } = this.props;
     const { currentUser } = this.state;
-    if (this.url() !== currentUser.urlAddress) {
+    const location = this.getLocation();
+    if (location === '') {
+      history.replace('/wolfe');
+    }
+    if (location !== currentUser.urlAddress) {
       this.getCurrentUser();
     }
   }
@@ -101,16 +108,12 @@ class App extends React.Component {
           showLogIn={this.showLogIn}
         />
         <Nav />
-        {this.url() === currentUser.urlAddress ? (
+        {this.getLocation() === currentUser.urlAddress ? (
           <Switch>
             <Route
               path="/"
               exact
               render={(routeProps) => {
-                const address = window.location.href.split('/');
-                address.splice(3, 1, 'wolfe');
-                const location = address.join('/');
-                window.location.href = location;
                 return (
                   <Profile
                     history={history}
