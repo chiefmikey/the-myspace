@@ -7,7 +7,7 @@ const dummyData = [
     description: {
       firstName: `Chief`,
       lastName: `Mikey`,
-      pic: `https://f4.bcbits.com/img/a0174446049_10.jpg`,
+      pic: `https://avatars.githubusercontent.com/u/22719398?v=4`,
       mood: `cloudy`,
       moodEmoji: `;)`,
       status: `:-)`,
@@ -279,7 +279,7 @@ const dummyData = [
     description: {
       firstName: `Mikl`,
       lastName: `Wolfe`,
-      pic: `https://media-exp1.licdn.com/dms/image/C5603AQGide0jijb8rQ/profile-displayphoto-shrink_400_400/0/1626735684328?e=1632960000&v=beta&t=sCKo5owFxF5qwN8VF6CyrnwZzyG8O9KkWs5hrhmyqqo`,
+      pic: `https://media-exp1.licdn.com/dms/image/C5603AQGide0jijb8rQ/profile-displayphoto-shrink_800_800/0/1626735684328?e=1639008000&v=beta&t=-5bjctIbXCNMSXh9a3_1giKezB9QyJKj48oH-tasw8k`,
       mood: `chill`,
       moodEmoji: `:)`,
       status: `Tom 2.0`,
