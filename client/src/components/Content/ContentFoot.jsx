@@ -29,8 +29,8 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
             className="content-foot-about"
             text={currentUser.blurbs.aboutMe}
             ellipsis="... "
-            maxLine={2}
-            basedOn="letters"
+            maxLine={3}
+            basedOn="words"
           />
           <Router history={history}>
             <Link to={`${currentUser.urlAddress}`}>

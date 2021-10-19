@@ -25,9 +25,10 @@ class Content extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { history } = this.props;
     const { currentPost } = this.state;
     let title;
-    [, , , , title] = window.location.href.split('/');
+    [, , title] = history.location.pathname.split('/');
     title = title.split('-').join(' ');
     if (title !== currentPost.title) {
       this.selectPost(title);
@@ -44,10 +45,11 @@ class Content extends React.Component {
   }
 
   selectPost(postTitle) {
+    const { history } = this.props;
     const { currentUser } = this.props;
     let title = postTitle;
     if (!title) {
-      [, , , , title] = window.location.href.split('/');
+      [, , title] = history.location.pathname.split('/');
       title = title.split('-').join(' ');
     }
     axios
