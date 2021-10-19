@@ -43,7 +43,11 @@ const Footer = () => (
         link ten
       </a>
     </div>
-    <div id="footer-copyright">© Th Myspace 2021</div>
+    <div id="footer-copyright">
+      <a href="https://github.com/chiefmikey" target="_blank" rel="noreferrer">
+        made by chiefmikey
+      </a>
+    </div>
   </div>
 );
 
