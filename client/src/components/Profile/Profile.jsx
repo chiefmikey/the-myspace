@@ -28,6 +28,7 @@ class Profile extends React.Component {
 
   render() {
     const { history, currentUser, getCurrentUser, sortedPosts } = this.props;
+
     if (currentUser._id < 0) {
       return (
         <div id="profile">
