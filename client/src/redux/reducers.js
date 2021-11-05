@@ -4,8 +4,8 @@ import { combineReducers } from 'redux';
 // import filtersReducer from './features/filters/filtersSlice';
 
 const rootReducer = combineReducers({
-  // todos: todosReducer,
-  // filters: filtersReducer,
+  todos: (state = []) => state,
+  filters: (state = []) => state,
 });
 
 export default rootReducer;
