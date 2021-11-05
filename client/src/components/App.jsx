@@ -63,7 +63,7 @@ class App extends React.Component {
     const { history } = this.props;
     const { currentUser } = this.state;
     const location = this.getLocation();
-    if (location === '') {
+    if (location === '/') {
       history.replace('/wolfe');
     }
     if (location !== currentUser.urlAddress) {
