@@ -32,10 +32,12 @@ const CommentsList = ({ currentUser, getCurrentUser, history }) => (
 
 CommentsList.defaultProps = {
   currentUser: {},
+  history: {},
 };
 
 CommentsList.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
+  history: propTypes.oneOfType([propTypes.object]),
 };
 
 export default CommentsList;

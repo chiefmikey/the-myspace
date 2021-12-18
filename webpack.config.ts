@@ -1,4 +1,5 @@
 const path = require('path');
+import { Configuration } from 'webpack';
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/public/dist');
@@ -6,7 +7,7 @@ const DIST_DIR = path.join(__dirname, '/client/public/dist');
 const css = ['style-loader', 'css-loader'];
 const scss = ['style-loader', 'css-loader', 'sass-loader'];
 
-module.exports = {
+const config: Configuration = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
@@ -51,6 +52,12 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.vue', '.json', '...'],
+    extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.vue', '.json', '...'],
+  },
+  devtool: 'inline-source-map',
+  experiments: {
+    topLevelAwait: true,
   },
 };
+
+export default config;
