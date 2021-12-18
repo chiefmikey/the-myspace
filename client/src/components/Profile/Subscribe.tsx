@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import ContentUpdates from './ContentUpdates.jsx';
+import ContentUpdates from './ContentUpdates.js';
 
 const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
   <div id="subscribe">

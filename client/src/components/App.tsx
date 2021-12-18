@@ -3,13 +3,13 @@ import propTypes from 'prop-types';
 import axios from 'axios';
 import { Router, Switch, Route } from 'react-router-dom';
 
-import Header from './Nav/Header.jsx';
-import Nav from './Nav/Nav.jsx';
-import Footer from './Nav/Footer.jsx';
-import LogIn from './Nav/LogIn.jsx';
+import Header from './Nav/Header.js';
+import Nav from './Nav/Nav.js';
+import Footer from './Nav/Footer.js';
+import LogIn from './Nav/LogIn.js';
 // import Landing from './Landing/Landing.jsx';
-import Profile from './Profile/Profile.jsx';
-import Content from './Content/Content.jsx';
+import Profile from './Profile/Profile.js';
+import Content from './Content/Content.js';
 
 class App extends React.Component {
   static postSort(currentUser) {

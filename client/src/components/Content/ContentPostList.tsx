@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import ContentPosts from './ContentPosts.jsx';
+import ContentPosts from './ContentPosts.js';
 
 const ContentPostsList = ({
   history,
