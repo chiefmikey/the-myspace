@@ -1,9 +1,11 @@
+import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+
 import ProfilePic from '../Profile/ProfilePic.jsx';
-import ContentSocial from './ContentSocial.jsx';
+
+import ContentSocial from './ContentSocial.js';
 
 const ContentFoot = ({ currentUser, history, currentPost }) => (
   <div id="content-foot">

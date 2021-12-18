@@ -1,13 +1,8 @@
 import React from 'react';
-import propTypes from 'prop-types';
 
-const CommentsCount = ({ comments }) => {
+const CommentsCount = ({ comments }: { comments: string[] }) => {
   let count = 0;
-  if (comments.length < 50) {
-    count = comments.length;
-  } else {
-    count = 50;
-  }
+  count = comments.length < 50 ? comments.length : 50;
   return (
     <div id="comments-count">
       Displaying <div id="comments-count-current">{count}</div>
@@ -24,14 +19,6 @@ const CommentsCount = ({ comments }) => {
       {' ) '}
     </div>
   );
-};
-
-CommentsCount.defaultProps = {
-  comments: [],
-};
-
-CommentsCount.propTypes = {
-  comments: propTypes.oneOfType([propTypes.array]),
 };
 
 export default CommentsCount;

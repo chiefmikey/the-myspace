@@ -1,8 +1,7 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import CommentsCount from './CommentsCount.jsx';
+import CommentsCount from './CommentsCount.js';
 import CommentsPost from './CommentsPost.jsx';
 
 const CommentsList = ({ currentUser, getCurrentUser, history }) => (
@@ -29,15 +28,5 @@ const CommentsList = ({ currentUser, getCurrentUser, history }) => (
       : undefined}
   </div>
 );
-
-CommentsList.defaultProps = {
-  currentUser: {},
-  history: {},
-};
-
-CommentsList.propTypes = {
-  currentUser: propTypes.oneOfType([propTypes.object]),
-  history: propTypes.oneOfType([propTypes.object]),
-};
 
 export default CommentsList;

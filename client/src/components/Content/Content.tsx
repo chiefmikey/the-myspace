@@ -1,16 +1,17 @@
-import React from 'react';
-import propTypes from 'prop-types';
 import axios from 'axios';
+import propTypes from 'prop-types';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import ContentAll from './ContentAll.jsx';
-import ContentPostCurrent from './ContentPostCurrent.jsx';
 import NotFound from '../Landing/NotFound.jsx';
+
+import ContentAll from './ContentAll.jsx';
 import ContentFoot from './ContentFoot';
+import ContentPostCurrent from './ContentPostCurrent.jsx';
 
 class Content extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = {
       currentPost: { _id: -2 },
     };
@@ -24,7 +25,7 @@ class Content extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(previousProperties) {
     const { history } = this.props;
     const { currentPost } = this.state;
     let title;

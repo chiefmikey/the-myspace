@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 const Blurbs = ({ currentUser }) => (
@@ -21,13 +20,5 @@ const Blurbs = ({ currentUser }) => (
     </div>
   </div>
 );
-
-Blurbs.defaultProps = {
-  currentUser: {},
-};
-
-Blurbs.propTypes = {
-  currentUser: propTypes.oneOfType([propTypes.object]),
-};
 
 export default Blurbs;
