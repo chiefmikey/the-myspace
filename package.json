@@ -60,7 +60,7 @@
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
-    "rollup": "^2.74.1",
+    "rollup": "^2.75.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-node-externals": "^4.0.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
