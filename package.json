@@ -51,7 +51,7 @@
     "@types/react-dom": "^18.0.7",
     "@types/react-lines-ellipsis": "^0.15.1",
     "autoprefixer": "^10.4.12",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.0",
     "babel-preset-airbnb": "^5.0.0",
     "bili": "^5.0.5",
     "css-loader": "^6.7.1",
