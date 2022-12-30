@@ -1,11 +1,11 @@
-import dummyData from '../dummyData.js';
+import dummyData from '../dummyData';
 
 const getCurrentUser = async (urlAddress) => {
   try {
     let user;
-    for (let i = 0; i < dummyData.length; i += 1) {
-      if (dummyData[i].urlAddress === urlAddress) {
-        user = dummyData[i];
+    for (const dummyDatum of dummyData) {
+      if (dummyDatum.urlAddress === urlAddress) {
+        user = dummyDatum;
         break;
       }
     }

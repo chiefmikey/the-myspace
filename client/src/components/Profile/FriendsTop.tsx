@@ -1,11 +1,11 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
+import loadingImage from '../../../public/img/420.jpeg';
 
 const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
   friendsTop.map((friend) => (

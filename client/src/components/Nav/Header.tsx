@@ -1,10 +1,10 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import Img from 'react-cool-img';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
+import loadingImage from '../../../public/img/420.jpeg';
 import wolfebytew from '../../../public/img/wolfebyte-w.png';
 
 const Header = ({ history, getCurrentUser, activeUser, showLogIn }) => (

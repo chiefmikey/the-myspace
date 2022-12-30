@@ -1,27 +1,28 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import Description from './Description.js';
-import Contact from './Contact.js';
-import Interests from './Interests.js';
-import Details from './Details.js';
-import ProfileContent from './ProfileContent.jsx';
-import Blurbs from './Blurbs.js';
-import Friends from './Friends.js';
-import CommentsList from './CommentsList.js';
-import NotFound from '../Landing/NotFound.js';
+import NotFound from '../Landing/NotFound';
+
+import Blurbs from './Blurbs';
+import CommentsList from './CommentsList';
+import Contact from './Contact';
+import Description from './Description';
+import Details from './Details';
+import Friends from './Friends';
+import Interests from './Interests';
+import ProfileContent from './ProfileContent';
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = {};
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(previousProperties) {
     const { routeProps, getCurrentUser } = this.props;
-    if (prevProps.routeProps.match.url !== routeProps.match.url) {
+    if (previousProperties.routeProps.match.url !== routeProps.match.url) {
       getCurrentUser();
     }
   }

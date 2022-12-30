@@ -1,8 +1,8 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import ContentPosts from './ContentPosts.js';
+import ContentPosts from './ContentPosts';
 
 const ContentPostsList = ({
   history,

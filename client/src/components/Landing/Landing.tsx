@@ -1,5 +1,5 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import { Router, Link, withRouter } from 'react-router-dom';
 
 const Landing = ({ history }) => (

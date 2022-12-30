@@ -1,16 +1,16 @@
-import React from 'react';
+import axios from 'axios';
 import propTypes from 'prop-types';
+import React from 'react';
 import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
-import axios from 'axios';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
+import loadingImage from '../../../public/img/420.jpeg';
 
 class CommentsPost extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = {
       commentUser: {},
       mounted: false,
@@ -23,10 +23,10 @@ class CommentsPost extends React.Component {
     this.getCommentUser(comment[1]);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(previousProperties) {
     const { currentUser, comment } = this.props;
     const { mounted } = this.state;
-    if (mounted && prevProps.currentUser._id !== currentUser._id) {
+    if (mounted && previousProperties.currentUser._id !== currentUser._id) {
       this.getCommentUser(comment[1]);
     }
   }

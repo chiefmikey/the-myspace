@@ -1,10 +1,10 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 class ContentUpdates extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = {
       input: '',
     };

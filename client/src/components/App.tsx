@@ -1,15 +1,15 @@
-import React from 'react';
-import propTypes from 'prop-types';
 import axios from 'axios';
+import propTypes from 'prop-types';
+import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 
-import Header from './Nav/Header.js';
-import Nav from './Nav/Nav.js';
-import Footer from './Nav/Footer.js';
-import LogIn from './Nav/LogIn.js';
-// import Landing from './Landing/Landing.jsx';
-import Profile from './Profile/Profile.js';
-import Content from './Content/Content.js';
+import Content from './Content/Content';
+import Footer from './Nav/Footer';
+import Header from './Nav/Header';
+import LogIn from './Nav/LogIn';
+import Nav from './Nav/Nav';
+// import Landing from './Landing/Landing';
+import Profile from './Profile/Profile';
 
 class App extends React.Component {
   static postSort(currentUser) {
@@ -54,8 +54,8 @@ class App extends React.Component {
       });
       const sortedPosts = App.postSort(res.data);
       this.setState({ currentUser: res.data, sortedPosts });
-    } catch (e) {
-      console.error('Error in App:getCurrentUser', e);
+    } catch (error) {
+      console.error('Error in App:getCurrentUser', error);
     }
   }
 
@@ -113,12 +113,12 @@ class App extends React.Component {
             <Route
               path="/"
               exact
-              render={(routeProps) => {
+              render={(routeProperties) => {
                 return (
                   <Profile
                     history={history}
                     currentUser={currentUser}
-                    routeProps={routeProps}
+                    routeProps={routeProperties}
                     getCurrentUser={this.getCurrentUser}
                     sortedPosts={sortedPosts}
                   />
@@ -128,11 +128,11 @@ class App extends React.Component {
             <Route
               path="/:urlAddress"
               exact
-              render={(routeProps) => (
+              render={(routeProperties) => (
                 <Profile
                   history={history}
                   currentUser={currentUser}
-                  routeProps={routeProps}
+                  routeProps={routeProperties}
                   getCurrentUser={this.getCurrentUser}
                   sortedPosts={sortedPosts}
                 />
@@ -141,11 +141,11 @@ class App extends React.Component {
             <Route
               path="/:urlAddress/:postTitle"
               exact
-              render={(routeProps) => (
+              render={(routeProperties) => (
                 <Content
                   history={history}
                   currentUser={currentUser}
-                  routeProps={routeProps}
+                  routeProps={routeProperties}
                   sortedPosts={sortedPosts}
                 />
               )}

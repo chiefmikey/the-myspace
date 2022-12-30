@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ContentPostList from './ContentPostList.js';
+import ContentPostList from './ContentPostList';
 
 const ContentAll = (history, currentUser, currentPost, selectPost) => (
   <ContentPostList

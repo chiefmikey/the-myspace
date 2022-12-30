@@ -9,7 +9,8 @@ networking website.
 
 Don't let the fleeting memories of the first time you were socially conditioned
 from the comfort of your home leave you. Skip the hot tub and take this time
-machine back to that photo comment from your crush, the soul defining profile url, and the inbox full of messages from real life actor Mischa Barton.
+machine back to that photo comment from your crush, the soul defining profile
+url, and the inbox full of messages from real life actor Mischa Barton.
 
 ### _#1 Review: "It's bomb"_
 

@@ -1,17 +1,24 @@
+# This workflow was added by CodeSee. Learn more at https://codesee.io/
 on:
   push:
     branches:
       - main
   pull_request_target:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 name: CodeSee
+
+permissions: read-all
 
 permissions: read-all
 
 jobs:
   codesee:
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
     continue-on-error: true
     name: Analyze the repo with CodeSee
     steps:
