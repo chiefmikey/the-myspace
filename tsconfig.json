@@ -1,34 +1,30 @@
 {
   "compilerOptions": {
     "lib": [
-      "es2021",
-      "dom",
-      "dom.iterable"
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
     ],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es6",
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "target": "ES2017",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "paths": {
-      "./*.ts": [
-        "./*"
-      ]
-    }
+    "outDir": "./client/public/dist"
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "CommonJS"
     }
   },
   "exclude": [
