@@ -1,10 +1,10 @@
-import React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
+import React from 'react';
 import 'draft-js/dist/Draft.css';
 
 class MyEditor extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = { editorState: EditorState.createEmpty() };
     this.onChange = this.onChange.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);

@@ -1,14 +1,14 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import Subscribe from './Subscribe.jsx';
 import ProfileContentPosts from './ProfileContentPosts.jsx';
+import Subscribe from './Subscribe.jsx';
 
 class ProfileContent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(properties) {
+    super(properties);
     this.state = {
       subscribeWindow: false,
     };

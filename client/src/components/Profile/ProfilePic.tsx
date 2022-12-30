@@ -1,9 +1,9 @@
+import propTypes from 'prop-types';
 import React from 'react';
 import Img from 'react-cool-img';
-import propTypes from 'prop-types';
 
-import loadingImage from '../../../public/img/420.jpeg';
 import errorImage from '../../../public/img/404.jpeg';
+import loadingImage from '../../../public/img/420.jpeg';
 
 const ProfilePic = ({ currentUser }) => (
   <div id="description-pic">

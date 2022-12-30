@@ -1,5 +1,5 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 
 const ContentSocial = ({ currentPost }) => (
   <div id="content-current-post-share">

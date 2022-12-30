@@ -6,15 +6,19 @@ const getContentPost = async (urlAddress, postTitle) => {
     if (!postTitle) {
       let highestId = 0;
       let idIndex;
-      for (let i = 0; i < dummyData.length; i += 1) {
-        if (dummyData[i].urlAddress === urlAddress) {
-          for (let j = 0; j < dummyData[i].contentPosts.length; j += 1) {
-            if (highestId < dummyData[i].contentPosts[j]._id) {
-              [highestId] = dummyData[i].contentPosts[j];
-              idIndex = j;
+      for (const dummyDatum of dummyData) {
+        if (dummyDatum.urlAddress === urlAddress) {
+          for (
+            let index = 0;
+            index < dummyDatum.contentPosts.length;
+            index += 1
+          ) {
+            if (highestId < dummyDatum.contentPosts[index]._id) {
+              [highestId] = dummyDatum.contentPosts[index];
+              idIndex = index;
             }
-            if (j === dummyData[i].contentPosts.length - 1) {
-              post = dummyData[i].contentPosts[idIndex];
+            if (index === dummyDatum.contentPosts.length - 1) {
+              post = dummyDatum.contentPosts[idIndex];
               break;
             }
           }
@@ -23,11 +27,15 @@ const getContentPost = async (urlAddress, postTitle) => {
       }
     }
     if (postTitle) {
-      for (let i = 0; i < dummyData.length; i += 1) {
-        if (dummyData[i].urlAddress === urlAddress) {
-          for (let j = 0; j < dummyData[i].contentPosts.length; j += 1) {
-            if (dummyData[i].contentPosts[j].title === postTitle) {
-              post = dummyData[i].contentPosts[j];
+      for (const dummyDatum of dummyData) {
+        if (dummyDatum.urlAddress === urlAddress) {
+          for (
+            let index = 0;
+            index < dummyDatum.contentPosts.length;
+            index += 1
+          ) {
+            if (dummyDatum.contentPosts[index].title === postTitle) {
+              post = dummyDatum.contentPosts[index];
               break;
             }
           }

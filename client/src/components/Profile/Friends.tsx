@@ -1,6 +1,6 @@
-import React from 'react';
-import propTypes from 'prop-types';
 import axios from 'axios';
+import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 import FriendsTop from './FriendsTop.jsx';
@@ -18,9 +18,9 @@ class Friends extends React.Component {
     this.getTop8();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(previousProperties) {
     const { currentUser } = this.props;
-    if (prevProps.currentUser._id !== currentUser._id) {
+    if (previousProperties.currentUser._id !== currentUser._id) {
       this.getTop8();
     }
   }
@@ -30,9 +30,9 @@ class Friends extends React.Component {
     const topFriends = [];
     const friendsTop = [];
     if (currentUser.friends) {
-      for (let i = 0; i < currentUser.friends.length; i += 1) {
-        if (currentUser.friends[i][0] < 8) {
-          topFriends.push(currentUser.friends[i]);
+      for (let index = 0; index < currentUser.friends.length; index += 1) {
+        if (currentUser.friends[index][0] < 8) {
+          topFriends.push(currentUser.friends[index]);
           if (topFriends.length >= 8) {
             break;
           }

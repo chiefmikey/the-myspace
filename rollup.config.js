@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-expressions */
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
-import replace from '@rollup/plugin-replace';
+import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import autoprefixer from 'autoprefixer';
+import dotenv from 'dotenv';
 import externals from 'rollup-plugin-node-externals';
 import css from 'rollup-plugin-postcss';
-import image from '@rollup/plugin-image';
-import dotenv from 'dotenv';
-import autoprefixer from 'autoprefixer';
+import { terser } from 'rollup-plugin-terser';
+
 import cache from './rollup-plugin-cache.mjs';
 
 dotenv.config();
@@ -61,7 +62,7 @@ const config = {
     format: 'iife',
     sourcemap: 'inline',
   },
-  onwarn: function (warning) {
+  onwarn(warning) {
     if (warning.code === 'THIS_IS_UNDEFINED') {
       return;
     }

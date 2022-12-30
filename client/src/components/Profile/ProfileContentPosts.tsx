@@ -1,5 +1,5 @@
-import React from 'react';
 import propTypes from 'prop-types';
+import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 

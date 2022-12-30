@@ -1,5 +1,6 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
+
 import mountRoutes from './routes/index.js';
 // import db from './db';
 

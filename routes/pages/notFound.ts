@@ -1,5 +1,6 @@
+import path from 'node:path';
+
 import Router from 'express-promise-router';
-import path from 'path';
 // const db = require('../db/index.js');
 // const helper = require('./helper.js');
 
@@ -7,7 +8,7 @@ const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
 const router = new Router();
 
-router.route('/').get(async (req, res) => {
+router.route('/').get(async (request, res) => {
   try {
     // const {} = req.params;
     // console.log(req);

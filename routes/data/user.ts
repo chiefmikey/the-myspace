@@ -1,13 +1,14 @@
 import Router from 'express-promise-router';
+
+import getContentPost from '../../db/queries/getContentPost.js';
 import getCurrentUser from '../../db/queries/getCurrentUser.js';
 import getUserIcon from '../../db/queries/getUserIcon.js';
-import getContentPost from '../../db/queries/getContentPost.js';
 
 const router = new Router();
 
-router.route('/current').get(async (req, res) => {
+router.route('/current').get(async (request, res) => {
   try {
-    const { urlAddress } = req.query;
+    const { urlAddress } = request.query;
     const result = await getCurrentUser(urlAddress);
     res.status(200).send(result);
   } catch (error) {
@@ -16,9 +17,9 @@ router.route('/current').get(async (req, res) => {
   }
 });
 
-router.route('/icon').get(async (req, res) => {
+router.route('/icon').get(async (request, res) => {
   try {
-    const { iconUserId } = req.query;
+    const { iconUserId } = request.query;
     const result = await getUserIcon(iconUserId);
     res.status(200).send(result);
   } catch (error) {
@@ -27,9 +28,9 @@ router.route('/icon').get(async (req, res) => {
   }
 });
 
-router.route('/contentPost').get(async (req, res) => {
+router.route('/contentPost').get(async (request, res) => {
   try {
-    const { urlAddress, postTitle } = req.query;
+    const { urlAddress, postTitle } = request.query;
     const result = await getContentPost(urlAddress, postTitle);
     res.status(200).send(result);
   } catch (error) {
