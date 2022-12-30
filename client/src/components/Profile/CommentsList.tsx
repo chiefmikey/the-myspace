@@ -1,8 +1,8 @@
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import CommentsCount from './CommentsCount.js';
-import CommentsPost from './CommentsPost.jsx';
+import CommentsCount from './CommentsCount';
+import CommentsPost from './CommentsPost';
 
 const CommentsList = ({ currentUser, getCurrentUser, history }) => (
   <div id="comments">

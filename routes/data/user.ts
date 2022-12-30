@@ -1,8 +1,8 @@
 import Router from 'express-promise-router';
 
-import getContentPost from '../../db/queries/getContentPost.js';
-import getCurrentUser from '../../db/queries/getCurrentUser.js';
-import getUserIcon from '../../db/queries/getUserIcon.js';
+import getContentPost from '../../db/queries/getContentPost';
+import getCurrentUser from '../../db/queries/getCurrentUser';
+import getUserIcon from '../../db/queries/getUserIcon';
 
 const router = new Router();
 

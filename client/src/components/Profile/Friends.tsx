@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import FriendsTop from './FriendsTop.jsx';
+import FriendsTop from './FriendsTop';
 
 class Friends extends React.Component {
   constructor() {

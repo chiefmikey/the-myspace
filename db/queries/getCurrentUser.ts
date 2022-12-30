@@ -1,4 +1,4 @@
-import dummyData from '../dummyData.js';
+import dummyData from '../dummyData';
 
 const getCurrentUser = async (urlAddress) => {
   try {

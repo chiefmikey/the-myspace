@@ -3,16 +3,16 @@ import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import NotFound from '../Landing/NotFound.js';
+import NotFound from '../Landing/NotFound';
 
-import Blurbs from './Blurbs.js';
-import CommentsList from './CommentsList.js';
-import Contact from './Contact.js';
-import Description from './Description.js';
-import Details from './Details.js';
-import Friends from './Friends.js';
-import Interests from './Interests.js';
-import ProfileContent from './ProfileContent.jsx';
+import Blurbs from './Blurbs';
+import CommentsList from './CommentsList';
+import Contact from './Contact';
+import Description from './Description';
+import Details from './Details';
+import Friends from './Friends';
+import Interests from './Interests';
+import ProfileContent from './ProfileContent';
 
 class Profile extends React.Component {
   constructor(properties) {

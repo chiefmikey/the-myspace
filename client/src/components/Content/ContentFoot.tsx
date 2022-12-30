@@ -3,9 +3,9 @@ import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link } from 'react-router-dom';
 
-import ProfilePic from '../Profile/ProfilePic.jsx';
+import ProfilePic from '../Profile/ProfilePic';
 
-import ContentSocial from './ContentSocial.js';
+import ContentSocial from './ContentSocial';
 
 const ContentFoot = ({ currentUser, history, currentPost }) => (
   <div id="content-foot">

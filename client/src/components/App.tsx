@@ -3,13 +3,13 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 
-import Content from './Content/Content.js';
-import Footer from './Nav/Footer.js';
-import Header from './Nav/Header.js';
-import LogIn from './Nav/LogIn.js';
-import Nav from './Nav/Nav.js';
-// import Landing from './Landing/Landing.jsx';
-import Profile from './Profile/Profile.js';
+import Content from './Content/Content';
+import Footer from './Nav/Footer';
+import Header from './Nav/Header';
+import LogIn from './Nav/LogIn';
+import Nav from './Nav/Nav';
+// import Landing from './Landing/Landing';
+import Profile from './Profile/Profile';
 
 class App extends React.Component {
   static postSort(currentUser) {

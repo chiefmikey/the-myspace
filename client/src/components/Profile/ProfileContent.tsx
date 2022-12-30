@@ -3,8 +3,8 @@ import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
 
-import ProfileContentPosts from './ProfileContentPosts.jsx';
-import Subscribe from './Subscribe.jsx';
+import ProfileContentPosts from './ProfileContentPosts';
+import Subscribe from './Subscribe';
 
 class ProfileContent extends React.Component {
   constructor(properties) {

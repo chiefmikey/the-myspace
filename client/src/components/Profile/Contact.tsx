@@ -4,7 +4,7 @@ import { AiOutlineUserAdd, AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiMailSendLine, RiWechatLine } from 'react-icons/ri';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import ContactLinks from './ContactLinks.jsx';
+import ContactLinks from './ContactLinks';
 
 const Contact = ({ currentUser }) => (
   <div id="contact">

@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
-import mountRoutes from './routes/index.js';
+import mountRoutes from './routes/index';
 // import db from './db';
 
 // const port = process.env.PORT || 8080;

@@ -3,11 +3,11 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import NotFound from '../Landing/NotFound.jsx';
+import NotFound from '../Landing/NotFound';
 
-import ContentAll from './ContentAll.jsx';
+import ContentAll from './ContentAll';
 import ContentFoot from './ContentFoot';
-import ContentPostCurrent from './ContentPostCurrent.jsx';
+import ContentPostCurrent from './ContentPostCurrent';
 
 class Content extends React.Component {
   constructor(properties) {

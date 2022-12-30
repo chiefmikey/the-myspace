@@ -1,8 +1,8 @@
 import path from 'node:path';
 
 import Router from 'express-promise-router';
-// const db = require('../db/index.js');
-// const helper = require('./helper.js');
+// const db = require('../db/index');
+// const helper = require('./helper');
 
 const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf('/'));
 
