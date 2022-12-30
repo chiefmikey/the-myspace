@@ -2,14 +2,14 @@ import { Configuration } from 'webpack';
 
 const path = require('node:path');
 
-const SRC_DIR = path.join(__dirname, '/client/src');
-const DIST_DIR = path.join(__dirname, '/client/public/dist');
+const SRC_DIR = path.join(path.resolve(), '/client/src');
+const DIST_DIR = path.join(path.resolve(), '/client/public/dist');
 
 const css = ['style-loader', 'css-loader'];
 const scss = ['style-loader', 'css-loader', 'sass-loader'];
 
 const config: Configuration = {
-  entry: `${SRC_DIR}/index.jsx`,
+  entry: `${SRC_DIR}/index.tsx`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
@@ -17,7 +17,7 @@ const config: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
           {
