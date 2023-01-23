@@ -32,7 +32,7 @@
     "react-router-dom": "^6.6.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
-    "the-new-css-reset": "^1.8.2"
+    "the-new-css-reset": "^1.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
