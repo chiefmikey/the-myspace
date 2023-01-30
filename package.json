@@ -30,7 +30,7 @@
     "react-lines-ellipsis": "^0.15.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
-    "redux": "^4.2.0",
+    "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "the-new-css-reset": "^1.8.2"
   },
