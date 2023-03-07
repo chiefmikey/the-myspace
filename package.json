@@ -13,7 +13,7 @@
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",
     "axios": "^1.2.2",
-    "browser-image-compression": "^2.0.0",
+    "browser-image-compression": "^2.0.2",
     "cors": "^2.8.5",
     "dompurify": "^2.4.1",
     "dotenv": "^16.0.3",
