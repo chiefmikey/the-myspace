@@ -7,11 +7,11 @@ body {
 }
 
 p {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
 
 a {
-  color: rgb(1, 50, 153);
+  color: rgb(1 50 153);
   font-weight: 600;
   text-decoration: none;
 }
@@ -51,14 +51,14 @@ ul {
 }
 
 .a-button {
-  color: rgb(1, 50, 153);
+  color: rgb(1 50 153);
   font-weight: 600;
   cursor: pointer;
-  padding: 0 1px 0 1px;
+  padding: 0 1px;
 }
 
 #app {
-  background-color: rgb(102, 153, 204);
+  background-color: rgb(102 153 204);
   width: 1310px;
   height: auto;
   margin: auto;
@@ -67,7 +67,7 @@ ul {
 
 #header {
   height: 250px;
-  background-color: rgb(1, 50, 153);
+  background-color: rgb(1 50 153);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,7 +98,7 @@ ul {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(102, 153, 204);
+  background-color: rgb(102 153 204);
 }
 
 #nav a {
@@ -187,12 +187,12 @@ ul {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 0 50px 50px 50px;
+  padding: 0 50px 50px;
 }
 
 .profile-firstName,
 .profile-lastName {
-  padding: 30px 0 20px 0;
+  padding: 30px 0 20px;
   color: black;
   cursor: default;
   word-break: break-all;
@@ -224,12 +224,7 @@ ul {
 
 #description {
   display: grid;
-  grid-template-columns: 250px;
-  grid-template-rows: auto 200px 75px;
-  grid-template-areas:
-    "name name"
-    "pic desc"
-    "mood login";
+  grid-template: "name name" auto "pic desc" 200px "mood login" 75px / 250px;
 }
 
 #description-pic {
@@ -293,7 +288,7 @@ ul {
 
 #description-desc {
   white-space: pre;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
   grid-area: desc;
   display: flex;
   flex-direction: column;
@@ -334,9 +329,7 @@ ul {
 #contact-layout {
   line-height: 15px;
   display: grid;
-  grid-template-columns: 180px auto;
-  grid-template-rows: auto;
-  grid-template-areas: "left right";
+  grid-template: "left right" auto / 180px auto;
   white-space: pre;
   box-sizing: border-box;
 }
@@ -346,11 +339,11 @@ ul {
 #details-name,
 #content-list-name {
   height: 30px;
-  background-color: rgb(102, 153, 204);
+  background-color: rgb(102 153 204);
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   color: white;
   box-sizing: border-box;
   word-break: break-all;
@@ -385,7 +378,7 @@ ul {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 7px 0 7px 0;
+  padding: 7px 0;
   height: 20px;
 }
 
@@ -395,8 +388,8 @@ ul {
 }
 
 #url {
-  border: 1px solid rgb(102, 153, 204);
-  padding: 5px 10px 5px 10px;
+  border: 1px solid rgb(102 153 204);
+  padding: 5px 10px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 30px;
@@ -411,7 +404,7 @@ ul {
 }
 
 #url-address {
-  padding: 0 15px 0 15px;
+  padding: 0 15px;
 }
 
 #url-address-text {
@@ -427,7 +420,7 @@ ul {
 #details,
 #contact,
 #content-list {
-  border: 2px solid rgb(102, 153, 204);
+  border: 2px solid rgb(102 153 204);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -471,19 +464,19 @@ ul {
   grid-area: left;
   width: 150px;
   margin-right: 4px;
-  background-color: rgb(177, 208, 240);
+  background-color: rgb(177 208 240);
 }
 
 .interests-right,
 .details-right {
   grid-area: right;
   width: 250px;
-  background-color: rgb(214, 231, 251);
+  background-color: rgb(214 231 251);
 }
 
 .interests-section,
 .details-section {
-  color: rgb(52, 102, 153);
+  color: rgb(52 102 153);
   min-height: 30px;
   padding: 4px;
   width: 100% - 4px;
@@ -527,11 +520,9 @@ ul {
 }
 
 #profile-content {
-  padding: 25px 0 25px 0;
+  padding: 25px 0;
   display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: auto;
-  grid-template-areas: "center";
+  grid-template: "center" auto / auto;
 }
 
 #profile-content-title,
@@ -591,7 +582,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255 255 255 / 50%);
   grid-area: center;
   z-index: 1;
   padding-top: 30px;
@@ -599,7 +590,7 @@ ul {
 
 #subscribe-name {
   height: 30px;
-  background-color: rgb(102, 153, 204);
+  background-color: rgb(102 153 204);
   display: grid;
   grid-template-columns: auto 20px;
   grid-template-rows: auto;
@@ -610,8 +601,8 @@ ul {
 }
 
 #subscribe-box {
-  background-color: rgb(214, 231, 251);
-  border: 2px solid rgb(102, 153, 204);
+  background-color: rgb(214 231 251);
+  border: 2px solid rgb(102 153 204);
   width: 100%;
   min-width: 200px;
   max-width: 400px;
@@ -631,7 +622,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(52, 102, 153);
+  color: rgb(52 102 153);
   line-height: 20px;
   margin: auto;
   padding: 20px;
@@ -659,7 +650,7 @@ ul {
   width: 200px;
   height: 20px;
   grid-area: email;
-  border: 1px solid rgb(102, 153, 204);
+  border: 1px solid rgb(102 153 204);
   margin-top: 10px;
   padding-left: 10px;
 }
@@ -671,8 +662,8 @@ ul {
   grid-area: submit;
   color: white;
   font-weight: 600;
-  border: 1px solid rgb(102, 153, 204);
-  background-color: rgb(102, 153, 204);
+  border: 1px solid rgb(102 153 204);
+  background-color: rgb(102 153 204);
 }
 
 #blurbs,
@@ -683,13 +674,13 @@ ul {
 #blurbs-name,
 #friends-name,
 #comments-name {
-  background-color: rgb(254, 205, 153);
-  padding: 0 10px 0 10px;
+  background-color: rgb(254 205 153);
+  padding: 0 10px;
   height: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: rgb(255, 105, 15);
+  color: rgb(255 105 15);
   box-sizing: border-box;
   word-break: break-all;
   white-space: pre-wrap;
@@ -711,7 +702,7 @@ ul {
   display: flex;
   align-items: flex-end;
   height: 30px;
-  color: rgb(255, 105, 15);
+  color: rgb(255 105 15);
   font-weight: 600;
 }
 
@@ -739,7 +730,7 @@ ul {
 }
 
 #friends-count-current {
-  color: rgb(204, 2, 0);
+  color: rgb(204 2 0);
   font-weight: 100;
   white-space: nowrap;
 }
@@ -783,7 +774,7 @@ ul {
   justify-content: flex-end;
   align-items: flex-end;
   height: 20px;
-  color: rgb(204, 2, 0);
+  color: rgb(204 2 0);
   font-weight: 600;
   text-decoration: none;
 }
@@ -813,7 +804,7 @@ ul {
 
 #comments-count-current,
 #comments-count-total {
-  color: rgb(204, 2, 0);
+  color: rgb(204 2 0);
   font-weight: 100;
 }
 
@@ -826,7 +817,7 @@ ul {
 
 .comments-post-left {
   grid-area: left;
-  background-color: rgb(255, 153, 51);
+  background-color: rgb(255 153 51);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -863,7 +854,7 @@ ul {
 
 .comments-post-right {
   grid-area: right;
-  background-color: rgb(248, 214, 180);
+  background-color: rgb(248 214 180);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -882,7 +873,7 @@ ul {
 #content-list-title {
   display: flex;
   flex-direction: row;
-  background-color: rgb(102, 153, 204);
+  background-color: rgb(102 153 204);
   height: 30px;
   align-items: center;
   color: white;
@@ -898,12 +889,12 @@ ul {
 }
 
 #content-foot-card {
-  background-color: rgb(214, 231, 251);
+  background-color: rgb(214 231 251);
   width: 600px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 15px 20px 15px 20px;
+  padding: 15px 20px;
 }
 
 #content-foot-info {
@@ -949,20 +940,20 @@ ul {
   justify-content: flex-start;
   align-items: center;
   height: 60px;
-  color: rgb(1, 50, 153);
+  color: rgb(1 50 153);
   font-weight: 600;
   text-decoration: none;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
   line-height: 18px;
 }
 
 .content-post:hover {
-  background-color: rgb(214, 231, 251);
+  background-color: rgb(214 231 251);
   cursor: pointer;
 }
 
 .content-post.selected {
-  background-color: rgb(214, 231, 251);
+  background-color: rgb(214 231 251);
 }
 
 .content-post-title {
@@ -971,7 +962,7 @@ ul {
 }
 
 #content-current-post {
-  padding: 30px 0 30px 0;
+  padding: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -979,7 +970,7 @@ ul {
 }
 
 #content-current-post-title {
-  padding: 20px 0 20px 0;
+  padding: 20px 0;
   white-space: pre-wrap;
   word-wrap: break-word;
   width: 100%;

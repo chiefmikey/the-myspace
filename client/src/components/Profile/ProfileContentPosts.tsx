@@ -5,7 +5,10 @@ import { Router, Link, withRouter } from 'react-router-dom';
 
 const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
   sortedPosts.map((post) => (
-    <div className="profile-content-post" key={sortedPosts.indexOf(post)}>
+    <div
+      className="profile-content-post"
+      key={sortedPosts.indexOf(post)}
+    >
       <LinesEllipsis
         className="profile-content-post-title"
         text={`${post.title} `}

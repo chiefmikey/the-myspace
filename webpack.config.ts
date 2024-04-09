@@ -1,23 +1,21 @@
-import { Configuration } from 'webpack';
+import path from 'node:path';
 
-const path = require('node:path');
-
-const SRC_DIR = path.join(path.resolve(), '/client/src');
-const DIST_DIR = path.join(path.resolve(), '/client/public/dist');
-
-const mode =
-  (process.env.NODE_ENV as 'development' | 'production' | 'none' | undefined) ||
-  'development';
-const production = mode === 'production';
+const SRC_DIR = path.join(path.resolve(), '/src');
+const DIST_DIR = path.join(path.resolve(), '/public/dist');
 
 const css = ['style-loader', 'css-loader'];
 const scss = ['style-loader', 'css-loader', 'sass-loader'];
 
-const config: Configuration = {
-  entry: `${SRC_DIR}/index.tsx`,
+const config = {
+  entry: `${SRC_DIR}/App.tsx`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
+  },
+  devServer: {
+    contentBase: './public/dist',
+    hot: true,
+    open: true,
   },
   module: {
     rules: [
@@ -38,7 +36,7 @@ const config: Configuration = {
                   },
                 ],
                 '@babel/preset-react',
-                '@babel/preset-typescript',
+                ['@babel/preset-typescript', { jsxPragma: 'h' }],
               ],
             },
           },
@@ -53,18 +51,22 @@ const config: Configuration = {
         use: scss,
       },
       {
-        test: /\.(png|ttf|jp(e*)g|svg)$/,
+        test: /\.(png|ttf|jp(e*)g)$/,
         use: 'url-loader?limit=100000&name=img/[name].[ext]',
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader?limit=100000&name=img/[name].[ext]'],
       },
     ],
   },
   resolve: {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.vue', '.json', '...'],
   },
-  devtool: production ? false : 'source-map',
   experiments: {
     topLevelAwait: true,
   },
+  devtool: 'source-map',
 };
 
 export default config;

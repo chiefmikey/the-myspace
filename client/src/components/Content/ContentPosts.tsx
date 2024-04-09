@@ -13,7 +13,10 @@ const ContentPosts = ({
   if (sortedPosts.length > 0) {
     return sortedPosts.map((post) => {
       return (
-        <Router history={history} key={sortedPosts.indexOf(post)}>
+        <Router
+          history={history}
+          key={sortedPosts.indexOf(post)}
+        >
           <Link
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
             className="content-post"

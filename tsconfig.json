@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
+      "esnext",
+      "dom",
+      "dom.iterable"
     ],
-    "moduleResolution": "Node",
-    "module": "ESNext",
-    "target": "ES2017",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "module": "esnext",
+    "target": "es6",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -19,12 +20,11 @@
     "noEmit": true,
     "noImplicitAny": true,
     "removeComments": true,
-    "preserveConstEnums": true,
-    "outDir": "./client/public/dist"
+    "preserveConstEnums": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "commonjs"
     }
   },
   "exclude": [

@@ -43,7 +43,10 @@ class ContentUpdates extends React.Component {
             value={input}
             placeholder="e-mail"
           />
-          <input type="submit" id="subscribe-submit" />
+          <input
+            type="submit"
+            id="subscribe-submit"
+          />
         </form>
       </div>
     );

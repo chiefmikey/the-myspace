@@ -1,7 +1,7 @@
 import axios from 'axios';
 import propTypes from 'prop-types';
 import React from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import Content from './Content/Content';
 import Footer from './Nav/Footer';

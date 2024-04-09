@@ -9,11 +9,19 @@ const CommentsCount = ({ comments }: { comments: string[] }) => {
       {' of '}
       <div id="comments-count-total">{comments.length}</div>
       {' comments ( '}
-      <a href="http://themyspace.org" target="_blank" rel="noreferrer">
+      <a
+        href="http://themyspace.org"
+        target="_blank"
+        rel="noreferrer"
+      >
         View All
       </a>
       {' | '}
-      <a href="http://themyspace.org" target="_blank" rel="noreferrer">
+      <a
+        href="http://themyspace.org"
+        target="_blank"
+        rel="noreferrer"
+      >
         Add Comment
       </a>
       {' ) '}

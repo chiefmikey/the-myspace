@@ -9,7 +9,10 @@ import loadingImage from '../../../public/img/420.jpeg';
 
 const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
   friendsTop.map((friend) => (
-    <Router history={history} key={friendsTop.indexOf(friend)}>
+    <Router
+      history={history}
+      key={friendsTop.indexOf(friend)}
+    >
       <Link
         to={friend[1].urlAddress}
         className="friends-top-icon"

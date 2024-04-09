@@ -96,7 +96,10 @@ class Friends extends React.Component {
             getCurrentUser={getCurrentUser}
           />
         </div>
-        <a id="friends-view-all" href="http://themyspace.org">
+        <a
+          id="friends-view-all"
+          href="http://themyspace.org"
+        >
           <span id="friends-view-all-text">{'View all of '}</span>
           <LinesEllipsis
             id="friends-view-all-name"
