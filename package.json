@@ -41,7 +41,7 @@
     "koa-body": "^6.0.1",
     "koa-bodyparser": "^4.4.1",
     "koa-static": "^5.0.0",
-    "mikey-pro": "^7.5.2",
+    "mikey-pro": "^7.5.3",
     "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
