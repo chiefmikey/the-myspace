@@ -23,7 +23,7 @@
     "@babel/plugin-transform-react-jsx": "^7.24.7",
     "@babel/preset-env": "^7.24.6",
     "@babel/preset-react": "^7.24.7",
-    "@babel/preset-typescript": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.7",
     "@koa/router": "^12.0.1",
     "@mikey-pro/eslint-config-react": "^7.5.3",
     "@svgr/webpack": "^8.1.0",
