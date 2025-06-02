@@ -42,7 +42,7 @@
     "koa-bodyparser": "^4.4.1",
     "koa-static": "^5.0.0",
     "mikey-pro": "^8.1.1",
-    "sass": "^1.89.0",
+    "sass": "^1.89.1",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "ts-node": "^10.9.2",
