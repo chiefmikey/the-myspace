@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "@koa/router": "^15.3.1",
+    "@koa/router": "^15.4.0",
     "@mikey-pro/eslint-config-react": "^10.3.2",
     "@svgr/webpack": "^8.1.0",
     "@types/koa": "^3.0.1",
