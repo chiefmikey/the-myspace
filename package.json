@@ -41,7 +41,7 @@
     "koa-body": "^7.0.1",
     "koa-bodyparser": "^4.4.1",
     "koa-static": "^5.0.0",
-    "sass": "^1.98.0",
+    "sass": "^1.99.0",
     "sass-loader": "^16.0.7",
     "style-loader": "^4.0.0",
     "ts-node": "^10.9.2",
