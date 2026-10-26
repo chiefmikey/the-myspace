@@ -7,11 +7,11 @@ import serve from 'koa-static';
 const app = new Koa();
 const port = 8080;
 
-app.use(serve('public'));
+app.use(serve('client/public'));
 
 app.use(async (context) => {
   if (context.status === 404) {
-    await send(context, 'index.html', { root: path.resolve('./public') });
+    await send(context, 'index.html', { root: path.resolve('./client/public') });
   }
 });
 

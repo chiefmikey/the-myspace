@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 
 import ContentUpdates from './ContentUpdates';
+import track from '../../telemetry';
 
 const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
   <div id="subscribe">
@@ -10,7 +11,10 @@ const Subscribe = ({ currentUser, closeSubscribeWindow }) => (
         <h5>Subscribe</h5>
         <div
           id="subscribe-close"
-          onClick={closeSubscribeWindow}
+          onClick={() => {
+            track('subscribe_closed');
+            closeSubscribeWindow();
+          }}
           onKeyPress={closeSubscribeWindow}
           tabIndex={0}
           role="button"

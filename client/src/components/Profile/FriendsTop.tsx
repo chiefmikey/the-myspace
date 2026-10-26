@@ -6,6 +6,7 @@ import { Router, Link, withRouter } from 'react-router-dom';
 
 import errorImage from '../../../public/img/404.jpeg';
 import loadingImage from '../../../public/img/420.jpeg';
+import track from '../../telemetry';
 
 const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
   friendsTop.map((friend) => (
@@ -17,6 +18,7 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
         to={friend[1].urlAddress}
         className="friends-top-icon"
         onClick={() => {
+          track('top_friend_clicked');
           getCurrentUser();
         }}
       >

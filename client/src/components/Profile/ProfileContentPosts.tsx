@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
+import track from '../../telemetry';
 
 const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
   sortedPosts.map((post) => (
@@ -21,6 +22,7 @@ const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
           <Link
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
             className="a-button"
+            onClick={() => track('post_opened', { source: 'profile' })}
           >
             view more
           </Link>

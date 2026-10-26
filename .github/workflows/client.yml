@@ -19,8 +19,8 @@ jobs:
     env:
       DIST_NAME: ${{ vars.DIST_NAME }}
       S3_BUCKET: ${{ vars.S3_BUCKET }}
-      DEPLOY_DIR: 'public'
-      ENTRY: 'client/src/index.ts'
+      DEPLOY_DIR: 'client/public'
+      ENTRY: 'client/src/App.tsx'
 
     steps:
     - name: Checkout Repository

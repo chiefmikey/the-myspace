@@ -6,6 +6,7 @@ import { Router, Link, withRouter } from 'react-router-dom';
 import errorImage from '../../../public/img/404.jpeg';
 import loadingImage from '../../../public/img/420.jpeg';
 import wolfebytew from '../../../public/img/wolfebyte-w.png';
+import track from '../../telemetry';
 
 const Header = ({ history, getCurrentUser, activeUser, showLogIn }) => (
   <div id="header">
@@ -18,13 +19,19 @@ const Header = ({ history, getCurrentUser, activeUser, showLogIn }) => (
         </div>
       ) : (
         <div id="header-info">
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => track('signup_clicked')}
+          >
             <span className="a-button">Sign Up</span>
           </Link>
           {' | '}
           <span
             className="a-button"
-            onClick={() => showLogIn('openLogIn')}
+            onClick={() => {
+              track('login_opened');
+              showLogIn('openLogIn');
+            }}
             onKeyPress={() => showLogIn('openLogIn')}
             tabIndex={0}
             role="button"
@@ -37,6 +44,7 @@ const Header = ({ history, getCurrentUser, activeUser, showLogIn }) => (
       <Link
         to="/wolfe"
         onClick={() => {
+          track('header_profile_clicked');
           getCurrentUser();
         }}
       >

@@ -5,6 +5,7 @@ import { Router, Link, withRouter } from 'react-router-dom';
 
 import ProfileContentPosts from './ProfileContentPosts';
 import Subscribe from './Subscribe';
+import track from '../../telemetry';
 
 class ProfileContent extends React.Component {
   constructor(properties) {
@@ -58,7 +59,10 @@ class ProfileContent extends React.Component {
               [
               <div
                 className="a-button"
-                onClick={this.openSubscribeWindow}
+                onClick={() => {
+                  track('subscribe_opened');
+                  this.openSubscribeWindow();
+                }}
                 onKeyPress={this.openSubscribeWindow}
                 tabIndex={0}
                 role="button"

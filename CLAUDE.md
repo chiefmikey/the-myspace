@@ -49,6 +49,10 @@ npm run fix             # ESLint auto-fix all files
 - Stylelint via `mikey-pro/stylelint`
 - Conventional commits
 
+## Telemetry
+
+Wolfe telemetry standard v1: loader tag in `client/public/index.html`; custom events via `client/src/telemetry.ts`, documented in `docs/reference/analytics-events.md`. No third-party trackers.
+
 ## Testing
 
 No tests configured.
