@@ -4,7 +4,7 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import CommentsCount from './CommentsCount';
 import CommentsPost from './CommentsPost';
 
-const CommentsList = ({ currentUser, getCurrentUser, history }) => (
+const CommentsList = ({ currentUser, getCurrentUser }) => (
   <div id="comments">
     <h5 id="comments-name">
       <LinesEllipsis

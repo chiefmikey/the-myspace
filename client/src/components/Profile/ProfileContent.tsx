@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import ProfileContentPosts from './ProfileContentPosts';
 import Subscribe from './Subscribe';
@@ -33,7 +33,7 @@ class ProfileContent extends React.Component {
 
   render() {
     const { subscribeWindow } = this.state;
-    const { currentUser, history, sortedPosts } = this.props;
+    const { currentUser, sortedPosts } = this.props;
     return (
       <div id="profile-content">
         {subscribeWindow ? (
@@ -73,18 +73,15 @@ class ProfileContent extends React.Component {
             </div>
           </div>
           <ProfileContentPosts
-            history={history}
             currentUser={currentUser}
             sortedPosts={sortedPosts}
           />
           <div id="profile-content-view-all">
             [
             <div className="a-button">
-              <Router history={history}>
-                <Link to={`${currentUser.urlAddress}/content`}>
+                              <Link to={`${currentUser.urlAddress}/content`}>
                   View All Posts
                 </Link>
-              </Router>
             </div>
             ]
           </div>
@@ -96,14 +93,12 @@ class ProfileContent extends React.Component {
 
 ProfileContent.defaultProps = {
   currentUser: {},
-  history: {},
   sortedPosts: [],
 };
 
 ProfileContent.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
-  history: propTypes.oneOfType([propTypes.object]),
   sortedPosts: propTypes.oneOfType([propTypes.array]),
 };
 
-export default withRouter(ProfileContent);
+export default ProfileContent;

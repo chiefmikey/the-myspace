@@ -1,7 +1,8 @@
-import axios from 'axios';
 import propTypes from 'prop-types';
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import { getCurrentUser } from '../data';
 
 import Content from './Content/Content';
 import Footer from './Nav/Footer';
@@ -40,49 +41,25 @@ class App extends React.Component {
   }
 
   getLocation() {
-    const { history } = this.props;
-    return `/${history.location.pathname.split('/')[1]}`;
+    const { pathname } = this.props;
+    return `/${pathname.split('/')[1]}`;
   }
 
-  async getCurrentUser() {
-    try {
-      const urlAddress = this.getLocation();
-      const res = await axios.get('/user/current', {
-        params: {
-          urlAddress,
-        },
-      });
-      const sortedPosts = App.postSort(res.data);
-      this.setState({ currentUser: res.data, sortedPosts });
-    } catch (error) {
-      console.error('Error in App:getCurrentUser', error);
-    }
+  getCurrentUser() {
+    const user = getCurrentUser(this.getLocation());
+    this.setState({ currentUser: user, sortedPosts: App.postSort(user) });
   }
 
   checkUrl() {
-    const { history } = this.props;
+    const { navigate } = this.props;
     const { currentUser } = this.state;
     const location = this.getLocation();
     if (location === '/') {
-      history.replace('/wolfe');
+      navigate('/wolfe', { replace: true });
     }
     if (location !== currentUser.urlAddress) {
       this.getCurrentUser();
     }
-  }
-
-  logInUser(username, email, password) {
-    const { activeUser } = this.state;
-    axios
-      .get('user/login', {
-        params: {
-          username,
-          email,
-          password,
-        },
-      })
-      .then((res) => this.state({ activeUser: res.data }))
-      .catch((error) => console.error('Error in App:logIn', error));
   }
 
   showLogIn(status) {
@@ -96,76 +73,69 @@ class App extends React.Component {
   }
 
   render() {
-    const { history } = this.props;
+    const { pathname } = this.props;
     const { activeUser, currentUser, logIn, sortedPosts } = this.state;
+    const profile = (
+      <Profile
+        currentUser={currentUser}
+        pathname={pathname}
+        getCurrentUser={this.getCurrentUser}
+        sortedPosts={sortedPosts}
+      />
+    );
     return (
-      <Router history={history}>
+      <>
         {logIn ? <LogIn showLogIn={this.showLogIn} /> : undefined}
         <Header
-          history={history}
           getCurrentUser={this.getCurrentUser}
           activeUser={activeUser}
           showLogIn={this.showLogIn}
         />
         <Nav />
         {this.getLocation() === currentUser.urlAddress ? (
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(routeProperties) => {
-                return (
-                  <Profile
-                    history={history}
-                    currentUser={currentUser}
-                    routeProps={routeProperties}
-                    getCurrentUser={this.getCurrentUser}
-                    sortedPosts={sortedPosts}
-                  />
-                );
-              }}
-            />
+          <Routes>
             <Route
               path="/:urlAddress"
-              exact
-              render={(routeProperties) => (
-                <Profile
-                  history={history}
-                  currentUser={currentUser}
-                  routeProps={routeProperties}
-                  getCurrentUser={this.getCurrentUser}
-                  sortedPosts={sortedPosts}
-                />
-              )}
+              element={profile}
             />
             <Route
               path="/:urlAddress/:postTitle"
-              exact
-              render={(routeProperties) => (
+              element={
                 <Content
-                  history={history}
                   currentUser={currentUser}
-                  routeProps={routeProperties}
                   sortedPosts={sortedPosts}
                 />
-              )}
+              }
             />
-          </Switch>
+          </Routes>
         ) : (
           <></>
         )}
         <Footer />
-      </Router>
+      </>
     );
   }
 }
 
 App.defaultProps = {
-  history: {},
+  pathname: '/',
+  navigate: () => {},
 };
 
 App.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
+  pathname: propTypes.string,
+  navigate: propTypes.func,
 };
 
-export default App;
+const Main = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  return (
+    <App
+      pathname={pathname}
+      navigate={navigate}
+    />
+  );
+};
+
+export default Main;

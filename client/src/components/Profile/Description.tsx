@@ -1,11 +1,11 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import ProfilePic from './ProfilePic';
 
-const Description = ({ history, currentUser, contentView }) => (
+const Description = ({ currentUser, contentView }) => (
   <div id="description">
     <ProfilePic currentUser={currentUser} />
     {contentView ? (
@@ -23,9 +23,7 @@ const Description = ({ history, currentUser, contentView }) => (
         <div id="description-view-pics">
           View My:{' '}
           <span className="a-button">
-            <Router history={history}>
-              <Link to={`${currentUser.urlAddress}`}>Profile</Link>
-            </Router>
+                          <Link to={`${currentUser.urlAddress}`}>Profile</Link>
           </span>
         </div>
       </div>
@@ -80,13 +78,11 @@ const Description = ({ history, currentUser, contentView }) => (
 Description.defaultProps = {
   currentUser: {},
   contentView: false,
-  history: {},
 };
 
 Description.propTypes = {
   currentUser: propTypes.oneOfType([propTypes.object]),
   contentView: propTypes.bool,
-  history: propTypes.oneOfType([propTypes.object]),
 };
 
-export default withRouter(Description);
+export default Description;

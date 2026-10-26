@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import NotFound from '../Landing/NotFound';
 
@@ -21,14 +21,14 @@ class Profile extends React.Component {
   }
 
   componentDidUpdate(previousProperties) {
-    const { routeProps, getCurrentUser } = this.props;
-    if (previousProperties.routeProps.match.url !== routeProps.match.url) {
+    const { pathname, getCurrentUser } = this.props;
+    if (previousProperties.pathname !== pathname) {
       getCurrentUser();
     }
   }
 
   render() {
-    const { history, currentUser, getCurrentUser, sortedPosts } = this.props;
+    const { currentUser, getCurrentUser, sortedPosts } = this.props;
 
     if (currentUser._id < 0) {
       return (
@@ -40,7 +40,6 @@ class Profile extends React.Component {
 
     return (
       <div id="profile">
-        <Router history={history}>
           <Link to={`${currentUser.urlAddress}`}>
             <h3>
               <LinesEllipsis
@@ -51,7 +50,6 @@ class Profile extends React.Component {
               />
             </h3>
           </Link>
-        </Router>
         <div id="profile-layout">
           <div id="profile-left">
             <Description currentUser={currentUser} />
@@ -83,19 +81,16 @@ class Profile extends React.Component {
             </h4>
             <ProfileContent
               currentUser={currentUser}
-              history={history}
               sortedPosts={sortedPosts}
             />
             <Blurbs currentUser={currentUser} />
             <Friends
               currentUser={currentUser}
-              history={history}
               getCurrentUser={getCurrentUser}
             />
             <CommentsList
               currentUser={currentUser}
               getCurrentUser={getCurrentUser}
-              history={history}
             />
           </div>
         </div>
@@ -105,19 +100,17 @@ class Profile extends React.Component {
 }
 
 Profile.defaultProps = {
-  history: {},
   currentUser: {},
   getCurrentUser: () => {},
-  routeProps: {},
+  pathname: '',
   sortedPosts: [],
 };
 
 Profile.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   getCurrentUser: propTypes.func,
-  routeProps: propTypes.oneOfType([propTypes.object]),
+  pathname: propTypes.string,
   sortedPosts: propTypes.oneOfType([propTypes.array]),
 };
 
-export default withRouter(Profile);
+export default Profile;

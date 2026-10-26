@@ -1,10 +1,10 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import track from '../../telemetry';
 
-const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
+const ProfileContentPosts = ({ currentUser, sortedPosts }) =>
   sortedPosts.map((post) => (
     <div
       className="profile-content-post"
@@ -18,15 +18,13 @@ const ProfileContentPosts = ({ history, currentUser, sortedPosts }) =>
       />
       <div className="profile-content-post-more">
         (
-        <Router history={history}>
-          <Link
+                  <Link
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
             className="a-button"
             onClick={() => track('post_opened', { source: 'profile' })}
           >
             view more
           </Link>
-        </Router>
         )
       </div>
     </div>
@@ -42,4 +40,4 @@ ProfileContentPosts.propTypes = {
   postUrl: propTypes.func,
 };
 
-export default withRouter(ProfileContentPosts);
+export default ProfileContentPosts;

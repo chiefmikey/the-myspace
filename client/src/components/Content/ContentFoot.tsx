@@ -1,17 +1,16 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import ProfilePic from '../Profile/ProfilePic';
 
 import ContentSocial from './ContentSocial';
 
-const ContentFoot = ({ currentUser, history, currentPost }) => (
+const ContentFoot = ({ currentUser, currentPost }) => (
   <div id="content-foot">
     <div id="content-foot-card">
-      <Router history={history}>
-        <Link to={`${currentUser.urlAddress}`}>
+              <Link to={`${currentUser.urlAddress}`}>
           <h3>
             <LinesEllipsis
               className="content-firstName"
@@ -21,7 +20,6 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
             />
           </h3>
         </Link>
-      </Router>
       <div id="content-foot-info">
         <div id="content-foot-pic">
           <ProfilePic currentUser={currentUser} />
@@ -34,8 +32,7 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
             maxLine={3}
             basedOn="words"
           />
-          <Router history={history}>
-            <Link to={`${currentUser.urlAddress}`}>
+                      <Link to={`${currentUser.urlAddress}`}>
               <h3>
                 <LinesEllipsis
                   className="content-foot-profile-link"
@@ -45,7 +42,6 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
                 />
               </h3>
             </Link>
-          </Router>
         </div>
       </div>
     </div>
@@ -54,13 +50,11 @@ const ContentFoot = ({ currentUser, history, currentPost }) => (
 );
 
 ContentFoot.defaultProps = {
-  history: {},
   currentUser: {},
   currentPost: { _id: -2 },
 };
 
 ContentFoot.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   currentPost: propTypes.oneOfType([propTypes.object]),
 };
