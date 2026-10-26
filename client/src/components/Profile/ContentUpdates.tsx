@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
+import track from '../../telemetry';
 
 class ContentUpdates extends React.Component {
   constructor(properties) {
@@ -18,6 +19,7 @@ class ContentUpdates extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    track('subscribe_submitted');
     this.setState({ input: '' });
   }
 

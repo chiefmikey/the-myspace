@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Router, Link, withRouter } from 'react-router-dom';
+import track from '../../telemetry';
 
 const ContentPosts = ({
   sortedPosts,
@@ -21,6 +22,7 @@ const ContentPosts = ({
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
             className="content-post"
             onClick={() => {
+              track('post_opened', { source: 'content_list' });
               selectPost(post.title);
             }}
           >

@@ -7,6 +7,7 @@ import { Router, Link, withRouter } from 'react-router-dom';
 
 import errorImage from '../../../public/img/404.jpeg';
 import loadingImage from '../../../public/img/420.jpeg';
+import track from '../../telemetry';
 
 class CommentsPost extends React.Component {
   constructor(properties) {
@@ -56,6 +57,7 @@ class CommentsPost extends React.Component {
               to={commentUser.urlAddress}
               className="comments-post-left-icon"
               onClick={() => {
+                track('comment_author_clicked');
                 getCurrentUser();
               }}
             >

@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import { Router, Link, withRouter } from 'react-router-dom';
+import track from '../../telemetry';
 
 const LogIn = ({ history, showLogIn }) => (
   <div id="login">
@@ -16,7 +17,10 @@ const LogIn = ({ history, showLogIn }) => (
       placeholder="password"
     />
     <span
-      onClick={() => showLogIn('closeLogIn')}
+      onClick={() => {
+        track('login_closed');
+        showLogIn('closeLogIn');
+      }}
       onKeyPress={() => showLogIn('closeLogIn')}
       tabIndex={0}
       role="button"

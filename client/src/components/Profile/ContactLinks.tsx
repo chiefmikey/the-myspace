@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import { BiLink } from 'react-icons/bi';
+import track from '../../telemetry';
 
 const ContactLinks = ({ links }) => {
   let key = 0;
@@ -13,6 +14,7 @@ const ContactLinks = ({ links }) => {
         target="_blank"
         rel="noreferrer"
         key={key}
+        onClick={() => track('contact_link_clicked')}
       >
         <span className="contact-icon">
           <BiLink />
