@@ -5,7 +5,6 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import ContentPosts from './ContentPosts';
 
 const ContentPostsList = ({
-  history,
   currentUser,
   selectPost,
   currentPost,
@@ -30,7 +29,6 @@ const ContentPostsList = ({
           selectPost={selectPost}
           currentPost={currentPost}
           currentUser={currentUser}
-          history={history}
         />
       </div>
     </div>
@@ -40,14 +38,12 @@ const ContentPostsList = ({
 };
 
 ContentPostsList.defaultProps = {
-  history: {},
   currentUser: {},
   currentPost: {},
   selectPost: () => {},
 };
 
 ContentPostsList.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   currentPost: propTypes.oneOfType([propTypes.object]),
   selectPost: propTypes.func,

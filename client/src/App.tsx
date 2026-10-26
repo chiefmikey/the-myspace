@@ -1,6 +1,7 @@
 import './styles.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import Main from './components/Main';
 
@@ -9,5 +10,9 @@ if (container === null) {
   console.error('The container element could not be found');
 } else {
   const root = createRoot(container);
-  root.render(<Main />);
+  root.render(
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>,
+  );
 }

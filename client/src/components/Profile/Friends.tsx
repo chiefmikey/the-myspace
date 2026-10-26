@@ -1,7 +1,8 @@
-import axios from 'axios';
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
+
+import { getUserIcon } from '../../data';
 
 import FriendsTop from './FriendsTop';
 
@@ -28,7 +29,6 @@ class Friends extends React.Component {
   getTop8() {
     const { currentUser } = this.props;
     const topFriends = [];
-    const friendsTop = [];
     if (currentUser.friends) {
       for (let index = 0; index < currentUser.friends.length; index += 1) {
         if (currentUser.friends[index][0] < 8) {
@@ -39,26 +39,14 @@ class Friends extends React.Component {
         }
       }
     }
-    topFriends.forEach((friend, index, array) => {
-      axios
-        .get('/user/icon', {
-          params: {
-            iconUserId: friend[1],
-          },
-        })
-        .then((res) => {
-          friendsTop.push([friend[0], res.data]);
-          if (friendsTop.length === array.length) {
-            this.setState({
-              friendsTop: friendsTop.sort((a, b) => a[0] - b[0]),
-            });
-          }
-        });
-    });
+    const friendsTop = topFriends
+      .map((friend) => [friend[0], getUserIcon(friend[1])])
+      .sort((a, b) => a[0] - b[0]);
+    this.setState({ friendsTop });
   }
 
   render() {
-    const { currentUser, history, getCurrentUser } = this.props;
+    const { currentUser, getCurrentUser } = this.props;
     const { friendsTop } = this.state;
     return (
       <div id="friends">
@@ -92,7 +80,6 @@ class Friends extends React.Component {
         <div id="friends-top">
           <FriendsTop
             friendsTop={friendsTop}
-            history={history}
             getCurrentUser={getCurrentUser}
           />
         </div>
@@ -116,13 +103,11 @@ class Friends extends React.Component {
 }
 
 Friends.defaultProps = {
-  history: {},
   currentUser: {},
   getCurrentUser: () => {},
 };
 
 Friends.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   getCurrentUser: propTypes.func,
 };

@@ -1,9 +1,9 @@
 import propTypes from 'prop-types';
 import React from 'react';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import track from '../../telemetry';
 
-const LogIn = ({ history, showLogIn }) => (
+const LogIn = ({ showLogIn }) => (
   <div id="login">
     Please log the funk in:
     <input
@@ -31,11 +31,9 @@ const LogIn = ({ history, showLogIn }) => (
 );
 
 LogIn.defaultProps = {
-  history: {},
 };
 
 LogIn.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
 };
 
-export default withRouter(LogIn);
+export default LogIn;

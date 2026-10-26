@@ -1,10 +1,10 @@
-import axios from 'axios';
 import propTypes from 'prop-types';
 import React from 'react';
 import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
+import { getUserIcon } from '../../data';
 import errorImage from '../../../public/img/404.jpeg';
 import loadingImage from '../../../public/img/420.jpeg';
 import track from '../../telemetry';
@@ -37,23 +37,16 @@ class CommentsPost extends React.Component {
   }
 
   getCommentUser(iconUserId) {
-    axios
-      .get('/user/icon', {
-        params: {
-          iconUserId,
-        },
-      })
-      .then((res) => this.setState({ commentUser: res.data, mounted: true }));
+    this.setState({ commentUser: getUserIcon(iconUserId), mounted: true });
   }
 
   render() {
-    const { comment, getCurrentUser, history } = this.props;
+    const { comment, getCurrentUser } = this.props;
     const { commentUser } = this.state;
     return commentUser.urlAddress ? (
       <div className="comments-post">
         <div className="comments-post-left">
-          <Router history={history}>
-            <Link
+                      <Link
               to={commentUser.urlAddress}
               className="comments-post-left-icon"
               onClick={() => {
@@ -77,7 +70,6 @@ class CommentsPost extends React.Component {
                 alt="comment author avatar"
               />
             </Link>
-          </Router>
         </div>
         <div className="comments-post-right">
           <div className="comments-post-right-date">{comment[2]}</div>
@@ -91,17 +83,15 @@ class CommentsPost extends React.Component {
 }
 
 CommentsPost.defaultProps = {
-  history: {},
   getCurrentUser: () => {},
   comment: [],
   currentUser: {},
 };
 
 CommentsPost.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   getCurrentUser: propTypes.func,
   comment: propTypes.oneOfType([propTypes.array]),
   currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
-export default withRouter(CommentsPost);
+export default CommentsPost;

@@ -1,8 +1,8 @@
-import axios from 'axios';
 import propTypes from 'prop-types';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
+import { getContentPost } from '../../data';
 import NotFound from '../Landing/NotFound';
 
 import ContentAll from './ContentAll';
@@ -26,46 +26,38 @@ class Content extends React.Component {
   }
 
   componentDidUpdate(previousProperties) {
-    const { history } = this.props;
-    const { currentPost } = this.state;
-    let title;
-    [, , title] = history.location.pathname.split('/');
-    title = title.split('-').join(' ');
-    if (title !== currentPost.title) {
+    const { pathname } = this.props;
+    const title = this.titleFromPath(pathname);
+    if (title !== this.requestedTitle) {
       this.selectPost(title);
     }
   }
 
+  titleFromPath(pathname) {
+    const [, , title = ''] = pathname.split('/');
+    return title.split('-').join(' ');
+  }
+
   postUrl(postTitle) {
-    const { history, currentUser } = this.props;
+    const { navigate, currentUser } = this.props;
     if (postTitle) {
-      history.push(
+      navigate(
         `${currentUser.urlAddress}/${postTitle.split(' ').join('-')}`,
       );
     }
   }
 
   selectPost(postTitle) {
-    const { history } = this.props;
-    const { currentUser } = this.props;
-    let title = postTitle;
-    if (!title) {
-      [, , title] = history.location.pathname.split('/');
-      title = title.split('-').join(' ');
-    }
-    axios
-      .get('/user/contentPost', {
-        params: {
-          urlAddress: currentUser.urlAddress,
-          postTitle: title,
-        },
-      })
-      .then((res) => this.setState({ currentPost: res.data }))
-      .catch((error) => console.error(error));
+    const { currentUser, pathname } = this.props;
+    const title = postTitle || this.titleFromPath(pathname);
+    this.requestedTitle = title;
+    this.setState({
+      currentPost: getContentPost(currentUser.urlAddress, title),
+    });
   }
 
   render() {
-    const { history, currentUser } = this.props;
+    const { currentUser } = this.props;
     const { currentPost } = this.state;
     return currentPost._id || currentPost._id === 0 ? (
       <div id="content">
@@ -75,7 +67,6 @@ class Content extends React.Component {
           <div id="content-layout">
             {currentPost._id === -2 ? (
               <ContentAll
-                history={history}
                 currentUser={currentUser}
                 currentPost={currentPost}
                 selectPost={this.selectPost}
@@ -84,7 +75,6 @@ class Content extends React.Component {
               <>
                 <ContentPostCurrent currentPost={currentPost} />
                 <ContentFoot
-                  history={history}
                   currentUser={currentUser}
                   currentPost={currentPost}
                 />
@@ -100,13 +90,27 @@ class Content extends React.Component {
 }
 
 Content.defaultProps = {
-  history: {},
+  pathname: '',
+  navigate: () => {},
   currentUser: {},
 };
 
 Content.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
+  pathname: propTypes.string,
+  navigate: propTypes.func,
   currentUser: propTypes.oneOfType([propTypes.object]),
 };
 
-export default withRouter(Content);
+const ContentWithRouter = (properties) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  return (
+    <Content
+      {...properties}
+      pathname={pathname}
+      navigate={navigate}
+    />
+  );
+};
+
+export default ContentWithRouter;

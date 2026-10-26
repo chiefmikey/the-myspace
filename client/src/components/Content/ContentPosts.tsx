@@ -1,23 +1,19 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import track from '../../telemetry';
 
 const ContentPosts = ({
   sortedPosts,
   selectPost,
   currentPost,
-  history,
   currentUser,
 }) => {
   if (sortedPosts.length > 0) {
     return sortedPosts.map((post) => {
       return (
-        <Router
-          history={history}
-          key={sortedPosts.indexOf(post)}
-        >
+        <React.Fragment key={sortedPosts.indexOf(post)}>
           <Link
             to={`${currentUser.urlAddress}/${post.title.split(' ').join('-')}`}
             className="content-post"
@@ -33,7 +29,7 @@ const ContentPosts = ({
               basedOn="letters"
             />
           </Link>
-        </Router>
+        </React.Fragment>
       );
     });
   }
@@ -52,7 +48,6 @@ const ContentPosts = ({
 };
 
 ContentPosts.defaultProps = {
-  history: {},
   sortedPosts: [],
   currentPost: {},
   currentUser: {},
@@ -60,11 +55,10 @@ ContentPosts.defaultProps = {
 };
 
 ContentPosts.propTypes = {
-  history: propTypes.oneOfType([propTypes.object]),
   sortedPosts: propTypes.oneOfType([propTypes.array]),
   currentPost: propTypes.oneOfType([propTypes.object]),
   currentUser: propTypes.oneOfType([propTypes.object]),
   selectPost: propTypes.func,
 };
 
-export default withRouter(ContentPosts);
+export default ContentPosts;

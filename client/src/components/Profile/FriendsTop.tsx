@@ -2,18 +2,15 @@ import propTypes from 'prop-types';
 import React from 'react';
 import Img from 'react-cool-img';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Router, Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import errorImage from '../../../public/img/404.jpeg';
 import loadingImage from '../../../public/img/420.jpeg';
 import track from '../../telemetry';
 
-const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
+const FriendsTop = ({ friendsTop, getCurrentUser }) =>
   friendsTop.map((friend) => (
-    <Router
-      history={history}
-      key={friendsTop.indexOf(friend)}
-    >
+    <React.Fragment key={friendsTop.indexOf(friend)}>
       <Link
         to={friend[1].urlAddress}
         className="friends-top-icon"
@@ -38,7 +35,7 @@ const FriendsTop = ({ friendsTop, history, getCurrentUser }) =>
           alt="top friend profile icon"
         />
       </Link>
-    </Router>
+    </React.Fragment>
   ));
 
 FriendsTop.defaultProps = {
@@ -49,4 +46,4 @@ FriendsTop.propTypes = {
   friendsTop: propTypes.oneOfType([propTypes.array]),
 };
 
-export default withRouter(FriendsTop);
+export default FriendsTop;
