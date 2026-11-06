@@ -7,8 +7,8 @@ A retro Myspace-inspired social profile web app — "2007 called, it wants its M
 ## Tech Stack
 
 - **Language:** TypeScript (ESM)
-- **Frontend:** React 18, MUI (Material UI) 5, Emotion, React Router 6
-- **Backend:** Koa with koa-static, koa-body
+- **Frontend:** React 19, MUI (Material UI) 9, Emotion, React Router 7
+- **Backend:** Koa 3 with koa-static, koa-body
 - **Bundler:** Webpack 5 with Babel (TS + React presets)
 - **Styling:** Sass (SCSS)
 - **Linting:** @mikey-pro/eslint-config-react (ESLint + Prettier + Stylelint)
@@ -27,6 +27,8 @@ server/
   pages/                # Server-rendered pages
   index.ts              # Koa server entry point
 server.ts               # Server bootstrap
+db/                     # Dummy data + query helpers
+local/                  # Local static-serve scripts (client.ts, server.ts)
 webpack.config.ts       # Webpack configuration
 tsconfig.json           # TypeScript config
 eslint.config.js        # ESLint flat config
